@@ -10,6 +10,8 @@ import view.View;
  * @author Jean-Aymeric Diet
  */
 public abstract class Main {
+	
+	private int test;
 
 	/**
 	 * The main method.
