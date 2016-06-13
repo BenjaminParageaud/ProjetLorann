@@ -11,7 +11,7 @@ import view.View;
  */
 public abstract class Main {
 	
-	private int test;
+	
 
 	/**
 	 * The main method.
