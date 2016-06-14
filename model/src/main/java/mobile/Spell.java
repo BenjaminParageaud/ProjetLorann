@@ -1,9 +1,12 @@
 package mobile;
 
+import element.Permeability;
+import element.Sprite;
+
 public class Spell extends Mobile{
 	
 	public Spell(){
-		super(new Sprite("Le nom de l'image"), permeability.Spellable);
+		super(new Sprite("Le nom de l'image"), Permeability.SPELLABLE);
 	}
 
 	

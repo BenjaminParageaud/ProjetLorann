@@ -1,6 +1,9 @@
 package mobile;
 
-public abstract class Mobile extends  {
+import element.Sprite;
+import element.element;
+
+public abstract class Mobile extends element {
 
 	
 	public Mobile(final Sprite sprite){
@@ -9,7 +12,7 @@ public abstract class Mobile extends  {
 	
 	
 	public boolean isMovePossible(final int x, final int y){
-		
+		return true;
 	}
 	
 	
