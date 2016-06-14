@@ -1,5 +1,5 @@
 package mobile;
 
-public class Mobile {
+public abstract class Mobile {
 
 }
