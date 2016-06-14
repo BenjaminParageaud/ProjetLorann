@@ -1,5 +1,11 @@
 package motionless;
 
-public class MotionLess {
+import element.element;
+
+public abstract class MotionLess extends element {
+	
+	public MotionLess(){
+		
+	}
 
 }
