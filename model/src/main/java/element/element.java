@@ -6,7 +6,7 @@ public abstract class element {
 	private Permeability permeability;
 
 	
-	public void Element(final Sprite sprite, final Permeability permeability){
+	public Element(final Sprite sprite, final Permeability permeability){
 		this.setSprite(sprite);
 		this.setPermeability(permeability);
 	}
