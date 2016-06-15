@@ -6,7 +6,7 @@ import element.Sprite;
 public class Door extends MotionLess {
 	
 	public Door(){
-		super(new Sprite("gate_closed.png"), Permeability.MEETINGABLE);
+		super(new Sprite("gate_closed.png"), Permeability.MEETINGABLE, 7);
 	}
 	
 	

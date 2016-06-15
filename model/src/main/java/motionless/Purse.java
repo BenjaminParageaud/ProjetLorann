@@ -6,6 +6,6 @@ import element.Sprite;
 public class Purse extends MotionLess{
 
 	public Purse(){
-		super(new Sprite("purse.png"), Permeability.MEETINGABLE);
+		super(new Sprite("purse.png"), Permeability.MEETINGABLE, 6);
 	}
 }

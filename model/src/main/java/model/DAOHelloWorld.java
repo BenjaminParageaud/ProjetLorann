@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lorannworld.LorannWorld;
+import motionless.MotionLessFactory;
+
 /**
  * The Class DAOHelloWorld.
  *
@@ -106,5 +109,25 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 		}
 		return null;
 	}
+	
+	
+	/*@Override
+	public HelloWorld find(final int id) {
+
+		try {
+			final String sql = "{call helloworldById(?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.setInt(1, id);
+			call.execute();
+			final ResultSet resultSet = call.getResultSet();
+			if (resultSet.first()) {
+				LorannWorld.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
+			}
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	*/
 
 }
