@@ -28,20 +28,20 @@ public class LorannWorld extends Observable { //extends Entity {
 		this.mobiles = new ArrayList<Mobile>();
 	}
 	
-	public LorannWorld(int width, int height){
+	/*public LorannWorld(int width, int height){
 		this.width = width;
 		this.height = height;
-	}
+	}*/
 
 	public LorannWorld(final String fileName) throws IOException {
 		this();
-		this.loadFile(fileName);
+		//this.loadFile(fileName);
 	}
 	
 	public void addElement(final Element element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {
-			element.setLorannWorld(this);
+		//	element.setLorannWorld(this);
 		}
 		this.setChanged();
 	}
@@ -83,7 +83,7 @@ public class LorannWorld extends Observable { //extends Entity {
 	
 	public void addMobile(Mobile mobile, int x, int y){
 		this.mobiles.add(mobile);
-		mobile.setLorannWorld(this, x, y);
+	//	mobile.setLorannWorld(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
 	}
