@@ -10,4 +10,8 @@ public class Sprite {
 	public Sprite(final String image){
 		
 	}
+	
+	public Image getImage() {
+		return this.image;
+	}
 }

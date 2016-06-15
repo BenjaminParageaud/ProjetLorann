@@ -1,6 +1,10 @@
 package element;
 
-public abstract class Element {
+import java.awt.Image;
+
+import aedt.showboard.ISquare;
+
+public abstract class Element implements ISquare{
 	
 	private Sprite sprite;
 	private Permeability permeability;
@@ -11,7 +15,10 @@ public abstract class Element {
 		this.setPermeability(permeability);
 	}
 
-
+	public Image getImage() {
+		return this.getSprite().getImage();
+	}
+	
 	public Sprite getSprite() {
 		return sprite;
 	}

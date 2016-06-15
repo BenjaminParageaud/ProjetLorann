@@ -3,7 +3,7 @@ package mobile;
 import element.Permeability;
 import element.Sprite;
 
-public class Cargav extends Monster{
+public class Cargav extends Monster {
 
 	public Cargav(){
 		
