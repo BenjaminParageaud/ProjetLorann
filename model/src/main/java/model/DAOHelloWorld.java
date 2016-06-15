@@ -65,7 +65,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(int)
 	 */
-	@Override
+	/*@Override
 	public HelloWorld find(final int id) {
 		HelloWorld helloWorld = new HelloWorld();
 
@@ -90,7 +90,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
-	@Override
+	/*@Override
 	public HelloWorld find(final String key) {
 		HelloWorld helloWorld = new HelloWorld();
 
@@ -108,10 +108,10 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 	
 	
-	/*@Override
+	@Override
 	public HelloWorld find(final int id) {
 
 		try {
@@ -120,7 +120,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 			call.setInt(1, id);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
+			while(resultSet.next()) {
 				LorannWorld.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
 			}
 		} catch (final SQLException e) {
@@ -128,6 +128,6 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 		}
 		return null;
 	}
-	*/
+	
 
 }
