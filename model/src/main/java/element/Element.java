@@ -1,6 +1,6 @@
 package element;
 
-public abstract class element {
+public abstract class Element {
 	
 	private Sprite sprite;
 	private Permeability permeability;

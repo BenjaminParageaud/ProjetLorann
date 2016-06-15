@@ -4,8 +4,9 @@ public enum Permeability {
 	
 	BLOCKING,
 	PENETRABLE,
+	MEETINGABLE,
 	HEROABLE,
-	MONSTRABLE,
+	MONSTERABLE,
 	SPELLABLE;
 
 }

@@ -1,13 +1,15 @@
 package mobile;
 
+import element.Permeability;
 import element.Sprite;
-import element.element;
+import element.Element;
 
-public abstract class Mobile extends element {
+
+public abstract class Mobile extends Element  {
 
 	
-	public Mobile(final Sprite sprite){
-		
+	public Mobile(final Sprite sprite, final Permeability permeability){
+	    super(sprite, permeability);
 	}
 	
 	
