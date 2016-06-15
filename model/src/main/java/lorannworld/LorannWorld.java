@@ -7,7 +7,6 @@ import element.Element;
 import mobile.Hero;
 import mobile.Mobile;
 
-
 public class LorannWorld {
 	private Integer width;
 	private Integer height;
