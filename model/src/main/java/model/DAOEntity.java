@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Observable;
 
 /**
  * The Class DAOEntity.
@@ -11,7 +12,7 @@ import java.sql.SQLException;
  * @param <E>
  *          the element type
  */
-public abstract class DAOEntity<E extends Entity> {
+public abstract class DAOEntity<E extends Observable> {
 
 	/** The connection. */
 	private final Connection connection;
@@ -37,32 +38,6 @@ public abstract class DAOEntity<E extends Entity> {
 		return this.connection;
 	}
 
-	/**
-	 * Creates the.
-	 *
-	 * @param entity
-	 *          the entity
-	 * @return true, if successful
-	 */
-	public abstract boolean create(E entity);
-
-	/**
-	 * Delete.
-	 *
-	 * @param entity
-	 *          the entity
-	 * @return true, if successful
-	 */
-	public abstract boolean delete(E entity);
-
-	/**
-	 * Update.
-	 *
-	 * @param entity
-	 *          the entity
-	 * @return true, if successful
-	 */
-	public abstract boolean update(E entity);
 
 	/**
 	 * Find.

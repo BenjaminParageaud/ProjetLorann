@@ -1,10 +1,10 @@
 package lorannworld;
 
-import model.LorannWorld;
+import model.LorannWorldEntity;
 
 public class LorannPlay {
 
-	public LorannPlay(LorannWorld lorannWorld){
+	public LorannPlay(LorannWorldEntity lorannWorld){
 		
 	}
 }

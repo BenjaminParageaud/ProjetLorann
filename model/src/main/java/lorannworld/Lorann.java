@@ -1,11 +1,12 @@
 package lorannworld;
 
-import model.LorannWorld;
+import model.LorannWorldEntity;
 
 public class Lorann {
 	@SuppressWarnings("unused")
 
 	public Lorann(){
+		
 		
 	}
 	
@@ -16,7 +17,7 @@ public class Lorann {
 		return null;
 	}
 	
-	public LorannWorld getLorannWorld() {
+	public LorannWorldEntity getLorannWorld() {
 		return null;
 	} 
 	

@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+import element.Element;
 import motionless.MotionLessFactory;
 
 /**
@@ -13,7 +13,9 @@ import motionless.MotionLessFactory;
  *
  * @author Clément Moreau
  */
-public class DAOLorannWorld extends DAOEntity<LorannWorld> {
+public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
+
+	private LorannWorldEntity lorannWorldEntity;
 
 	/**
 	 * Instantiates a new DAO lorann world.
@@ -27,38 +29,6 @@ public class DAOLorannWorld extends DAOEntity<LorannWorld> {
 		super(connection);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#create(model.Entity)
-	 */
-	@Override
-	public boolean create(final LorannWorld entity) {
-		// Not implemented
-		return false;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#delete(model.Entity)
-	 */
-	@Override
-	public boolean delete(final LorannWorld entity) {
-		// Not implemented
-		return false;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#update(model.Entity)
-	 */
-	@Override
-	public boolean update(final LorannWorld entity) {
-		// Not implemented
-		return false;
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -66,8 +36,8 @@ public class DAOLorannWorld extends DAOEntity<LorannWorld> {
 	 * @see model.DAOEntity#find(int)
 	 */
 
-	
-	public LorannWorld find(final int id) {
+
+	public LorannWorldEntity find(final int id) {
 
 		try {
 			final String sql = "{call LorannWorldByIdMap(?)}";
@@ -76,14 +46,14 @@ public class DAOLorannWorld extends DAOEntity<LorannWorld> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while(resultSet.next()) {
-				LorannWorld.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
+				lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	
+
+
 
 }

@@ -18,13 +18,13 @@ class DBProperties extends Properties {
 	private final static String	PROPERTIES_FILE_NAME	= "model.properties";
 
 	/** The url. */
-	private String							url										= "";
+	private String							url				= "http://localhost/phpmyadmin/db_structure.php?server=1&db=lorannproject&token=432b0893e0bc3c36084788e98e1dd9c8";
 
 	/** The login. */
-	private String							login									= "";
+	private String							login			= "root";
 
 	/** The password. */
-	private String							password							= "";
+	private String							password		= "1234";
 
 	/**
 	 * Instantiates a new DB properties.

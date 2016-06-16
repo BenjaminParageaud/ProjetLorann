@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
+import mobile.Hero;
+import mobile.Mobile;
 import motionless.MotionLessFactory;
 
 /**
@@ -23,7 +25,7 @@ public class Model extends Observable implements IModel {
 		
 	}
 
-	
+
 
 	public Observable getObservable() {
 		return this;
@@ -33,4 +35,8 @@ public class Model extends Observable implements IModel {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	
 }
