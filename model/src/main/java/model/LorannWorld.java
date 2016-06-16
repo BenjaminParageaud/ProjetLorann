@@ -85,18 +85,7 @@ public class LorannWorld extends Entity {
 	@SuppressWarnings("unused")
 	private void loadLorannWorld(){
 		
-	}
-
-
-
-
-
-	/** The id. */
-
-
-
-
-	
+	}	
 	/**
 	 * Gets the id.
 	 *
