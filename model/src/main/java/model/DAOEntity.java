@@ -46,7 +46,8 @@ public abstract class DAOEntity<E extends Observable> {
 	 *          the id
 	 * @return the e
 	 */
-	public abstract E find(int id);
+	public abstract E findMotion(int id);
+	public abstract E findMotionLess(int id);
 
 
 }

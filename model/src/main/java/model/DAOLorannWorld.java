@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import element.Element;
+import mobile.MobileFactory;
 import motionless.MotionLessFactory;
 
 /**
@@ -37,10 +38,10 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 	 */
 
 
-	public LorannWorldEntity findDecors(final int id) {
+	public LorannWorldEntity findMotionLess(final int id) {
 
 		try {
-			final String sql = "{call LorannWorldByIdMap(?)}";
+			final String sql = "{call LorannWorldMotionLessByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
@@ -54,10 +55,10 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 		return null;
 	}
 
-	public LorannWorldEntity findMobile(final int id) {
+	public LorannWorldEntity findMotion(final int id) {
 
 		try {
-			final String sql = "{call LorannWorldByIdMap(?)}";
+			final String sql = "{call LorannWorldMotionByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
@@ -70,6 +71,4 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 		}
 		return null;
 	}
-
-
 }
