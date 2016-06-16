@@ -1,4 +1,11 @@
-package lorannworld;
+package model;
+
+/**
+ * The Class LorWorld.
+ *
+ * @author Clement Moreau
+ */
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -95,5 +102,37 @@ public class LorannWorld extends Observable { //extends Entity {
 	private void loadLorannWorld(){
 		
 	}
-}
 
+
+
+
+
+	/** The id. */
+	private int			id;
+
+
+
+	
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
+	public int getId() {
+		return this.id;
+	}
+
+	/**
+	 * Sets the id.
+	 *
+	 * @param id
+	 *          the new id
+	 */
+	public void setId(final int id) {
+		this.id = id;
+	}
+
+	
+	
+
+}

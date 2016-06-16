@@ -1,5 +1,7 @@
 package lorannworld;
 
+import model.LorannWorld;
+
 public class Lorann {
 	@SuppressWarnings("unused")
 
