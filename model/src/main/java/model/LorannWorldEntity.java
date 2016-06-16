@@ -42,7 +42,7 @@ public class LorannWorldEntity extends Observable {
 
 	public void addMobile(Mobile mobile, int x, int y){
 		this.mobiles.add(mobile);
-		mobile.setLorannWorldEntity(this, x, y);
+		hero.setLorannWorldEntity(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -56,10 +56,14 @@ public class LorannWorldEntity extends Observable {
 		this.elements = elements;
 	}
 
-	public Element[][] getElement(){
+	public Element[][] getElements(){
 		return this.elements;		
 	}
 
+	public Element getElement(final int x, final int y) {
+		return this.elements[x][y];
+	}
+	
 	public Hero getHero(){
 		return this.hero;
 
