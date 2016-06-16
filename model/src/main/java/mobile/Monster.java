@@ -5,9 +5,9 @@ import element.Sprite;
 
 public abstract class Monster extends Mobile implements IMonster{
 
-	public Monster(final Sprite sprite, final Permeability permeability){
+	public Monster(final Sprite sprite, final Permeability permeability, final int bddId){
 
-		super(sprite, permeability);
+		super(sprite, permeability, bddId);
 
 	}
 }

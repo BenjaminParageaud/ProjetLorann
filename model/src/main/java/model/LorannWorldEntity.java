@@ -38,6 +38,23 @@ public class LorannWorldEntity extends Observable {
 		this.setChanged();
 	}
 
+	
+	public void addMobile(Mobile mobile, int x, int y){
+		this.mobiles.add(mobile);
+		mobile.setLorannWorldEntity(this, x, y);
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public void addMobile(final Hero hero, final int x, final int y) {
+		this.setHero(hero);
+		this.addMobile((Mobile) hero, x, y);
+	}
+	
+	public void setElements(Element[][] elements) {
+		this.elements = elements;
+	}
+
 	public Element[][] getElement(){
 		return this.elements;		
 	}
@@ -46,15 +63,15 @@ public class LorannWorldEntity extends Observable {
 		return this.hero;
 		
 	}
+	public void setHero(final Hero hero) {
+		this.hero = hero;
+		this.setChanged();
+	}
 	
 	public ArrayList<Mobile> getMobiles(){
 		return this.mobiles;
 	}
 
-	public void setHero(final Hero hero) {
-		this.hero = hero;
-		this.setChanged();
-	}
 	
 	public void setMobilehasChanged(){
 		this.setChanged();
@@ -63,13 +80,6 @@ public class LorannWorldEntity extends Observable {
 	
 	public void notifyObservers(){
 		super.notifyObservers();
-	}
-	
-	public void addMobile(Mobile mobile, int x, int y){
-		this.mobiles.add(mobile);
-		mobile.setLorannWorldEntity(this, x, y);
-		this.setChanged();
-		this.notifyObservers();
 	}
 	
 	@SuppressWarnings("unused")

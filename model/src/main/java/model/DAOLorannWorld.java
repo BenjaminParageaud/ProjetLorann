@@ -37,7 +37,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 	 */
 
 
-	public LorannWorldEntity find(final int id) {
+	public LorannWorldEntity findDecors(final int id) {
 
 		try {
 			final String sql = "{call LorannWorldByIdMap(?)}";
@@ -54,6 +54,22 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 		return null;
 	}
 
+	public LorannWorldEntity findMobile(final int id) {
+
+		try {
+			final String sql = "{call LorannWorldByIdMap(?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.setInt(1, id);
+			call.execute();
+			final ResultSet resultSet = call.getResultSet();
+			while(resultSet.next()) {
+				lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
+			}
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 
 }

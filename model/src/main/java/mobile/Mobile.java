@@ -10,13 +10,19 @@ public abstract class Mobile extends Element {
 	
 	private int x;
 	private int y;
+	private final int bddId;
 	private LorannWorldEntity lorannWorldEntity;
 
 	
-	public LorannWorldEntity getLorannWorld() {
+	
+	public Mobile(final Sprite sprite, final Permeability permeability, final int bddId){
+	    super(sprite, permeability);
+	    this.bddId = bddId;
+	}
+	
+	public LorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
-
 
 	public void setLorannWorldEntity(final LorannWorldEntity lorannWorldEntity, final int x, final int y) {
 		this.lorannWorldEntity = lorannWorldEntity;
@@ -47,10 +53,9 @@ public abstract class Mobile extends Element {
 	}
 
 
-	public Mobile(final Sprite sprite, final Permeability permeability){
-	    super(sprite, permeability);
+	public int getBddId() {
+		return bddId;
 	}
-	
 	
 	
 	public void moveUp(){

@@ -15,7 +15,6 @@ public abstract class MotionLessFactory {
 	public static MotionLess getFromBddId(final int bddId){
 		for (final MotionLess motionLess : motionLess){
 			if(motionLess.getBddId() == bddId) {
-				
 			}
 		}
 		return LAND;
