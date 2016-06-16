@@ -47,7 +47,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while(resultSet.next()) {
-				lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
+				lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("IdMotionLess")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
@@ -64,7 +64,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while(resultSet.next()) {
-				lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
+				lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("IdMotion")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();

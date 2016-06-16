@@ -7,7 +7,7 @@ public class Cargav extends Monster{
 
 	public Cargav(){
 		
-	super(new Sprite("monster_3.png"), Permeability.MONSTERABLE);
+	super(new Sprite("monster_3.png"), Permeability.MONSTERABLE, 3);
 	
 	}
 }

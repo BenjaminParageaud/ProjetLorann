@@ -6,7 +6,7 @@ import element.Sprite;
 public class Arrbarr extends Monster{
 	public Arrbarr(){
 		
-	super(new Sprite("monster_2.png"), Permeability.MONSTERABLE);
+	super(new Sprite("monster_2.png"), Permeability.MONSTERABLE, 2);
 	
 	}
 }
