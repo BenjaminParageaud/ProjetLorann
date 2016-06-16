@@ -55,14 +55,7 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadMessage(final int id) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setMessage(daoHelloWorld.find(id).getMessage());
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 	/*
 	 * (non-Javadoc)

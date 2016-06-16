@@ -9,21 +9,21 @@ import java.sql.SQLException;
 import motionless.MotionLessFactory;
 
 /**
- * The Class DAOHelloWorld.
+ * The Class DAOLorannWorld.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément Moreau
  */
-class DAOHelloWorld extends DAOEntity<HelloWorld> {
+public class DAOLorannWorld extends DAOEntity<LorannWorld> {
 
 	/**
-	 * Instantiates a new DAO hello world.
+	 * Instantiates a new DAO lorann world.
 	 *
 	 * @param connection
 	 *          the connection
 	 * @throws SQLException
 	 *           the SQL exception
 	 */
-	public DAOHelloWorld(final Connection connection) throws SQLException {
+	public DAOLorannWorld(final Connection connection) throws SQLException {
 		super(connection);
 	}
 
@@ -33,7 +33,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @see model.DAOEntity#create(model.Entity)
 	 */
 	@Override
-	public boolean create(final HelloWorld entity) {
+	public boolean create(final LorannWorld entity) {
 		// Not implemented
 		return false;
 	}
@@ -44,7 +44,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @see model.DAOEntity#delete(model.Entity)
 	 */
 	@Override
-	public boolean delete(final HelloWorld entity) {
+	public boolean delete(final LorannWorld entity) {
 		// Not implemented
 		return false;
 	}
@@ -55,7 +55,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @see model.DAOEntity#update(model.Entity)
 	 */
 	@Override
-	public boolean update(final HelloWorld entity) {
+	public boolean update(final LorannWorld entity) {
 		// Not implemented
 		return false;
 	}
@@ -67,7 +67,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 */
 
 	
-	public HelloWorld find(final int id) {
+	public LorannWorld find(final int id) {
 
 		try {
 			final String sql = "{call LorannWorldByIdMap(?)}";
