@@ -8,6 +8,7 @@ import element.Element;
 import mobile.Hero;
 import mobile.Mobile;
 
+
 public class LorannWorld extends Observable { //extends Entity {
 	public Element 										elements[][];
 	public final ArrayList<Mobile>						mobiles;
@@ -37,6 +38,8 @@ public class LorannWorld extends Observable { //extends Entity {
 		this();
 		//this.loadFile(fileName);
 	}
+	
+
 	
 	public void addElement(final Element element, final int x, final int y) {
 		this.elements[x][y] = element;

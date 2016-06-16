@@ -1,9 +1,12 @@
 package model;
 
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
+import motionless.MotionLessFactory;
 
 /**
  * The Class Model.
@@ -31,6 +34,10 @@ public class Model extends Observable implements IModel {
 		return this.message;
 	}
 
+	
+	
+	
+	
 	/**
 	 * Sets the message.
 	 *
@@ -48,10 +55,10 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadMessage(final String key) {
+	public void loadMessage(final int id) {
 		try {
 			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setMessage(daoHelloWorld.find(key).getMessage());
+			this.setMessage(daoHelloWorld.find(id).getMessage());
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -64,5 +71,10 @@ public class Model extends Observable implements IModel {
 	 */
 	public Observable getObservable() {
 		return this;
+	}
+
+	public void loadMessage(String key) {
+		// TODO Auto-generated method stub
+		
 	}
 }

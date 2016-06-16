@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import lorannworld.LorannWorld;
+
 import motionless.MotionLessFactory;
 
 /**
@@ -65,69 +65,25 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(int)
 	 */
-	@Override
-	public HelloWorld find(final int id) {
-		HelloWorld helloWorld = new HelloWorld();
 
-		try {
-			final String sql = "{call helloworldById(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, id);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				helloWorld = new HelloWorld(id, resultSet.getString("key"), resultSet.getString("message"));
-			}
-			return helloWorld;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#find(java.lang.String)
-	 */
-	@Override
-	public HelloWorld find(final String key) {
-		HelloWorld helloWorld = new HelloWorld();
-
-		try {
-			final String sql = "{call helloworldByKey(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setString(1, key);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				helloWorld = new HelloWorld(resultSet.getInt("id"), key, resultSet.getString("message"));
-			}
-			return helloWorld;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 	
-	
-	@Override
 	public HelloWorld find(final int id) {
 
 		try {
-			final String sql = "{call helloworldById(?)}";
+			final String sql = "{call LorannWorldByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while(resultSet.next()) {
-				LorannWorld.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
+				//LorannWorld.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("bddID")), resultSet.getInt("posX"), resultSet.getInt("posY"));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+	
 	
 
 }
