@@ -67,7 +67,7 @@ public class LorannWorldEntity extends Observable {
 	
 	public void addMobile(Mobile mobile, int x, int y){
 		this.mobiles.add(mobile);
-		mobile.setLorannWorld(this, x, y);
+		mobile.setLorannWorldEntity(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
 	}
