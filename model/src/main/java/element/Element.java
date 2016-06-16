@@ -23,7 +23,6 @@ public abstract class Element implements ISquare{
 		return sprite;
 	}
 
-
 	public void setSprite(Sprite sprite) {
 		this.sprite = sprite;
 	}

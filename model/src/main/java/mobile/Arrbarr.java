@@ -1,6 +1,7 @@
 package mobile;
 
 import element.Permeability;
+
 import element.Sprite;
 
 public class Arrbarr extends Monster{

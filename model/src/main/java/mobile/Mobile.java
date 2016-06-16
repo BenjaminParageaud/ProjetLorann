@@ -33,8 +33,9 @@ public abstract class Mobile extends Element implements IPawn, IMobile{
 		return true;
 	}
 	
-	public void setLorannWorld(){
-		
+	public void setLorannWorld(final int x, final int y){
+		setX(x);
+		setY(y);
 	}
 	
 	public int setX(int x){
