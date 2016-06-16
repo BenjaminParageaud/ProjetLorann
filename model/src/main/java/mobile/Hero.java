@@ -10,6 +10,6 @@ public class Hero extends Mobile {
 
 	
 	public Hero(){
-		super(new Sprite("Le nom de l'image"), Permeability.HEROABLE, 1);
+		super(new Sprite("LorannAnim.gif"), Permeability.HEROABLE, 1);
 	}
 }

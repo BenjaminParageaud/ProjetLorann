@@ -19,7 +19,6 @@ class DBProperties extends Properties {
 
 	/** The url. */
 	private String							url				= "http://localhost/phpmyadmin/db_structure.php?server=1&db=lorannproject&token=432b0893e0bc3c36084788e98e1dd9c8";
-
 	/** The login. */
 	private String							login			= "root";
 
