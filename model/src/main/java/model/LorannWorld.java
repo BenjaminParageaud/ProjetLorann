@@ -16,7 +16,7 @@ import mobile.Hero;
 import mobile.Mobile;
 
 
-public class LorannWorld extends Observable { //extends Entity {
+public class LorannWorld extends Entity { //extends Entity {
 	public Element 										elements[][];
 	public final ArrayList<Mobile>						mobiles;
 	private int											width;
@@ -48,13 +48,13 @@ public class LorannWorld extends Observable { //extends Entity {
 	
 
 	
-	public void addElement(final Element element, final int x, final int y) {
+/*	public void addElement(final Element element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {
 		//	element.setLorannWorld(this);
 		}
 		this.setChanged();
-	}
+	}*/
 	
 	public void getElement(int x, int y){
 		
@@ -77,7 +77,7 @@ public class LorannWorld extends Observable { //extends Entity {
 		return this.mobiles;
 	}
 
-	public void setHero(final Hero hero) {
+	/*public void setHero(final Hero hero) {
 		this.hero = hero;
 		this.setChanged();
 	}
@@ -96,7 +96,7 @@ public class LorannWorld extends Observable { //extends Entity {
 	//	mobile.setLorannWorld(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
-	}
+	}*/
 	
 	@SuppressWarnings("unused")
 	private void loadLorannWorld(){
