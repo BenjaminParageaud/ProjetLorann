@@ -65,7 +65,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(int)
 	 */
-	/*@Override
+	@Override
 	public HelloWorld find(final int id) {
 		HelloWorld helloWorld = new HelloWorld();
 
@@ -90,7 +90,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
-	/*@Override
+	@Override
 	public HelloWorld find(final String key) {
 		HelloWorld helloWorld = new HelloWorld();
 
@@ -108,7 +108,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 			e.printStackTrace();
 		}
 		return null;
-	}*/
+	}
 	
 	
 	@Override
