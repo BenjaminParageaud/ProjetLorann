@@ -16,12 +16,13 @@ import mobile.Hero;
 import mobile.Mobile;
 
 
-public class LorannWorld extends Entity { //extends Entity {
+public class LorannWorld extends Entity { 
 	public Element 										elements[][];
 	public final ArrayList<Mobile>						mobiles;
 	private int											width;
 	private int											height;
 	private Hero										hero;
+	private int			id;
 
 	
 	public int getWidth() {
@@ -32,37 +33,20 @@ public class LorannWorld extends Entity { //extends Entity {
 		return height;
 	}
 	
-	public LorannWorld(){
+	public LorannWorld(final int id){
 		this.mobiles = new ArrayList<Mobile>();
-	}
-	
-	/*public LorannWorld(int width, int height){
-		this.width = width;
-		this.height = height;
-	}*/
-
-	public LorannWorld(final String fileName) throws IOException {
-		this();
-		//this.loadFile(fileName);
+		DAOLorannWorld.find(id);
 	}
 	
 
-	
-/*	public void addElement(final Element element, final int x, final int y) {
+	public void addElement(final Element element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {
 		//	element.setLorannWorld(this);
 		}
-		this.setChanged();
-	}*/
-	
-	public void getElement(int x, int y){
-		
+		//this.setChanged();
 	}
 	
-	public void addMobile(Hero hero, int x, int y){
-		
-	}
 
 	public Element[][] getElement(){
 		return this.elements;		
@@ -77,7 +61,7 @@ public class LorannWorld extends Entity { //extends Entity {
 		return this.mobiles;
 	}
 
-	/*public void setHero(final Hero hero) {
+	public void setHero(final Hero hero) {
 		this.hero = hero;
 		this.setChanged();
 	}
@@ -96,7 +80,7 @@ public class LorannWorld extends Entity { //extends Entity {
 	//	mobile.setLorannWorld(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
-	}*/
+	}
 	
 	@SuppressWarnings("unused")
 	private void loadLorannWorld(){
@@ -108,7 +92,7 @@ public class LorannWorld extends Entity { //extends Entity {
 
 
 	/** The id. */
-	private int			id;
+
 
 
 
