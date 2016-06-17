@@ -8,8 +8,7 @@ import element.Sprite;
 
 public class Hero extends Mobile{
 
-	private int x;
-	private int y;
+	
 	private ILorannWorldEntity lorannWorldEntity;
 	
 	

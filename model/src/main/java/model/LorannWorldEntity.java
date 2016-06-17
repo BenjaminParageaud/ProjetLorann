@@ -6,8 +6,6 @@ package model;
  * @author Clement Moreau
  */
 
-
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -15,9 +13,8 @@ import java.util.Observable;
 import contract.IElement;
 import contract.IMobile;
 import contract.ILorannWorldEntity;
-import element.Element;
 import mobile.Hero;
-import mobile.Mobile;
+
 
 
 public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 

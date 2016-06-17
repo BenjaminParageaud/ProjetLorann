@@ -18,115 +18,55 @@ import contract.ILorannWorldEntity;
  */
 class ViewFrame extends JFrame implements KeyListener {
 
-	/** The model. */
-	private ILorannWorldEntity						model;
-
-	/** The controller. */
-	private IController				controller;
-	/** The Constant serialVersionUID. */
+	private ILorannWorldEntity	lorannWorldEntity;
+	
+	private IController		controller;
+	
 	private static final long	serialVersionUID	= -697358409737458175L;
 
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model
-	 *          the model
-	 * @throws HeadlessException
-	 *           the headless exception
-	 */
-	public ViewFrame(final ILorannWorldEntity model) throws HeadlessException {
-		this.buildViewFrame(model);
+	
+	public ViewFrame(final ILorannWorldEntity lorannWorldEntity) throws HeadlessException {
+		this.buildViewFrame(lorannWorldEntity);
 	}
 
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model
-	 *          the model
-	 * @param gc
-	 *          the gc
-	 */
-	public ViewFrame(final ILorannWorldEntity model, final GraphicsConfiguration gc) {
+
+	public ViewFrame(final ILorannWorldEntity lorannWorldEntity, final GraphicsConfiguration gc) {
 		super(gc);
-		this.buildViewFrame(model);
+		this.buildViewFrame(lorannWorldEntity);
 	}
 
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model
-	 *          the model
-	 * @param title
-	 *          the title
-	 * @throws HeadlessException
-	 *           the headless exception
-	 */
-	public ViewFrame(final ILorannWorldEntity model, final String title) throws HeadlessException {
+
+	public ViewFrame(final ILorannWorldEntity lorannWorldEntity, final String title) throws HeadlessException {
 		super(title);
-		this.buildViewFrame(model);
+		this.buildViewFrame(lorannWorldEntity);
 	}
 
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model
-	 *          the model
-	 * @param title
-	 *          the title
-	 * @param gc
-	 *          the gc
-	 */
-	public ViewFrame(final ILorannWorldEntity model, final String title, final GraphicsConfiguration gc) {
+
+	public ViewFrame(final ILorannWorldEntity lorannWorldEntity, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
-		this.buildViewFrame(model);
+		this.buildViewFrame(lorannWorldEntity);
 	}
 
-	/**
-	 * Gets the controller.
-	 *
-	 * @return the controller
-	 */
 	private IController getController() {
 		return this.controller;
 	}
 
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller
-	 *          the new controller
-	 */
 	protected void setController(final IController controller) {
 		this.controller = controller;
 	}
 
-	/**
-	 * Gets the model.
-	 *
-	 * @return the model
-	 */
-	protected ILorannWorldEntity getModel() {
-		return this.model;
+	
+	protected ILorannWorldEntity getLorannWorldEntity() {
+		return this.lorannWorldEntity;
 	}
 
-	/**
-	 * Sets the model.
-	 *
-	 * @param model
-	 *          the new model
-	 */
-	private void setModel(final ILorannWorldEntity model) {
-		this.model = model;
+	private void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity) {
+		this.lorannWorldEntity = lorannWorldEntity;
 	}
 
-	/**
-	 * Builds the view frame.
-	 *
-	 * @param model
-	 *          the model
-	 */
-	private void buildViewFrame(final ILorannWorldEntity model) {
-		this.setModel(model);
+
+	private void buildViewFrame(final ILorannWorldEntity lorannWorldEntity) {
+		this.setLorannWorldEntity(lorannWorldEntity);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);

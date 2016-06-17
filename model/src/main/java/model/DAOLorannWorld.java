@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import element.Element;
 import mobile.MobileFactory;
 import motionless.MotionLessFactory;
 
