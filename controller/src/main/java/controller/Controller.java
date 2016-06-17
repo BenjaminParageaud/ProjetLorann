@@ -66,17 +66,17 @@ public class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case English:
-				this.model.loadMessage("GB");
+			case Up:
+				//this.model.loadMessage("GB");
 				break;
-			case Francais:
-				this.model.loadMessage("FR");
+			case Down:
+				//this.model.loadMessage("FR");
 				break;
-			case Deutsch:
-				this.model.loadMessage("DE");
+			case Right:
+				//this.model.loadMessage("DE");
 				break;
-			case Indonesia:
-				this.model.loadMessage("ID");
+			case Left:
+				//this.model.loadMessage("ID");
 				break;
 
 			default:
