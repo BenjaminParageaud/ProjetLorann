@@ -18,7 +18,7 @@ import mobile.Mobile;
 
 public class LorannWorldEntity extends Observable { 
 	public Element	elements[][];
-	public final ArrayList<Mobile>	mobiles;
+	public ArrayList<Mobile>	mobiles;
 	private DAOLorannWorld daoLorannWorld;
 	private Hero	hero;
 	//private int		id;

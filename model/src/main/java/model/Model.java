@@ -21,13 +21,14 @@ public class Model extends Observable implements IModel {
 
 
 	public Element	elements[][];
-	public final ArrayList<Mobile>	mobiles; 
-	
+	public ArrayList<Mobile>	mobiles; 
+
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		
+		this.elements;
+		this.mobiles;
 	}
 
 
@@ -40,7 +41,7 @@ public class Model extends Observable implements IModel {
 		try{
 			final DAOLorannWorld daoLorannWorld = new DAOLorannWorld(DBConnection.getInstance().getConnection());
 			this.setElements(daoLorannWorld.findMotionLess(id).getElements());
-			this.setmobiles(daoLorannWorld.findMotion(id).getMobiles());
+			this.setMobiles(daoLorannWorld.findMotion(id).getMobiles());
 		} catch (final SQLException e){
 			e.printStackTrace();
 		}
@@ -57,12 +58,13 @@ public class Model extends Observable implements IModel {
 	}
 
 
-
 	public ArrayList<Mobile> getMobiles() {
 		return mobiles;
 	}
 
-
+	public void setMobiles(ArrayList<Mobile> mobiles) {
+		this.mobiles = mobiles;
+	}
 /*
 	public void loadMessage(final String key) {
 		try {
@@ -77,6 +79,7 @@ public class Model extends Observable implements IModel {
 		this.setChanged();
 		this.notifyObservers();
 	}
+	
 
 	public void notifyObservers(){
 		super.notifyObservers();

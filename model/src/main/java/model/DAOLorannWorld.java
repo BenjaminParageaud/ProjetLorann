@@ -16,7 +16,6 @@ import motionless.MotionLessFactory;
  */
 public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
-	private LorannWorldEntity lorannWorldEntity;
 
 	/**
 	 * Instantiates a new DAO lorann world.
@@ -28,6 +27,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 	 */
 	public DAOLorannWorld(final Connection connection) throws SQLException {
 		super(connection);
+		
 	}
 
 
@@ -53,10 +53,11 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return lorannWorldEntity;
 	}
 
 	public LorannWorldEntity findMotion(final int id) {
+		LorannWorldEntity lorannWorldEntity = new LorannWorldEntity();
 
 		try {
 			final String sql = "{call LorannWorldMotionByIdMap(?)}";
@@ -70,6 +71,6 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return lorannWorldEntity;
 	}
 }
