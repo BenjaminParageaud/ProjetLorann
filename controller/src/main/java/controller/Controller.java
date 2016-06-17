@@ -36,7 +36,7 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.view.printMessage("Bienvenue dans le monde de Nova-Ann.\n Lorann, Maître du Sortilège, a besoin de ta force et de ta ruse ! \n Libère les cent-une cryptes possédées par le Masque de Nékron, en touchant la \nBulle Energie qui se trouve dans chacune d'elles. Rapporte les éphémères Idoles \nde la Vie à la Caverne, chacune te vaudra deux Vies supplémentaires. Ramasse \nles fabuleux trésors qui t'attendent et ta richesse sera immense ! Evite les \nattaques des quatre épouvantables Démons créés par l'infâme Nékron, en \nutilisant habilement ton très puissant Sortilège multicolore qui obéit à ta \nvolonté. \nLa gloire t'attend, Lorann... Que le Sortilège te protège !  ");
 	}
 
 	/**
