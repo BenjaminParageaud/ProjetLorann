@@ -8,18 +8,19 @@ package model;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.IModel;
 import element.Element;
 import mobile.Hero;
 import mobile.Mobile;
 
 
-public class LorannWorldEntity extends Observable { 
+public class LorannWorldEntity extends Observable implements IModel{ 
 	public Element	elements[][];
 	public ArrayList<Mobile>	mobiles;
-	private DAOLorannWorld daoLorannWorld;
 	private Hero	hero;
 	//private int		id;
 
@@ -45,6 +46,17 @@ public class LorannWorldEntity extends Observable {
 		this.notifyObservers();
 	}
 
+	public void loadMap(int id) {
+		try{
+			final DAOLorannWorld daoLorannWorld = new DAOLorannWorld(DBConnection.getInstance().getConnection());
+			daoLorannWorld.findMotionLess(id);
+			daoLorannWorld.findMotion(id);
+		} catch (final SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
+	
 	/*public void addMobile(final Hero hero, final int x, final int y) {
 		this.setHero(hero);
 		this.addMobile((Mobile) hero, x, y);
@@ -75,19 +87,14 @@ public class LorannWorldEntity extends Observable {
 		return this.mobiles;
 	}
 
-/*
-		
-
-	public int getId() {
-		return this.id;
+	public void setMobilehasChanged(){
+		this.setChanged();
+		this.notifyObservers();
 	}
+	
 
-
-	public void setId(final int id) {
-		this.id = id;
+	public void notifyObservers(){
+		super.notifyObservers();
 	}
-
-*/
-
 
 }

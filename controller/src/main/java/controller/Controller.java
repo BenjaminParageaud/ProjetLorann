@@ -15,7 +15,7 @@ public class Controller implements IController {
 	private IView		view;
 
 	/** The model. */
-	private IModel	model;
+	private IModel	lorannWorldEntity;
 
 	/**
 	 * Instantiates a new controller.
@@ -25,9 +25,9 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller(final IView view, final IModel model) {
+	public Controller(final IView view, final IModel lorannWorldEntity) {
 		this.setView(view);
-		this.setModel(model);
+		this.setModel(lorannWorldEntity);
 	}
 
 	/*
@@ -55,8 +55,8 @@ public class Controller implements IController {
 	 * @param model
 	 *          the new model
 	 */
-	private void setModel(final IModel model) {
-		this.model = model;
+	private void setModel(final IModel lorannWorldEntity) {
+		this.lorannWorldEntity = lorannWorldEntity;
 	}
 
 	/*

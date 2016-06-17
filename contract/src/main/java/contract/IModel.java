@@ -1,10 +1,15 @@
 package contract;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
 import element.Element;
 import mobile.Mobile;
+import model.DAOLorannWorld;
+import model.DBConnection;
+
+
 
 /**
  * The Interface IModel.
@@ -13,36 +18,27 @@ import mobile.Mobile;
  */
 public interface IModel {
 
-	/**
-	 * Load the message.
-	 *
-	 * @param key
-	 *          the key
-	 */
-	 void loadMap(int id);
 
-	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
-	Observable getObservable();
+
+	public void addElement(final Element element, final int x, final int y);
+
+
+	public void addMobile(Mobile mobile, int x, int y);
+
+	public void loadMap(int id);
 	
-	Element[][] getElements();
+	public void setElements(Element[][] elements);
+	
+	public Element[][] getElements();
 
-	void setElements(Element[][] elements);
+	public Element getElement(final int x, final int y);
 	
 
+	public ArrayList<Mobile> getMobiles();
 
-	 ArrayList<Mobile> getMobiles;
-		
-
-	 void setMobiles(ArrayList<Mobile> mobiles);
-
-	
 	public void setMobilehasChanged();
 	
-	
+
 	public void notifyObservers();
 	
 }
