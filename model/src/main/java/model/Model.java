@@ -1,16 +1,14 @@
 package model;
 
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IModel;
 import element.Element;
-import mobile.Hero;
 import mobile.Mobile;
-import motionless.MotionLessFactory;
+
 
 /**
  * The Class Model.
@@ -20,17 +18,16 @@ import motionless.MotionLessFactory;
 public class Model extends Observable implements IModel {
 
 
-	public Element	elements[][];
-	public ArrayList<Mobile>	mobiles; 
+	private Element	elements[][];
+	private ArrayList<Mobile>	mobiles; 
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.elements;
-		this.mobiles;
+		this.getElements();
+		this.getMobiles();
 	}
-
 
 
 	public Observable getObservable() {
@@ -45,7 +42,6 @@ public class Model extends Observable implements IModel {
 		} catch (final SQLException e){
 			e.printStackTrace();
 		}
-		
 	}
 
 
@@ -55,6 +51,8 @@ public class Model extends Observable implements IModel {
 
 	public void setElements(Element[][] elements) {
 		this.elements = elements;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 
@@ -64,17 +62,10 @@ public class Model extends Observable implements IModel {
 
 	public void setMobiles(ArrayList<Mobile> mobiles) {
 		this.mobiles = mobiles;
+		this.setChanged();
+		this.notifyObservers();
 	}
-/*
-	public void loadMessage(final String key) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setMessage(daoHelloWorld.find(key).getMessage());
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	*/
+
 	public void setMobilehasChanged(){
 		this.setChanged();
 		this.notifyObservers();
