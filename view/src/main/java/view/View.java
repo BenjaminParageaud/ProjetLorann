@@ -47,7 +47,7 @@ public class View implements IView, Runnable {
 				return ControllerOrder.Deutsch;
 			case KeyEvent.VK_5:
 				return ControllerOrder.Indonesia;
-			case KeyEvent.VK_6:
+			/*case KeyEvent.VK_6:
 				return ControllerOrder.Indonesia;
 			case KeyEvent.VK_7:
 				return ControllerOrder.Indonesia;
@@ -56,8 +56,9 @@ public class View implements IView, Runnable {
 			case KeyEvent.VK_9:
 				return ControllerOrder.Indonesia;
 			case KeyEvent.VK_SPACE:
-				return ControllerOrder.Indonesia;
+				return ControllerOrder.Indonesia;*/
 		}
+		return null;
 	}
 
 	/*
