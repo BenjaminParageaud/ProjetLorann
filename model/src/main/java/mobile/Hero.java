@@ -1,17 +1,16 @@
 package mobile;
 
-import element.Permeability;
-import element.Sprite;
-import model.LorannWorldEntity;
-import element.Permeability;
+import contract.ILorannWorldEntity;
+import contract.IMobile;
+import contract.Permeability;
 import element.Sprite;
 
-public class Hero extends Mobile {
+
+public class Hero extends Mobile{
 
 	private int x;
 	private int y;
-	private LorannWorldEntity lorannWorldEntity;
-	private Permeability permeability;
+	private ILorannWorldEntity lorannWorldEntity;
 	
 	
 	public Hero(){
@@ -20,7 +19,7 @@ public class Hero extends Mobile {
 	
 	
 	private boolean isMovePossible(final int x, final int y){
-		 return(this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.MEETINGABLE)||this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.PENETRABLE )); 
+		return(this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.MEETINGABLE)||this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.PENETRABLE )); 
 	}
 	
 	
@@ -48,11 +47,11 @@ public class Hero extends Mobile {
     	}
 	}
 	
-	public LorannWorldEntity getLorannWorldEntity() {
+	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
 
-	public void setLorannWorldEntity(final LorannWorldEntity lorannWorldEntity, final int x, final int y) {
+	public void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity, final int x, final int y) {
 		this.lorannWorldEntity = lorannWorldEntity;
 		this.setX(x);
 		this.setY(y);

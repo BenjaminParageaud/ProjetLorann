@@ -2,7 +2,9 @@ package element;
 
 import java.awt.Image;
 
-public class Sprite {
+import contract.ISprite;
+
+public class Sprite implements ISprite{
 	
 	private Image image;
 

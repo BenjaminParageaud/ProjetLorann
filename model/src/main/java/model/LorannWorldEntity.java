@@ -12,25 +12,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import contract.IModel;
+import contract.IElement;
+import contract.IMobile;
+import contract.ILorannWorldEntity;
 import element.Element;
 import mobile.Hero;
 import mobile.Mobile;
 
 
-public class LorannWorldEntity extends Observable implements IModel{ 
-	public Element	elements[][];
-	public ArrayList<Mobile>	mobiles;
+public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 
+	public IElement	elements[][];
+	public ArrayList<IMobile>	mobiles;
 	private Hero	hero;
 	//private int		id;
 
 
 
 	public LorannWorldEntity(){
-		this.mobiles = new ArrayList<Mobile>();	
+		this.mobiles = new ArrayList<IMobile>();	
 	}
 
-	public void addElement(final Element element, final int x, final int y) {
+	public void addElement(final IElement element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setLorannWorldEntity(this);
@@ -39,7 +41,7 @@ public class LorannWorldEntity extends Observable implements IModel{
 	}
 
 
-	public void addMobile(Mobile mobile, int x, int y){
+	public void addMobile(IMobile mobile, int x, int y){
 		this.mobiles.add(mobile);
 		hero.setLorannWorldEntity(this, x, y);
 		this.setChanged();
@@ -62,15 +64,15 @@ public class LorannWorldEntity extends Observable implements IModel{
 		this.addMobile((Mobile) hero, x, y);
 	}*/
 
-	public void setElements(Element[][] elements) {
+	public void setElements(IElement[][] elements) {
 		this.elements = elements;
 	}
 
-	public Element[][] getElements(){
+	public IElement[][] getElements(){
 		return this.elements;		
 	}
 
-	public Element getElement(final int x, final int y) {
+	public IElement getElement(final int x, final int y) {
 		return this.elements[x][y];
 	}
 	
@@ -83,7 +85,7 @@ public class LorannWorldEntity extends Observable implements IModel{
 		this.setChanged();
 	}*/
 
-	public ArrayList<Mobile> getMobiles(){
+	public ArrayList<IMobile> getMobiles(){
 		return this.mobiles;
 	}
 

@@ -2,7 +2,7 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.IModel;
+import contract.ILorannWorldEntity;
 import contract.IView;
 
 // TODO: Auto-generated Javadoc
@@ -15,7 +15,7 @@ public class Controller implements IController {
 	private IView		view;
 
 	/** The model. */
-	private IModel	lorannWorldEntity;
+	private ILorannWorldEntity	lorannWorldEntity;
 
 	/**
 	 * Instantiates a new controller.
@@ -25,7 +25,7 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller(final IView view, final IModel lorannWorldEntity) {
+	public Controller(final IView view, final ILorannWorldEntity lorannWorldEntity) {
 		this.setView(view);
 		this.setModel(lorannWorldEntity);
 	}
@@ -55,7 +55,7 @@ public class Controller implements IController {
 	 * @param model
 	 *          the new model
 	 */
-	private void setModel(final IModel lorannWorldEntity) {
+	private void setModel(final ILorannWorldEntity lorannWorldEntity) {
 		this.lorannWorldEntity = lorannWorldEntity;
 	}
 

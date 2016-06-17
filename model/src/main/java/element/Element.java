@@ -1,28 +1,33 @@
 package element;
 
+import contract.IElement;
+import contract.ILorannWorldEntity;
+
+import contract.ISprite;
+import contract.Permeability;
 import model.LorannWorldEntity;
 
-public abstract class Element {
+public abstract class Element implements IElement{
 	
-	private Sprite sprite;
+	private ISprite sprite;
 	private Permeability permeability;
-	private LorannWorldEntity lorannWorldEntity;
+	private ILorannWorldEntity lorannWorldEntity;
 
 	
 
 
-	public Element(final Sprite sprite, final Permeability permeability){
+	public Element(final ISprite sprite, final Permeability permeability){
 		this.setSprite(sprite);
 		this.setPermeability(permeability);
 	}
 
 
-	public Sprite getSprite() {
+	public ISprite getSprite() {
 		return sprite;
 	}
 
 
-	public void setSprite(Sprite sprite) {
+	public void setSprite(ISprite sprite) {
 		this.sprite = sprite;
 	}
 
@@ -35,12 +40,12 @@ public abstract class Element {
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
 	}
-	public LorannWorldEntity getLorannWorldEntity() {
+	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
 
 
-	public void setLorannWorldEntity(LorannWorldEntity lorannWorldEntity) {
+	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
 		this.lorannWorldEntity = lorannWorldEntity;
 	}
 

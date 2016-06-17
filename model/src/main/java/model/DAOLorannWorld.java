@@ -40,7 +40,6 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 
 	public LorannWorldEntity findMotionLess(final int id) {
-
 		try {
 			final String sql = "{call LorannWorldMotionLessByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
@@ -57,7 +56,6 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 	}
 
 	public LorannWorldEntity findMotion(final int id) {
-
 		try {
 			final String sql = "{call LorannWorldMotionByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);

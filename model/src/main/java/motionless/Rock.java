@@ -1,6 +1,6 @@
 package motionless;
 
-import element.Permeability;
+import contract.Permeability;
 import element.Sprite;
 
 public class Rock extends MotionLess{

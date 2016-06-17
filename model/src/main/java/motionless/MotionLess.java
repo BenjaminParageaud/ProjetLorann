@@ -1,7 +1,7 @@
 package motionless;
 
+import contract.Permeability;
 import element.Element;
-import element.Permeability;
 import element.Sprite;
 
 
