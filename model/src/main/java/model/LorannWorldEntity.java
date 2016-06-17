@@ -97,4 +97,8 @@ public class LorannWorldEntity extends Observable implements IModel{
 		super.notifyObservers();
 	}
 
+	public Observable getObservable() {
+		return null;
+	}
+
 }

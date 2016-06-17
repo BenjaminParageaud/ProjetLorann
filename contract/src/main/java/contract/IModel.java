@@ -41,4 +41,6 @@ public interface IModel {
 
 	public void notifyObservers();
 	
+	Observable getObservable();
+	
 }
