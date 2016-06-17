@@ -27,7 +27,7 @@ public class Controller implements IController {
 	 */
 	public Controller(final IView view, final ILorannWorldEntity lorannWorldEntity) {
 		this.setView(view);
-		this.setModel(lorannWorldEntity);
+		this.setLorannWorldEntity(lorannWorldEntity);
 	}
 
 	/*
@@ -55,7 +55,7 @@ public class Controller implements IController {
 	 * @param model
 	 *          the new model
 	 */
-	private void setModel(final ILorannWorldEntity lorannWorldEntity) {
+	private void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity) {
 		this.lorannWorldEntity = lorannWorldEntity;
 	}
 
@@ -76,6 +76,21 @@ public class Controller implements IController {
 				//this.model.loadMessage("DE");
 				break;
 			case Left:
+				//this.model.loadMessage("ID");
+				break;
+			case UpLeft:
+				//this.model.loadMessage("ID");
+				break;
+			case UpRight:
+				//this.model.loadMessage("ID");
+				break;
+			case DownLeft:
+				//this.model.loadMessage("ID");
+				break;
+			case DownRight:
+				//this.model.loadMessage("ID");
+				break;
+			case Space:
 				//this.model.loadMessage("ID");
 				break;
 

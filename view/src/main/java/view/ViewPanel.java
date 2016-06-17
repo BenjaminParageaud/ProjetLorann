@@ -57,4 +57,28 @@ class ViewPanel extends JPanel implements Observer {
 		this.repaint();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
+	//@Override
+	protected void paintComponent(final Graphics graphics) {
+		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		
+		for(int y = 0; y < 5/*12*/;y++){
+			for(int x = 0; x < 5/*20*/; x++){
+				
+				if(this.motionlessElements[x][y] !=null){
+					graphics.drawString(this.montionlessElements[x][y].getSprite().getImage(), x*32, y*32,null);
+				} else {
+					graphics.setColor(new Color(0,0,0));
+					graphics.fillRect(x*32, y*32, 32, 32);
+				}
+			}
+		}
+		
+		for( final IMontionElement h : this.motionElements)
+		graphics.drawString(h.getSprite().getImage(),h.getX()*32 , h.getY()*32 , null);
+	}
 }
