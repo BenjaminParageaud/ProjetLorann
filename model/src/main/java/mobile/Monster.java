@@ -3,22 +3,11 @@ package mobile;
 import element.Permeability;
 import element.Sprite;
 
-public class Monster extends Mobile{
+public abstract class Monster extends Mobile implements IMonster{
 
-	public Monster(){
-		super(new Sprite("Le nom de l'image"), Permeability.MONSTRABLE);
+	public Monster(final Sprite sprite, final Permeability permeability){
+
+		super(sprite, permeability);
+
 	}
-	
-/*	public Monster(){
-		super(new Sprite("Le nom de l'image"), permeability.Monsterable);
-	}
-	
-	
-	public Monster(){
-		super(new Sprite("Le nom de l'image"), permeability.Monsterable);
-	}
-	
-	public Monster(){
-		super(new Sprite("Le nom de l'image"), permeability.Monsterable);
-	}
-	*/
+}

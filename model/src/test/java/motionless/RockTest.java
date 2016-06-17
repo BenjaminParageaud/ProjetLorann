@@ -1,0 +1,14 @@
+package motionless;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class RockTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

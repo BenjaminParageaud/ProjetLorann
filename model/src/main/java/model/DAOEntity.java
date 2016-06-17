@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @param <E>
  *          the element type
  */
-abstract class DAOEntity<E extends Entity> {
+public abstract class DAOEntity<E extends Entity> {
 
 	/** The connection. */
 	private final Connection connection;
@@ -33,7 +33,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *
 	 * @return the connection
 	 */
-	protected Connection getConnection() {
+	public Connection getConnection() {
 		return this.connection;
 	}
 
@@ -73,13 +73,5 @@ abstract class DAOEntity<E extends Entity> {
 	 */
 	public abstract E find(int id);
 
-	/**
-	 * Find.
-	 *
-	 * @param key
-	 *          the key
-	 * @return the e
-	 */
-	public abstract E find(String key);
 
 }

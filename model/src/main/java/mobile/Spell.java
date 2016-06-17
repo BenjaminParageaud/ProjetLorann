@@ -12,3 +12,4 @@ public class Spell extends Mobile{
 	
 	/// connection avec le pressage de la barre espace
 }
+
