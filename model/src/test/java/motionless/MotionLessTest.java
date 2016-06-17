@@ -7,9 +7,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MotionLessTest {
-
+	private static BonesH boneHTest;
+	private static int bddIdOfBoneHTest = 3;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		boneHTest = new BonesH();
 	}
 
 	@Before
@@ -17,8 +19,8 @@ public class MotionLessTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetBddId() {
+		assertEquals(bddIdOfBoneHTest, MotionLessTest.boneHTest.getBddId());
 	}
 
 }

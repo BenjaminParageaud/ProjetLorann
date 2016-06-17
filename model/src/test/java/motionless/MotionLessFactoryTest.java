@@ -17,7 +17,7 @@ public class MotionLessFactoryTest {
 	}
 
 	@Test
-	public void test() {
+	public void testGetFromBddId() {
 		fail("Not yet implemented");
 	}
 
