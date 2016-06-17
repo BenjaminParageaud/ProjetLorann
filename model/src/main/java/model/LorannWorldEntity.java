@@ -21,14 +21,12 @@ public class LorannWorldEntity extends Observable {
 	public final ArrayList<Mobile>	mobiles;
 	private DAOLorannWorld daoLorannWorld;
 	private Hero	hero;
-	private int		id;
+	//private int		id;
 
 
 
-	public LorannWorldEntity(final int id){
-		this.mobiles = new ArrayList<Mobile>();
-		daoLorannWorld.findMotionLess(id);
-		daoLorannWorld.findMotion(id);
+	public LorannWorldEntity(){
+		this.mobiles = new ArrayList<Mobile>();	
 	}
 
 	public void addElement(final Element element, final int x, final int y) {
@@ -47,10 +45,10 @@ public class LorannWorldEntity extends Observable {
 		this.notifyObservers();
 	}
 
-	public void addMobile(final Hero hero, final int x, final int y) {
+	/*public void addMobile(final Hero hero, final int x, final int y) {
 		this.setHero(hero);
 		this.addMobile((Mobile) hero, x, y);
-	}
+	}*/
 
 	public void setElements(Element[][] elements) {
 		this.elements = elements;
@@ -64,33 +62,21 @@ public class LorannWorldEntity extends Observable {
 		return this.elements[x][y];
 	}
 	
-	public Hero getHero(){
+	/*public Hero getHero(){
 		return this.hero;
 
 	}
 	public void setHero(final Hero hero) {
 		this.hero = hero;
 		this.setChanged();
-	}
+	}*/
 
 	public ArrayList<Mobile> getMobiles(){
 		return this.mobiles;
 	}
 
-
-	public void setMobilehasChanged(){
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	public void notifyObservers(){
-		super.notifyObservers();
-	}
-
-	@SuppressWarnings("unused")
-	private void loadLorannWorld(){
-
-	}	
+/*
+		
 
 	public int getId() {
 		return this.id;
@@ -101,7 +87,7 @@ public class LorannWorldEntity extends Observable {
 		this.id = id;
 	}
 
-
+*/
 
 
 }

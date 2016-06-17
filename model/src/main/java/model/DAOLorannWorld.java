@@ -39,6 +39,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 
 	public LorannWorldEntity findMotionLess(final int id) {
+		LorannWorldEntity lorannWorldEntity = new LorannWorldEntity();
 
 		try {
 			final String sql = "{call LorannWorldMotionLessByIdMap(?)}";
