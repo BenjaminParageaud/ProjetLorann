@@ -12,13 +12,16 @@ import java.util.Observable;
 
 import contract.IElement;
 import contract.IMobile;
+import contract.IMotionLess;
+import element.Element;
 import contract.ILorannWorldEntity;
 import mobile.Hero;
+import mobile.MobileFactory;
 
 
 
 public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 
-	public IElement	elements[][];
+	public IMotionLess	elements[][];
 	public ArrayList<IMobile>	mobiles;
 	private Hero	hero;
 	//private int		id;
@@ -26,10 +29,16 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 
 
 	public LorannWorldEntity(){
-		this.mobiles = new ArrayList<IMobile>();	
+		this.elements = new IMotionLess[32][32];
+		//this.tests = new IElement[10][10];
+		this.mobiles = new ArrayList<IMobile>();
+		//addElements(MobileFactory.getFromBddId(5),1,1);
+		
+		
 	}
-
-	public void addElement(final IElement element, final int x, final int y) {
+	
+	
+	public void addElement(final IMotionLess element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setLorannWorldEntity(this);
@@ -40,7 +49,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 
 	public void addMobile(IMobile mobile, int x, int y){
 		this.mobiles.add(mobile);
-		hero.setLorannWorldEntity(this, x, y);
+		//hero.setLorannWorldEntity(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -49,6 +58,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		try{
 			final DAOLorannWorld daoLorannWorld = new DAOLorannWorld(DBConnection.getInstance().getConnection());
 			daoLorannWorld.findMotionLess(id);
+			System.out.println(elements[4][3]);
 			daoLorannWorld.findMotion(id);
 		} catch (final SQLException e){
 			e.printStackTrace();
@@ -61,15 +71,15 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		this.addMobile((Mobile) hero, x, y);
 	}*/
 
-	public void setElements(IElement[][] elements) {
+	public void setElements(IMotionLess[][] elements) {
 		this.elements = elements;
 	}
 
-	public IElement[][] getElements(){
+	public IMotionLess[][] getElements(){
 		return this.elements;		
 	}
 
-	public IElement getElement(final int x, final int y) {
+	public IMotionLess getElement(final int x, final int y) {
 		return this.elements[x][y];
 	}
 	

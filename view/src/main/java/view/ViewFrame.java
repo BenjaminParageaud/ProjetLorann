@@ -26,7 +26,9 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	
 	public ViewFrame(final ILorannWorldEntity lorannWorldEntity) throws HeadlessException {
+		this.setLorannWorldEntity(lorannWorldEntity);
 		this.buildViewFrame(lorannWorldEntity);
+		//this.controller = controller;
 	}
 
 
@@ -70,9 +72,11 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setController(this.controller);
+		this.setContentPane(new ViewPanel(this, lorannWorldEntity.getMobiles(), lorannWorldEntity.getElements()));
+		this.setSize(640 + this.getInsets().left + this.getInsets().right, 384 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
+		this.setVisible(true);
 	}
 
 	/**
@@ -81,9 +85,9 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param message
 	 *          the message
 	 */
-	public void printMessage(final String message) {
+	/*public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
-	}
+	}*/
 
 	/*
 	 * (non-Javadoc)

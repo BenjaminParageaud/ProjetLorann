@@ -1,12 +1,13 @@
 package motionless;
 
+import contract.IMotionLess;
 import contract.ISprite;
 import contract.Permeability;
 import element.Element;
 import element.Sprite;
 
 
-public abstract class MotionLess extends Element {
+public abstract class MotionLess extends Element implements IMotionLess{
 	
 	private final int bddId;
 	

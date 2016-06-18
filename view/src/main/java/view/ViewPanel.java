@@ -2,13 +2,16 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import contract.IElement;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+
 
 /**
  * The Class ViewPanel.
@@ -18,22 +21,21 @@ import contract.IMobile;
 class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
-	private ViewFrame					viewFrame;
+	private ViewFrame	viewFrame;
 	
-	private ILorannWorldEntity lorannWorldEntity; 
+	//private ILorannWorldEntity lorannWorldEntity; 
+	private final ArrayList<? extends IMobile> mobiles;
 	
-	/** The Constant serialVersionUID. */
+	private final IElement elements[][];
+
 	private static final long	serialVersionUID	= -998294702363713521L;
 
-	/**
-	 * Instantiates a new view panel.
-	 *
-	 * @param viewFrame
-	 *          the view frame
-	 */
-	public ViewPanel(final ViewFrame viewFrame){
+
+	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMobile> mobiles, final IElement elements[][] ){
 		this.setViewFrame(viewFrame);
-		viewFrame.getLorannWorldEntity().getObservable().addObserver(this);
+		this.mobiles = mobiles;
+		this.elements = elements;
+		//this.viewFrame.getLorannWorldEntity().getObservable().addObserver(this);
 	}
 
 	/**
@@ -43,6 +45,14 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
+	}
+	
+	public ArrayList<? extends IMobile> getMobiles() {
+		return mobiles;
+	}
+
+	public IElement[][] getElements() {
+		return elements;
 	}
 
 	/**
@@ -75,17 +85,21 @@ class ViewPanel extends JPanel implements Observer {
 		
 		for(int y = 0; y < 5/*12*/;y++){
 			for(int x = 0; x < 5/*20*/; x++){
-				
-				if(lorannWorldEntity.getElement(x, y) !=null){
-					graphics.drawImage(lorannWorldEntity.getElement(x, y).getSprite().getImage(), x*32, y*32,null);
+				System.out.println("tests 1");
+				System.out.println(viewFrame.getLorannWorldEntity().getElement(4,3));
+				//if(viewFrame.getLorannWorldEntity().getElement(1, 1) !=null){
+				if(this.elements[x][y] != null){
+					System.out.println("tests 2");
+					graphics.drawImage(this.elements[x][y].getSprite().getImage(), x*32, y*32,null);
 				} else {
+					System.out.println("tests 3");
 					graphics.setColor(new Color(0,0,0));
 					graphics.fillRect(x*32, y*32, 32, 32);
 				}
 			}
 		}
 		
-		for( final IMobile mobile : lorannWorldEntity.getMobiles())
+		for( final IMobile mobile : this.mobiles)
 		graphics.drawImage(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
 	}
 }

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 
-
-
 /**
  * The Interface IModel.
  *
@@ -13,17 +11,17 @@ import java.util.Observable;
  */
 public interface ILorannWorldEntity {
 
-	public void addElement(final IElement element, final int x, final int y);
+	public void addElement(final IMotionLess element, final int x, final int y);
 
 	public void addMobile(IMobile mobile, int x, int y);
 
 	public void loadMap(int id);
 	
-	public void setElements(IElement[][] elements);
+	public void setElements(IMotionLess[][] elements);
 	
-	public IElement[][] getElements();
+	public IMotionLess[][] getElements();
 
-	public IElement getElement(final int x, final int y);
+	public IMotionLess getElement(final int x, final int y);
 	
 	public ArrayList<IMobile> getMobiles();
 

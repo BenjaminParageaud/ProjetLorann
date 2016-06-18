@@ -1,7 +1,7 @@
 package contract;
 
 
-public interface IMobile {
+public interface IMobile extends IElement{
 
 	public int getBddId();
 	
