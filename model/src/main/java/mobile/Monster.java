@@ -1,6 +1,6 @@
 package mobile;
 
-import element.Permeability;
+import contract.Permeability;
 import element.Sprite;
 
 public abstract class Monster extends Mobile implements IMonster{

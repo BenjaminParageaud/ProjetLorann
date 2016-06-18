@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.IModel;
+import contract.ILorannWorldEntity;
 import contract.IView;
 
 /**
@@ -25,7 +25,7 @@ public class View implements IView, Runnable {
 	 * @param model
 	 *          the model
 	 */
-	public View(final IModel model) {
+	public View(final ILorannWorldEntity model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}

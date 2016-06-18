@@ -17,6 +17,7 @@ import motionless.MotionLessFactory;
 public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 
+	private LorannWorldEntity lorannWorldEntity;
 	/**
 	 * Instantiates a new DAO lorann world.
 	 *
@@ -39,8 +40,6 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 
 	public LorannWorldEntity findMotionLess(final int id) {
-		LorannWorldEntity lorannWorldEntity = new LorannWorldEntity();
-
 		try {
 			final String sql = "{call LorannWorldMotionLessByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
@@ -57,8 +56,6 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 	}
 
 	public LorannWorldEntity findMotion(final int id) {
-		LorannWorldEntity lorannWorldEntity = new LorannWorldEntity();
-
 		try {
 			final String sql = "{call LorannWorldMotionByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
