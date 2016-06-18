@@ -11,6 +11,7 @@ public abstract class Mobile extends Element implements IMobile{
 	private final int bddId;
 	private int x;
 	private int y;
+	private ISprite sprite;
 	
 
 	public Mobile(final ISprite sprite, final Permeability permeability, final int bddId){
@@ -36,6 +37,14 @@ public abstract class Mobile extends Element implements IMobile{
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	public ISprite getSprite() {
+		return sprite;
+	}
+
+	public void setSprite(ISprite sprite) {
+		this.sprite = sprite;
 	}
 	
 }

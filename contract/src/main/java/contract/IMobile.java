@@ -13,4 +13,8 @@ public interface IMobile {
 
 	public void setY(int y);
 	
+	public ISprite getSprite();
+
+	public void setSprite(ISprite sprite);
+	
 }

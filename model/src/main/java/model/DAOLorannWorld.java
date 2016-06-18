@@ -5,18 +5,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import contract.ILorannWorldEntity;
 import mobile.MobileFactory;
 import motionless.MotionLessFactory;
 
-/**
- * The Class DAOLorannWorld.
- *
- * @author Clément Moreau
- */
+
 public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 
-	private LorannWorldEntity lorannWorldEntity;
+	private ILorannWorldEntity lorannWorldEntity;
+	
 	/**
 	 * Instantiates a new DAO lorann world.
 	 *
@@ -40,18 +38,19 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 	public LorannWorldEntity findMotionLess(final int id) {
 		try {
-			final String sql = "{call LorannWorldMotionLessByIdMap(?)}";
+			final String sql = "{call LorannWorldMotionlessByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while(resultSet.next()) {
-				lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("IdMotionLess")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+				lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return lorannWorldEntity;
+		//return lorannWorldEntity;
+		return null;
 	}
 
 	public LorannWorldEntity findMotion(final int id) {
@@ -62,11 +61,12 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while(resultSet.next()) {
-				lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("IdMotion")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+				lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return lorannWorldEntity;
+		//return lorannWorldEntity;
+		return null;
 	}
 }

@@ -7,6 +7,7 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import contract.ILorannWorldEntity;
 import contract.IMobile;
 
 /**
@@ -18,6 +19,8 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
+	
+	private ILorannWorldEntity lorannWorldEntity; 
 	
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
@@ -73,8 +76,8 @@ class ViewPanel extends JPanel implements Observer {
 		for(int y = 0; y < 5/*12*/;y++){
 			for(int x = 0; x < 5/*20*/; x++){
 				
-				if(this.Elements[x][y] !=null){
-					graphics.drawString(this.Elements[x][y].getSprite().getImage(), x*32, y*32,null);
+				if(lorannWorldEntity.getElement(x, y) !=null){
+					graphics.drawImage(lorannWorldEntity.getElement(x, y).getSprite().getImage(), x*32, y*32,null);
 				} else {
 					graphics.setColor(new Color(0,0,0));
 					graphics.fillRect(x*32, y*32, 32, 32);
@@ -82,7 +85,7 @@ class ViewPanel extends JPanel implements Observer {
 			}
 		}
 		
-		for( final IMobile mobile : this.mobile)
-		graphics.drawString(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
+		for( final IMobile mobile : lorannWorldEntity.getMobiles())
+		graphics.drawImage(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
 	}
 }
