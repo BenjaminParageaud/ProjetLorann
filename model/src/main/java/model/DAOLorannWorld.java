@@ -13,7 +13,7 @@ import motionless.MotionLessFactory;
 public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 
-	private ILorannWorldEntity lorannWorldEntity;
+	private LorannWorldEntity lorannWorldEntity;
 	
 	/**
 	 * Instantiates a new DAO lorann world.
