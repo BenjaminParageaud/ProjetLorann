@@ -10,7 +10,7 @@ public abstract class MotionLessFactory {
 	public static final MotionLess LAND				= new Land();
 	public static final MotionLess PURSE			= new Purse();
 	
-	private static MotionLess		motionLess[]	= {	BONESH, BONESV, ROCK, CRYSTALBALL, DOOR, LAND, PURSE};
+	private static MotionLess		motionLess[]	= {BONESH, BONESV, ROCK, CRYSTALBALL, DOOR, LAND, PURSE};
 	
 	public static MotionLess getFromBddId(final int bddId){
 		for (final MotionLess motionLess : motionLess){
