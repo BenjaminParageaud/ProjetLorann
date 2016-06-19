@@ -21,6 +21,7 @@ public abstract class Mobile extends Element implements IMobile{
 	    super(sprite, permeability);
 	    this.bddId = bddId;
 	    this.position = new Point();
+	    this.lorannWorldEntity = lorannWorldEntity;
 	}
 
 	public int getBddId() {
@@ -42,7 +43,7 @@ public abstract class Mobile extends Element implements IMobile{
 	
 	public void setX(int x) {
 		this.position.x = x;
-		this.getLorannWorldEntity().setMobilehasChanged();
+		//this.getLorannWorldEntity().setMobilehasChanged();
 	}
 
 	public int getY() {
@@ -51,7 +52,7 @@ public abstract class Mobile extends Element implements IMobile{
 
 	public void setY(int y) {
 		this.position.y = y;
-		this.getLorannWorldEntity().setMobilehasChanged();
+		//this.getLorannWorldEntity().setMobilehasChanged();
 	}
 	
 	public ISprite getSprite() {
