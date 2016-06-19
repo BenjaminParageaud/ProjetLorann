@@ -28,6 +28,15 @@ public interface IHero {
 
 	public int getY() ;
 	public void setY(int y);
+
+	public void setSprite(ISprite sprite);
+
+
+	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity);
+
+
+	public void setPermeability(Permeability permeability);
+
 	
 	public ISprite getSprite();
 	

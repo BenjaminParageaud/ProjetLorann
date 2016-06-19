@@ -23,8 +23,8 @@ public class Hero extends Mobile implements IHero{
 	public Hero(ILorannWorldEntity lorannWorldEntity){
 		super(new Sprite("LorannAnim.gif"), Permeability.HEROABLE, 1,  lorannWorldEntity);
 		this.sprite = new Sprite("LorannAnim.gif");
-		this.lorannWorldEntity = lorannWorldEntity;
-		this.permeability = Permeability.HEROABLE;
+		setLorannWorldEntity(lorannWorldEntity);
+		setPermeability(Permeability.HEROABLE);
 	}
 
 
@@ -118,6 +118,21 @@ public class Hero extends Mobile implements IHero{
 			setX(getX() - 1);
 		}
 	}
+
+	public void setSprite(ISprite sprite) {
+		this.sprite = sprite;
+	}
+
+
+	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
+		this.lorannWorldEntity = lorannWorldEntity;
+	}
+
+
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
+	}
+
 
 	public void moveDownRight(){
 		if (isMovePossible(getX() + 1, getY() + 1)){
