@@ -37,4 +37,7 @@ public interface ILorannWorldEntity {
 	
 	Observable getObservable();
 	
+	public void play();
+
+	
 }

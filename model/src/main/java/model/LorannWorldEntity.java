@@ -88,8 +88,22 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 
 	
 	public void play(){
-		
+		for(;;){
+			this.setChanged();
+			this.notifyObservers();
+			/*try{
+				Thread.sleep(125);
+			} catch (final InterruptedException e){
+				e.printStackTrace();
+			}
+			
+			//for (final IMobile mobile : this.mobiles){
+				
+			//}*/
+		}
 	}
+		
+
 	
 	
 	public void setMobilehasChanged(){

@@ -1,15 +1,8 @@
 package contract;
 
-import java.awt.Point;
-
 public interface IMobile extends IElement{
 
 	public int getBddId();
-
-
-	public Point getPosition() ;
-
-	public void setPosition(Point position);
 
 	public int getX() ;
 	

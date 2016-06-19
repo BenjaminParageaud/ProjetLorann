@@ -16,44 +16,43 @@ public class Hero extends Mobile implements IHero{
 	private ISprite sprite;
 	private int y;
 	private ILorannWorldEntity lorannWorldEntity;
-	public int coordonate = 3;
-	
-	
+	private Permeability permeability;
+	public int coordonate;
+
+
 	public Hero(ILorannWorldEntity lorannWorldEntity){
 		super(new Sprite("LorannAnim.gif"), Permeability.HEROABLE, 1,  lorannWorldEntity);
 		this.sprite = new Sprite("LorannAnim.gif");
+		this.lorannWorldEntity = lorannWorldEntity;
+		this.permeability = Permeability.HEROABLE;
 	}
-	
-	
+
+
+	public Permeability getPermeability() {
+		return permeability;
+	}
+
+
 	public boolean isMovePossible(final int x, final int y){
-		/*System.out.println("nop");
-		System.out.println(getLorannWorldEntity().getElement(1,1).getBddId());
+		
 		coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
-		System.out.println("NNNNNNNN");
-		System.out.println(coordonate);*/
-		System.out.println("NNNNNNNN");
 		
-		//return(this.getLorannWorldEntity().getElement(x, y).getPermeability() == (Permeability.MEETINGABLE)||this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.PENETRABLE )); 
-		return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE));//||this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.PENETRABLE )); 
-		/*System.out.println("AAAAAAA");
-		*/
-		
-		/*m = elements[0][0].getBddId();
-		
-		System.out.println(MotionLessFactory.getFromBddId(m).getPermeability());
-		System.out.println("CCCCCCC");*/
+		return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)|| MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
 	}
 	
+	public boolean isHeroPosition(final int x, final int y){
+		return(MobileFactory.getFromBddIdHero(1, lorannWorldEntity).getPermeability() == (Permeability.HEROABLE)); 
+	}
+
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
 
 
-	public void orientationMove (OrientationOrder orientationOrder){
-		
+	/*public void orientationMove (OrientationOrder orientationOrder){
+
 	switch (orientationOrder) {
 	case Up:
-		System.out.println("lol3");
 		moveUp();
 		break;
 	case Down:
@@ -76,34 +75,85 @@ public class Hero extends Mobile implements IHero{
 		break;
 	case DownRight:
 		//this.model.loadMessage("ID");
-		break;*/
+		break;
 	default:
 		break;
 }
+	}*/
+
+	public void moveUp(){
+		if (isMovePossible(getX(), getY() - 1)){
+			setY(getY() - 1);
+		}
+		else if(isHeroPosition(getX(), getY() - 1)){
+			setY(getY() - 1);
+		}
+	}
+
+	public void moveDown(){
+		if (isMovePossible(getX(), getY() + 1)){
+			setY(getY() + 1);
+		}
+	}
+
+	public void moveRight(){
+		if (isMovePossible(getX() + 1, getY())){
+			setX(getX() + 1);
+		}
+	}
+
+	public void moveLeft(){
+		if (isMovePossible(getX() - 1, getY())){
+			setX(getX() - 1);
+		}
 	}
 	
-    public void moveUp(){
-    	if (isMovePossible(getX(), getY() - 1)){
-    		setY(getY() - 1);
-    	}
+	public void moveUpRight(){
+		if (isMovePossible(getX() + 1, getY() - 1)){
+			setY(getY() - 1);
+			setX(getX() + 1);
+		}
 	}
+
+	public void moveUpLeft(){
+		if (isMovePossible(getX() - 1, getY() - 1)){
+			setY(getY() - 1);
+			setX(getX() - 1);
+		}
+	}
+
+	public void moveDownRight(){
+		if (isMovePossible(getX() + 1, getY() + 1)){
+			setY(getY() + 1);
+			setX(getX() + 1);
+		}
+	}
+
+	public void moveDownLeft(){
+		if (isMovePossible(getX() - 1, getY() + 1)){
+			setY(getY() + 1);
+			setX(getX() - 1);
+		}
+	}
+
+
 	/*public void moveUp(){
 		System.out.println("lol4");
 		super.moveUp();
 	}
-	
+
 	public void moveDown(){
 		super.moveDown();
 	}
-	
+
 	public void moveRight(){
 		super.moveRight();
 	}
-	
+
 	public void moveLeft(){
 		super.moveLeft();
 	}
-*/
+	 */
 
 	public int getX() {
 		return x;
@@ -128,5 +178,5 @@ public class Hero extends Mobile implements IHero{
 	public ISprite getSprite() {
 		return sprite;
 	}
-	
+
 }
