@@ -1,4 +1,4 @@
-package element;
+package view;
 
 import static org.junit.Assert.*;
 
@@ -6,47 +6,51 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import motionless.Rock;
+//import contract.IController;
+//import contract.IModel;
 
-public class ElementTest {
-	private static Rock testRock;
+public class ViewFrameTest {
+	//private static IModel model;
+	//private IController controller;
+	//private static ViewFrame testFrame;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testRock = new Rock();
+	//	testFrame= new ViewFrame(model);
 	}
+
 
 	@Before
 	public void setUp() throws Exception {
 	}
 
-	@Test
-	public void testGetSprite() {
-		
+	@Test 
+	public void testGetController(){
+	//	assertNotNull(controller.);
 	}
-
+	
 	@Test
-	public void testSetSprite() {
+	public void testSetController() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetPermeability() {
+	public void testGetModel() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testSetPermeability() {
+	public void testKeyTyped() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetLorannWorldEntity() {
+	public void testKeyPressed() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testSetLorannWorldEntity() {
+	public void testKeyReleased() {
 		fail("Not yet implemented");
 	}
 
