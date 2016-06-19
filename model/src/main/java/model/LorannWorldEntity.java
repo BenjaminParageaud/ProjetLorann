@@ -13,23 +13,21 @@ import java.util.Observable;
 import contract.IMobile;
 import contract.IMotionLess;
 import element.Element;
+import contract.IHero;
 import contract.ILorannWorldEntity;
-import mobile.Hero;
-import mobile.Mobile;
-import mobile.MobileFactory;
+
 
 
 
 public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 
 	public IMotionLess	elements[][];
 	public ArrayList<IMobile>	mobiles;
-	private Hero	hero;
-	//private int		id;
+	private IHero	hero;
 
 
 
 	public LorannWorldEntity(){
-		this.elements = new IMotionLess[32][32];
+		this.elements = new IMotionLess[40][40];
 		this.mobiles = new ArrayList<IMobile>();
 		
 	}
@@ -69,11 +67,12 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		return this.elements[x][y];
 	}
 	
-	public Hero getHero(){
+	public IHero getHero(){
+		System.out.println("lol2");
 		return this.hero;
 
 	}
-	public void setHero(final Hero hero) {
+	public void setHero(final IHero hero) {
 		this.hero = hero;
 		this.setChanged();
 	}

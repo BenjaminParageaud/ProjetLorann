@@ -67,9 +67,11 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
+		
 		switch (controllerOrder) {
+		
 			case Up:
-				//this.model.loadMessage("GB");
+				this.model.getLorannWorldEntity().getHero();//.moveUp();
 				break;
 			case Down:
 				//this.model.loadMessage("FR");

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 
+
 /**
  * The Interface IModel.
  *
@@ -15,7 +16,11 @@ public interface ILorannWorldEntity {
 
 	public void addMobile(IMobile mobile, int x, int y);
 
-	//public void loadMap(int id);
+	
+	public IHero getHero();
+	
+	public void setHero(final IHero hero) ;
+
 	
 	public void setElements(IMotionLess[][] elements);
 	

@@ -23,6 +23,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** The view frame. */
 	private ViewFrame	viewFrame;
 	
+		
 	//private ILorannWorldEntity lorannWorldEntity; 
 	private final ArrayList<? extends IMobile> mobiles;
 	
@@ -31,18 +32,17 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long	serialVersionUID	= -998294702363713521L;
 
 
-	public ViewPanel(final ViewFrame viewFrame, final ArrayList<IMobile> mobiles, final IElement elements[][] ){
+	public ViewPanel(final ViewFrame viewFrames, final ArrayList<IMobile> mobiles, final IElement elements[][] ){
 		this.setViewFrame(viewFrame);
 		this.mobiles = mobiles;
 		this.elements = elements;
-		System.out.println(this.mobiles);
 		//viewFrame.getModel().getLorannWorldEntity().getObservable().addObserver(this);
 	}
 
 	/**
 	 * Gets the view frame.
 	 *
-	 * @return the view frame
+	 * @return the view frame 
 	 */
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;

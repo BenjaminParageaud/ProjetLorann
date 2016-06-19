@@ -1,12 +1,13 @@
 package mobile;
 
+import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
 import contract.Permeability;
 import element.Sprite;
 
 
-public class Hero extends Mobile{
+public class Hero extends Mobile implements IHero{
 
 	private int x;
 	private int y;
@@ -18,7 +19,21 @@ public class Hero extends Mobile{
 	}
 	
 	
+	public void moveUp(){
+		super.moveUp();
+	}
 	
+	public void moveDown(){
+		super.moveDown();
+	}
+	
+	public void moveRight(){
+		super.moveRight();
+	}
+	
+	public void moveLeft(){
+		super.moveLeft();
+	}
 
 
 	public int getX() {

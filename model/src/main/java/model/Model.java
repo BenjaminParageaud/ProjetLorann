@@ -17,6 +17,7 @@ public class Model implements IModel{
 	}
 
 	public ILorannWorldEntity getLorannWorldEntity() {
+		System.out.println("lololoolool");
 		return lorannWorldEntity;
 	}
 }
