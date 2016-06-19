@@ -21,7 +21,6 @@ public interface IHero {
 	public void moveDownLeft();
 
 	public boolean isMovePossible(final int x, final int y);
-	public boolean isHeroPosition(final int x, final int y);
 	
 	public int getX() ;
 	public void setX(int x) ;

@@ -34,15 +34,15 @@ public class Hero extends Mobile implements IHero{
 
 
 	public boolean isMovePossible(final int x, final int y){
-		
-		coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
-		
-		return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)|| MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
+		if(MobileFactory.getFromBddIdHero(1, lorannWorldEntity).getPermeability() == (Permeability.HEROABLE)){
+			return(MobileFactory.getFromBddIdHero(1, lorannWorldEntity).getPermeability() == (Permeability.HEROABLE)); 
+		}
+		else{
+			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
+			return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)|| MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
+		}
 	}
-	
-	public boolean isHeroPosition(final int x, final int y){
-		return(MobileFactory.getFromBddIdHero(1, lorannWorldEntity).getPermeability() == (Permeability.HEROABLE)); 
-	}
+
 
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
@@ -85,9 +85,6 @@ public class Hero extends Mobile implements IHero{
 		if (isMovePossible(getX(), getY() - 1)){
 			setY(getY() - 1);
 		}
-		else if(isHeroPosition(getX(), getY() - 1)){
-			setY(getY() - 1);
-		}
 	}
 
 	public void moveDown(){
@@ -107,7 +104,7 @@ public class Hero extends Mobile implements IHero{
 			setX(getX() - 1);
 		}
 	}
-	
+
 	public void moveUpRight(){
 		if (isMovePossible(getX() + 1, getY() - 1)){
 			setY(getY() - 1);
