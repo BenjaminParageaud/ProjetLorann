@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Observable;
+
 import contract.ILorannWorldEntity;
 import contract.IModel;
 
@@ -17,7 +19,11 @@ public class Model implements IModel{
 	}
 
 	public ILorannWorldEntity getLorannWorldEntity() {
-		System.out.println("lololoolool");
 		return lorannWorldEntity;
+	}
+	
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return this.lorannWorldEntity.getObservable();
 	}
 }

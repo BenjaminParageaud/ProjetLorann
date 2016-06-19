@@ -9,6 +9,7 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 import contract.IElement;
+import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
 
@@ -20,23 +21,24 @@ import contract.IMobile;
  */
 class ViewPanel extends JPanel implements Observer {
 
-	/** The view frame. */
+
 	private ViewFrame	viewFrame;
 	
-		
-	//private ILorannWorldEntity lorannWorldEntity; 
 	private final ArrayList<? extends IMobile> mobiles;
 	
 	private final IElement elements[][];
 
+	private IHero hero;
+
 	private static final long	serialVersionUID	= -998294702363713521L;
 
 
-	public ViewPanel(final ViewFrame viewFrames, final ArrayList<IMobile> mobiles, final IElement elements[][] ){
+	public ViewPanel(final ViewFrame viewFrame, final ArrayList<IMobile> mobiles, final IElement elements[][] , final IHero hero){
 		this.setViewFrame(viewFrame);
 		this.mobiles = mobiles;
 		this.elements = elements;
-		//viewFrame.getModel().getLorannWorldEntity().getObservable().addObserver(this);
+		this.hero = hero;
+		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
 	/**
@@ -96,8 +98,8 @@ class ViewPanel extends JPanel implements Observer {
 		}
 		
 		for( final IMobile mobile : this.mobiles){
-			System.out.println(mobile.getX());
 		graphics.drawImage(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
-		}
+		}		
+		graphics.drawImage(this.hero.getSprite().getImage(),this.hero.getX()*32 , this.hero.getY()*32 , null);
 	}
 }

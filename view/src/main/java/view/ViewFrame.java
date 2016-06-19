@@ -60,6 +60,7 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	
 	protected IModel getModel() {
+		System.out.println("Pogba 1");
 		return this.model;
 	}
 
@@ -74,7 +75,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setController(this.controller);
-		this.setContentPane(new ViewPanel(this, model.getLorannWorldEntity().getMobiles(), model.getLorannWorldEntity().getElements()));
+		this.setContentPane(new ViewPanel(this, model.getLorannWorldEntity().getMobiles(), model.getLorannWorldEntity().getElements(), model.getLorannWorldEntity().getHero()));
 		this.setSize(650 + this.getInsets().left + this.getInsets().right, 415 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);

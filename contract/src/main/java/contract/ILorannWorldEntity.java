@@ -16,6 +16,7 @@ public interface ILorannWorldEntity {
 
 	public void addMobile(IMobile mobile, int x, int y);
 
+	public void addHero(final IHero hero, final int x, final int y) ;
 	
 	public IHero getHero();
 	

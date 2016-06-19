@@ -23,15 +23,15 @@ public interface IMobile extends IElement{
 
 	public void setSprite(ISprite sprite);
 	
-	public boolean isMovePossible(final int x, final int y);
+	//public boolean isMovePossible(final int x, final int y);
 	
-    public void moveUp();
+    //public void moveUp();
 	
-	public void moveDown();
+	/*public void moveDown();
 	
 	public void moveRight();
 	
-	public void moveLeft();
+	public void moveLeft();*/
 	
 	public ILorannWorldEntity getLorannWorldEntity();
 

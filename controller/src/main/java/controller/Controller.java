@@ -2,9 +2,9 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.ILorannWorldEntity;
 import contract.IModel;
 import contract.IView;
+import contract.OrientationOrder;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -71,7 +71,7 @@ public class Controller implements IController {
 		switch (controllerOrder) {
 		
 			case Up:
-				this.model.getLorannWorldEntity().getHero();//.moveUp();
+				this.model.getLorannWorldEntity().getHero().orientationMove(OrientationOrder.Up);
 				break;
 			case Down:
 				//this.model.loadMessage("FR");
