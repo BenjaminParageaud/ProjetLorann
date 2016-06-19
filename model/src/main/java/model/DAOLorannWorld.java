@@ -46,11 +46,17 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 			while(resultSet.next()) {
 				if(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")) != null){
 					lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));	
-					System.out.println("tests1");}
-				else /*if(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")) != null)*/{
-					System.out.println("tests3000");
-					lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
-				}System.out.println("tests2");
+					//System.out.println("tests1");
+					//System.out.println(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")));
+					//System.out.println(resultSet.getInt("Id_MotionElements"));
+				//	System.out.println(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")));
+				}
+				
+				else if(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements"), lorannWorldEntity) != null){
+					
+					lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements"), lorannWorldEntity), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+					System.out.println(resultSet.getInt("positionX"));	
+					System.out.println(lorannWorldEntity.mobiles);}
 			}
 			
 			return lorannWorldEntity;

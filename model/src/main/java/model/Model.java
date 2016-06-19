@@ -11,6 +11,7 @@ public class Model implements IModel{
 	public Model() throws Exception{
 		this.daoLorannWorld = new DAOLorannWorld(DBConnection.getInstance().getConnection());
 		this.lorannWorldEntity = this.daoLorannWorld.find(1);
+		
 
 
 	}

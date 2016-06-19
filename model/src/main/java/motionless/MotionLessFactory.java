@@ -20,6 +20,6 @@ public abstract class MotionLessFactory {
 				return motionLess;
 			}
 		}
-		return LAND;
+		return null;
 	}
 }

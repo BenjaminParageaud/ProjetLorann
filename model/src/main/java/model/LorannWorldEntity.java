@@ -15,6 +15,7 @@ import contract.IMotionLess;
 import element.Element;
 import contract.ILorannWorldEntity;
 import mobile.Hero;
+import mobile.Mobile;
 import mobile.MobileFactory;
 
 
@@ -45,16 +46,16 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 
 	public void addMobile(IMobile mobile, int x, int y){
 		this.mobiles.add(mobile);
-		hero.setLorannWorldEntity(this, x, y);
+		mobile.setLorannWorldEntity(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
 	}
 
 	
-	public void addMobile(final Hero hero, final int x, final int y) {
+	/*public void addMobile(final Hero hero, final int x, final int y) {
 		this.setHero(hero);
 		this.addMobile((IMobile) hero, x, y);
-	}
+	}*/
 
 	public void setElements(IMotionLess[][] elements) {
 		this.elements = elements;

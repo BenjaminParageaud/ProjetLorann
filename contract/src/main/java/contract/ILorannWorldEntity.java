@@ -13,7 +13,7 @@ public interface ILorannWorldEntity {
 
 	public void addElement(final IMotionLess element, final int x, final int y);
 
-	public void addMobile(IMobile mobile, int x, int y);
+	public void addMobile(IMobile mobile, int x, int y, ILorannWorldEntity lorannWorldEntity);
 
 	//public void loadMap(int id);
 	

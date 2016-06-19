@@ -35,7 +35,7 @@ class ViewPanel extends JPanel implements Observer {
 		this.setViewFrame(viewFrame);
 		this.mobiles = mobiles;
 		this.elements = elements;
-		
+		System.out.println(this.mobiles);
 		//viewFrame.getModel().getLorannWorldEntity().getObservable().addObserver(this);
 	}
 
@@ -96,6 +96,7 @@ class ViewPanel extends JPanel implements Observer {
 		}
 		
 		for( final IMobile mobile : this.mobiles){
+			System.out.println(mobile.getX());
 		graphics.drawImage(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
 		}
 	}
