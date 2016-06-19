@@ -43,7 +43,7 @@ public abstract class Mobile extends Element implements IMobile{
 	
 	public void setX(int x) {
 		this.position.x = x;
-		//this.getLorannWorldEntity().setMobilehasChanged();
+		this.getLorannWorldEntity().setMobilehasChanged();
 	}
 
 	public int getY() {
@@ -52,7 +52,7 @@ public abstract class Mobile extends Element implements IMobile{
 
 	public void setY(int y) {
 		this.position.y = y;
-		//this.getLorannWorldEntity().setMobilehasChanged();
+		this.getLorannWorldEntity().setMobilehasChanged();
 	}
 	
 	public ISprite getSprite() {
@@ -98,6 +98,7 @@ public abstract class Mobile extends Element implements IMobile{
 
 	public void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity, final int x, final int y) {
 		super.setLorannWorldEntity(lorannWorldEntity);;
+		this.lorannWorldEntity = lorannWorldEntity;
 		this.setX(x);
 		this.setY(y);
 	}
