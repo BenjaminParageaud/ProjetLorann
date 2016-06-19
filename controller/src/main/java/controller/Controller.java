@@ -3,6 +3,7 @@ package controller;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.ILorannWorldEntity;
+import contract.IModel;
 import contract.IView;
 
 // TODO: Auto-generated Javadoc
@@ -15,7 +16,7 @@ public class Controller implements IController {
 	private IView		view;
 
 	/** The model. */
-	private ILorannWorldEntity	lorannWorldEntity;
+	private IModel	model;
 
 	/**
 	 * Instantiates a new controller.
@@ -25,9 +26,9 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller(final IView view, final ILorannWorldEntity lorannWorldEntity) {
+	public Controller(final IView view, final IModel model) {
 		this.setView(view);
-		this.setLorannWorldEntity(lorannWorldEntity);
+		this.setModel(model);
 	}
 
 	/*
@@ -55,10 +56,11 @@ public class Controller implements IController {
 	 * @param model
 	 *          the new model
 	 */
-	private void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity) {
-		this.lorannWorldEntity = lorannWorldEntity;
+	
+	public void setModel(IModel model) {
+		this.model = model;
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 *
@@ -98,5 +100,7 @@ public class Controller implements IController {
 				break;
 		}
 	}
+
+
 
 }

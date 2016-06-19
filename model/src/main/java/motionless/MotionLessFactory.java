@@ -1,5 +1,7 @@
 package motionless;
 
+import contract.IMotionLess;
+
 public abstract class MotionLessFactory {
 
 	public static final MotionLess BONESH			= new BonesH();
@@ -12,7 +14,7 @@ public abstract class MotionLessFactory {
 	
 	private static MotionLess		motionLess[]	= {	BONESH, BONESV, ROCK, CRYSTALBALL, DOOR, LAND, PURSE};
 	
-	public static MotionLess getFromBddId(final int bddId){
+	public static IMotionLess getFromBddId(final int bddId){
 		for (final MotionLess motionLess : motionLess){
 			if(motionLess.getBddId() == bddId) {
 				return motionLess;

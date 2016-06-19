@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import contract.IController;
 import contract.ILorannWorldEntity;
+import contract.IModel;
 
 /**
  * The Class ViewFrame.
@@ -18,35 +19,35 @@ import contract.ILorannWorldEntity;
  */
 class ViewFrame extends JFrame implements KeyListener {
 
-	private ILorannWorldEntity	lorannWorldEntity;
+	private IModel	model;
 	
 	private IController		controller;
 	
 	private static final long	serialVersionUID	= -697358409737458175L;
 
 	
-	public ViewFrame(final ILorannWorldEntity lorannWorldEntity) throws HeadlessException {
-		this.setLorannWorldEntity(lorannWorldEntity);
-		this.buildViewFrame(lorannWorldEntity);
+	public ViewFrame(final IModel model) throws HeadlessException {
+		this.setModel(model);
+		this.buildViewFrame(model);
 		//this.controller = controller;
 	}
 
 
-	public ViewFrame(final ILorannWorldEntity lorannWorldEntity, final GraphicsConfiguration gc) {
+	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
 		super(gc);
-		this.buildViewFrame(lorannWorldEntity);
+		this.buildViewFrame(model);
 	}
 
 
-	public ViewFrame(final ILorannWorldEntity lorannWorldEntity, final String title) throws HeadlessException {
+	public ViewFrame(final IModel model, final String title) throws HeadlessException {
 		super(title);
-		this.buildViewFrame(lorannWorldEntity);
+		this.buildViewFrame(model);
 	}
 
 
-	public ViewFrame(final ILorannWorldEntity lorannWorldEntity, final String title, final GraphicsConfiguration gc) {
+	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
-		this.buildViewFrame(lorannWorldEntity);
+		this.buildViewFrame(model);
 	}
 
 	private IController getController() {
@@ -58,23 +59,23 @@ class ViewFrame extends JFrame implements KeyListener {
 	}
 
 	
-	protected ILorannWorldEntity getLorannWorldEntity() {
-		return this.lorannWorldEntity;
+	protected IModel getModel() {
+		return this.model;
 	}
 
-	private void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity) {
-		this.lorannWorldEntity = lorannWorldEntity;
+	private void setModel(final IModel model) {
+		this.model = model;
 	}
 
 
-	private void buildViewFrame(final ILorannWorldEntity lorannWorldEntity) {
-		this.setLorannWorldEntity(lorannWorldEntity);
+	private void buildViewFrame(final IModel model) {
+		this.setModel(model);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setController(this.controller);
-		this.setContentPane(new ViewPanel(this, lorannWorldEntity.getMobiles(), lorannWorldEntity.getElements()));
-		this.setSize(640 + this.getInsets().left + this.getInsets().right, 384 + this.getInsets().top + this.getInsets().bottom);
+		this.setContentPane(new ViewPanel(this, model.getLorannWorldEntity().getMobiles(), model.getLorannWorldEntity().getElements()));
+		this.setSize(650 + this.getInsets().left + this.getInsets().right, 415 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}

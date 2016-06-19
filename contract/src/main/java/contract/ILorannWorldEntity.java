@@ -15,7 +15,7 @@ public interface ILorannWorldEntity {
 
 	public void addMobile(IMobile mobile, int x, int y);
 
-	public void loadMap(int id);
+	//public void loadMap(int id);
 	
 	public void setElements(IMotionLess[][] elements);
 	

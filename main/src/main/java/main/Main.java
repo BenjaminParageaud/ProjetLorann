@@ -1,7 +1,7 @@
 package main;
 
 import controller.Controller;
-import model.LorannWorldEntity;
+import model.Model;
 import view.View;
 
 /**
@@ -16,12 +16,12 @@ public abstract class Main {
 	 *
 	 * @param args
 	 *          the arguments
+		 * @throws Exception 
 	 */
-	public static void main(final String[] args) {
-		final LorannWorldEntity lorannWorldEntity = new LorannWorldEntity();
-		lorannWorldEntity.loadMap(1);
-		final View view = new View(lorannWorldEntity);
-		final Controller controller = new Controller(view, lorannWorldEntity);
+	public static void main(final String[] args) throws Exception {
+		final Model model = new Model();
+		final View view = new View(model);
+		final Controller controller = new Controller(view, model);
 		view.setController(controller);
 		controller.control();
 	}

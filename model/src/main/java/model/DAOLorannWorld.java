@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import contract.ILorannWorldEntity;
 import mobile.MobileFactory;
 import motionless.MotionLessFactory;
 
@@ -36,40 +35,29 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 	 */
 
 
-	public LorannWorldEntity findMotionLess(final int id) {
+	public LorannWorldEntity find(final int id) {
 		LorannWorldEntity lorannWorldEntity = new LorannWorldEntity();
 		try {
-			final String sql = "{call LorannWorldMotionlessByIdMap(?)}";
+			final String sql = "{call LorannWorldByIdMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while(resultSet.next()) {
-				lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));	
+				if(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")) != null){
+					lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));	
+					System.out.println("tests1");}
+				else /*if(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")) != null)*/{
+					System.out.println("tests3000");
+					lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+				}System.out.println("tests2");
 			}
+			
 			return lorannWorldEntity;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
-		
 	}
 
-	public LorannWorldEntity findMotion(final int id) {
-		LorannWorldEntity lorannWorldEntity = new LorannWorldEntity();
-		try {
-			final String sql = "{call LorannWorldMotionByIdMap(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, id);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			while(resultSet.next()) {
-				lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
-			}
-			return lorannWorldEntity;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 }

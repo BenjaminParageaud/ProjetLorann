@@ -1,5 +1,6 @@
 package mobile;
 
+import contract.IMobile;
 import motionless.MotionLess;
 
 public class MobileFactory {
@@ -13,9 +14,10 @@ public class MobileFactory {
 	private static Mobile mobile[] = {ARRBARR, CARGAV, KYRACJ, MOARCG, HERO};
 	
 	
-	public static Mobile getFromBddId(final int bddId){
+	public static IMobile getFromBddId(final int bddId){
 		for (final Mobile mobile : mobile){
-			if(mobile.getBddId() == bddId) {	
+			if(mobile.getBddId() == bddId) {
+				return mobile;
 			}
 		}
 		return null;
