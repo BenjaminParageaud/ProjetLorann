@@ -18,6 +18,8 @@ public interface ILorannWorldEntity {
 
 	public void addHero(final IHero hero, final int x, final int y) ;
 	
+	public void addSpell(final ISpell spell, final int x, final int y);
+	
 	public IHero getHero();
 	
 	public void setHero(final IHero hero) ;

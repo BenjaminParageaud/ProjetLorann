@@ -18,6 +18,8 @@ public abstract class Mobile extends Element implements IMobile{
 	private ISpell spell; 
 	private int XSpell = 0;
 	private int YSpell = 0;
+	private int saveX;
+	private int saveY;
 
 	public Mobile(final ISprite sprite, final Permeability permeability, final int bddId, ILorannWorldEntity lorannWorldEntity){
 	    super(sprite, permeability);
@@ -71,6 +73,19 @@ public abstract class Mobile extends Element implements IMobile{
 
 	public int getYSpell() {
 		return this.YSpell;
+	}
+	
+	public void savePosition() {
+		this.saveX =this.x;
+		this.saveY = this.y;
+	}
+	
+	public void setSaveX(final int saveX) {
+		this.saveX = saveX;
+	}
+
+	public void setSaveY(final int saveY) {
+		this.saveY = saveY;
 	}
 	
 	public ILorannWorldEntity getLorannWorldEntity() {

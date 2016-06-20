@@ -21,7 +21,8 @@ public class Spell extends Mobile implements ISpell{
 		setPermeability(Permeability.SPELLABLE);
 	}
 
-	public ISpell AffichageSpell(final int x, final int y){
+	public ISpell AffichageSpell(final IMobile motion, final int x, final int y){
+		motion.savePosition();
 		
 	   while(i<1){
 		   

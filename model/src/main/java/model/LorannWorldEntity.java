@@ -32,8 +32,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		this.mobiles = new ArrayList<IMobile>();
 		
 	}
-	
-	
+		
 	public void addElement(final IMotionLess element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {

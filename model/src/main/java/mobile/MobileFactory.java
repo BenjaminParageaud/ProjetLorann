@@ -17,9 +17,7 @@ public class MobileFactory {
 	public static final Mobile MOARCG = new Moarcg(lorannWorldEntity);
 	
 	private static IMobile mobile[] = {ARRBARR, CARGAV, KYRACJ, MOARCG};
-	
-	
-	
+		
 	public static IHero getFromBddIdHero(final int bddId, ILorannWorldEntity lorannWorldEntity){
 		IHero hero = new Hero(lorannWorldEntity);
 			if( 1 == bddId) {

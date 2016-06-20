@@ -29,6 +29,8 @@ public interface IMobile extends IElement{
 	public ILorannWorldEntity getLorannWorldEntity();
 
 	public void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity, final int x, final int y) ;
+
+	public void savePosition();
 	
 	
 }
