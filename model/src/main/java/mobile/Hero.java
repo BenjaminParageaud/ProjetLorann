@@ -47,8 +47,6 @@ public class Hero extends Mobile implements IHero{
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
 			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )){
 				if(getLorannWorldEntity().getElement(x, y) == MotionLessFactory.getFromBddId(1)){
-					System.out.println(MotionLessFactory.getFromBddId(4));
-					System.out.println(MotionLessFactory.getFromBddId(7));
 					getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(8), getLorannWorldEntity().getXdoor(), getLorannWorldEntity().getYdoor());
 					getLorannWorldEntity().setMobilehasChanged();
 
@@ -106,7 +104,6 @@ public class Hero extends Mobile implements IHero{
 
 	public boolean moveUp(){
 		if (isMovePossible(getX(), getY() - 1)){
-
 			setY(getY() - 1);
 			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX(), getY() +1 );
 		}

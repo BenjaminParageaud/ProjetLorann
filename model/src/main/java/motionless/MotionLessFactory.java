@@ -9,7 +9,7 @@ public abstract class MotionLessFactory {
 	public static final MotionLess ROCK		    	= new Rock();
 	public static final MotionLess CRYSTALBALL		= new CrystalBall();
 	public static final MotionLess DOORCLOSED		= new Door();
-	public static final MotionLess DOOROPEN			= new Door(false);
+	public static final MotionLess DOOROPEN			= new Door(true);
 	public static final MotionLess LAND				= new Land();
 	public static final MotionLess PURSE			= new Purse();
 

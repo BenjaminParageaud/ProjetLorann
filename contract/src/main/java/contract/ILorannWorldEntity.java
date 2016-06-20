@@ -14,7 +14,7 @@ public interface ILorannWorldEntity {
 
 	public void addElement(final IMotionLess element, final int x, final int y);
 
-	public void addMobile(IMobile mobile, int x, int y);
+	public void addMonster(IMonster monster, int x, int y);
 
 	public void addHero(final IHero hero, final int x, final int y) ;
 	
@@ -36,9 +36,7 @@ public interface ILorannWorldEntity {
 
 	public void setXdoor(int xdoor);
 
-
 	public int getYdoor();
-
 
 	public void setYdoor(int ydoor);
 

@@ -43,7 +43,8 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	private IHero	hero;
 	
 	/** The m. */
-	public int m;
+	public int Xdoor;
+	public int Ydoor;
 
 
 
@@ -62,6 +63,10 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	 * @see contract.ILorannWorldEntity#addElement(contract.IMotionLess, int, int)
 	 */
 	public void addElement(final IMotionLess element, final int x, final int y) {
+		if(element == MotionLessFactory.getFromBddId(7)){
+			setXdoor(x);
+			setYdoor(y);
+		}		
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setLorannWorldEntity(this);
@@ -194,34 +199,27 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 
-	public void addMobile(IMobile mobile, int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 	public int getXdoor() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Xdoor;
 	}
 
 
 	public void setXdoor(int xdoor) {
-		// TODO Auto-generated method stub
-		
+		Xdoor = xdoor;
 	}
 
 
 	public int getYdoor() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Ydoor;
 	}
 
 
 	public void setYdoor(int ydoor) {
-		// TODO Auto-generated method stub
-		
+		Ydoor = ydoor;
 	}
+
+
+
 
 
 
