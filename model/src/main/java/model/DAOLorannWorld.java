@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package model;
 
 import java.sql.CallableStatement;
@@ -9,6 +12,10 @@ import mobile.MobileFactory;
 import motionless.MotionLessFactory;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DAOLorannWorld.
+ */
 public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 

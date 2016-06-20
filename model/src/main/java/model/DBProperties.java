@@ -1,9 +1,13 @@
+/*
+ * 
+ */
 package model;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class DBProperties.
  *
