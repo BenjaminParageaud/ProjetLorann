@@ -38,7 +38,7 @@ public class CargavBehaviour implements IStrategy{
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
 		
 	
-	int PosXDoor = getLorannWorldEntity.getXDoor();
+	//int PosXDoor = getLorannWorldEntity.getXDoor();
 		
 		
 	}

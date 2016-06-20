@@ -27,7 +27,7 @@ public class MoarcgBehaviour implements IStrategy{
 	 * @see contract.IStrategy#animate(contract.IMonster, contract.ILorannWorldEntity)
 	 */
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
-		
+	
 		Random rand = new Random();
 		int Nomber = rand.nextInt(8);
 		

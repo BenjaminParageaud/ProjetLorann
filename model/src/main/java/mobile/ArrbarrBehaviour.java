@@ -25,6 +25,44 @@ public class ArrbarrBehaviour implements IStrategy{
 	 * @see contract.IStrategy#animate(contract.IMonster, contract.ILorannWorldEntity)
 	 */
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
-		monster.moveUp();
+		
+	if(lorannWorldEntity.getHero().getY()<monster.getY() && lorannWorldEntity.getHero().getX()<monster.getX()){
+			monster.moveUpLeft();
+		}
+		
+		if(lorannWorldEntity.getHero().getY()<monster.getY() && lorannWorldEntity.getHero().getX()>monster.getX()){
+			monster.moveUpRight();
+		}
+		
+		if(lorannWorldEntity.getHero().getY()>monster.getY() && lorannWorldEntity.getHero().getX()<monster.getX()){
+			monster.moveDownLeft();
+		}
+		
+		if(lorannWorldEntity.getHero().getY()>monster.getY() && lorannWorldEntity.getHero().getX()>monster.getX()){
+			monster.moveDownRight();
+		}
+		
+		if(lorannWorldEntity.getHero().getY()==monster.getY() && lorannWorldEntity.getHero().getX()<monster.getX()){
+			monster.moveLeft();
+		}
+		
+		if(lorannWorldEntity.getHero().getY()==monster.getY() && lorannWorldEntity.getHero().getX()>monster.getX()){
+			monster.moveRight();
+		}
+		
+		if(lorannWorldEntity.getHero().getY()<monster.getY() && lorannWorldEntity.getHero().getX()==monster.getX()){
+			monster.moveUp();
+		}
+		
+		if(lorannWorldEntity.getHero().getY()>monster.getY() && lorannWorldEntity.getHero().getX()==monster.getX()){
+			monster.moveDown();
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
 }
