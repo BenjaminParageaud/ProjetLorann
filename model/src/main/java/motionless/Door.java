@@ -7,30 +7,16 @@ import contract.ISprite;
 import contract.Permeability;
 import element.Sprite;
 
-public class Door extends MotionLess implements Observer {
-
-	public boolean state;
+public class Door extends MotionLess {
+	
+	//private final static FILE = new File("");
 
 	public Door(){
 		super(new Sprite("gate_closed.png"), Permeability.MONSTERABLE, 7);
-
 	}
 
-	public boolean isState() {
-		return state;
-	}
+	/*public Door(boolean){
+		super(new Sprite("gate_closed.png"), Permeability.MONSTERABLE, 7);
 
-	public void setState(boolean state) {
-		this.state = state;
-	}
-
-	public void update(Observable o, Object arg) {
-		
-		
-	}
-
-
-
-
-	// on doit faire un boolean qui recupere un etat pour ouvrir la porte
+	}*/
 }

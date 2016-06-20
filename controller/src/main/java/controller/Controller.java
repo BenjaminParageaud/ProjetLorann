@@ -97,6 +97,9 @@ public class Controller implements IController {
 			case Space:
 				//this.model.loadMessage("ID");
 				break;
+			case Nop:
+				System.out.println("!!! Warning wrong touch !!!");
+				break;
 
 			default:
 				break;
