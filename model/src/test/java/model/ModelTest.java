@@ -6,20 +6,27 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class DBConnectionTest {
-	private static DBConnection testDBConnection;
+public class ModelTest {
+	private Model testModel;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
 	}
 
 	@Before
 	public void setUp() throws Exception {
+		this.testModel = new Model();
 	}
 
-	@SuppressWarnings("static-access")
+	/*@Test
+	public void testGetLorannWorldEntity() {
+		fail("Not yet implemented");
+	}*/
+
 	@Test
-	public void testGetInstance() {
-		assertNotNull(testDBConnection.getInstance());
+	public void testGetObservable() {
+		assertNotNull(this.testModel.getObservable());
 	}
 
 }
