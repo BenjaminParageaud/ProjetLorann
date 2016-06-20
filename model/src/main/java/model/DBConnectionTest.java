@@ -1,4 +1,4 @@
-package mobile;
+package model;
 
 import static org.junit.Assert.*;
 
@@ -8,15 +8,12 @@ import org.junit.Test;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class MobileTest.
+ * The Class DBConnectionTest.
  */
-public class MobileTest {
+public class DBConnectionTest {
 	
-	/** The lorann test. */
-	private static Hero lorannTest;
-	
-	/** The bdd id of lorann test. */
-	private static int bddIdOfLorannTest = 1;
+	/** The test DB connection. */
+	private static DBConnection testDBConnection;
 	
 	/**
 	 * Sets the up before class.
@@ -25,7 +22,6 @@ public class MobileTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		lorannTest = new Hero(null);
 	}
 
 	/**
@@ -38,11 +34,12 @@ public class MobileTest {
 	}
 
 	/**
-	 * Test get bdd id.
+	 * Test get instance.
 	 */
+	@SuppressWarnings("static-access")
 	@Test
-	public void testGetBddId() {
-		assertEquals(bddIdOfLorannTest, MobileTest.lorannTest.getBddId());
+	public void testGetInstance() {
+		assertNotNull(testDBConnection.getInstance());
 	}
 
 }
