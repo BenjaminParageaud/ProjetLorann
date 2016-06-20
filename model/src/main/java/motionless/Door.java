@@ -9,14 +9,18 @@ import element.Sprite;
 
 public class Door extends MotionLess {
 	
-	//private final static FILE = new File("");
+	private static ISprite DOOROPEN = new Sprite("gate_open.png");
+	private static ISprite DOORCLOSED = new Sprite("gate_closed.png");
+	private static Permeability PERMEABILITY = Permeability.MONSTERABLE;
+	//private File DOOR = DOORCLOSED;
+	private static boolean isDoorOpen;
 
 	public Door(){
-		super(new Sprite("gate_closed.png"), Permeability.MONSTERABLE, 7);
+		super(DOORCLOSED, PERMEABILITY, 7);
 	}
 
-	/*public Door(boolean){
-		super(new Sprite("gate_closed.png"), Permeability.MONSTERABLE, 7);
+	public Door(boolean open){
+		super(DOOROPEN, PERMEABILITY, 8);
 
-	}*/
+	}
 }

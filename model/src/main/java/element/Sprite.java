@@ -11,6 +11,7 @@ import contract.ISprite;
 public class Sprite implements ISprite{
 	
 	private Image image;
+	private static final String FILE = "";
 
 	
 	public Sprite(final String image){
@@ -24,6 +25,11 @@ public class Sprite implements ISprite{
 
 	public Image getImage() {
 		return image;
+	}
+
+
+	public static String getFile() {
+		return FILE;
 	}
 	
 }

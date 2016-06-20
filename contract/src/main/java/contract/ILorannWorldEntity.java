@@ -31,6 +31,16 @@ public interface ILorannWorldEntity {
 	public IMotionLess getElement(final int x, final int y);
 	
 	public ArrayList<IMobile> getMobiles();
+	
+	public int getXdoor();
+
+	public void setXdoor(int xdoor);
+
+
+	public int getYdoor();
+
+
+	public void setYdoor(int ydoor);
 
 	public void setMobilehasChanged();
 	

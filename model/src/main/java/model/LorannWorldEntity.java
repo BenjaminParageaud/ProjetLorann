@@ -24,8 +24,8 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public IMotionLess	elements[][];
 	public ArrayList<IMobile>	mobiles;
 	private IHero	hero;
-	public int m;
-
+	public int Xdoor;
+	public int Ydoor;
 
 
 	public LorannWorldEntity(){
@@ -36,6 +36,21 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	
 	
 	public void addElement(final IMotionLess element, final int x, final int y) {
+		if(element == MotionLessFactory.getFromBddId(7)){
+			setXdoor(x);
+			setYdoor(y);
+			System.out.println("XXXXXX");
+			System.out.println(getXdoor());
+			System.out.println("YYYYYY");
+			System.out.println(getYdoor());
+		}
+		/*System.out.println(element);
+			
+			System.out.println("XXXXXX");
+			System.out.println(getXdoor());
+			System.out.println("YYYYYY");
+			System.out.println(getYdoor());*/
+		
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setLorannWorldEntity(this);
@@ -88,6 +103,24 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		return this.mobiles;
 	}
 
+	public int getXdoor() {
+		return Xdoor;
+	}
+
+
+	public void setXdoor(int xdoor) {
+		Xdoor = xdoor;
+	}
+
+
+	public int getYdoor() {
+		return Ydoor;
+	}
+
+
+	public void setYdoor(int ydoor) {
+		Ydoor = ydoor;
+	}
 	
 	public void play(){
 		for(;;){
