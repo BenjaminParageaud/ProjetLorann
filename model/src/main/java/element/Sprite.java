@@ -28,7 +28,7 @@ public class Sprite implements ISprite{
 	 */
 	public Sprite(final String image){
 		try{
-			this.image = ImageIO.read(new File("C:/Users/QUENTIN/git/ProjetLorann/model/sprite/" + image));
+			this.image = ImageIO.read(new File("C:/Users/Clément/git/ProjetLorann/model/sprite/" + image));
 		}catch(final IOException e){
 			e.printStackTrace();
 		}
