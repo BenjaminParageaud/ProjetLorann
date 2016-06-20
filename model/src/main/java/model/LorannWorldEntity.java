@@ -39,18 +39,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		if(element == MotionLessFactory.getFromBddId(7)){
 			setXdoor(x);
 			setYdoor(y);
-			System.out.println("XXXXXX");
-			System.out.println(getXdoor());
-			System.out.println("YYYYYY");
-			System.out.println(getYdoor());
-		}
-		/*System.out.println(element);
-			
-			System.out.println("XXXXXX");
-			System.out.println(getXdoor());
-			System.out.println("YYYYYY");
-			System.out.println(getYdoor());*/
-		
+		}		
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setLorannWorldEntity(this);
@@ -126,16 +115,15 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		for(;;){
 			this.setChanged();
 			this.notifyObservers();
-			/*try{
-				Thread.sleep(125);
+			try{
+				Thread.sleep(500);
 			} catch (final InterruptedException e){
 				e.printStackTrace();
 			}
 			
-			//for (final IMobile mobile : this.mobiles){
-				
-			//}*/
-		}
+			/*for (final IMonster monster : this.monsters)
+		
+		*/}
 	}
 		
 
