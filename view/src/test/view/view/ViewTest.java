@@ -27,7 +27,7 @@ public class ViewTest {
 			}
 
 			public Observable getObservable() {
-				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub	
 				return null;
 			}
 			
