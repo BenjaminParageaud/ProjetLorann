@@ -8,12 +8,12 @@ import org.junit.Test;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class DBConnectionTest.
+ * The Class ModelTest.
  */
-public class DBConnectionTest {
+public class ModelTest {
 	
-	/** The test DB connection. */
-	private static DBConnection testDBConnection;
+	/** The test model. */
+	private Model testModel;
 	
 	/**
 	 * Sets the up before class.
@@ -22,6 +22,7 @@ public class DBConnectionTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
 	}
 
 	/**
@@ -31,15 +32,20 @@ public class DBConnectionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		this.testModel = new Model();
 	}
 
+	/*@Test
+	public void testGetLorannWorldEntity() {
+		fail("Not yet implemented");
+	}*/
+
 	/**
-	 * Test get instance.
+	 * Test get observable.
 	 */
-	@SuppressWarnings("static-access")
 	@Test
-	public void testGetInstance() {
-		assertNotNull(testDBConnection.getInstance());
+	public void testGetObservable() {
+		assertNotNull(this.testModel.getObservable());
 	}
 
 }

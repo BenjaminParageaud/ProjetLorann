@@ -1,4 +1,4 @@
-package model;
+package motionless;
 
 import static org.junit.Assert.*;
 
@@ -8,12 +8,12 @@ import org.junit.Test;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class DBConnectionTest.
+ * The Class MotionLessTest.
  */
-public class DBConnectionTest {
+public class MotionLessTest {
 	
-	/** The test DB connection. */
-	private static DBConnection testDBConnection;
+	/** The test motion less. */
+	private static MotionLess testMotionLess;
 	
 	/**
 	 * Sets the up before class.
@@ -22,6 +22,7 @@ public class DBConnectionTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		testMotionLess = new Rock();
 	}
 
 	/**
@@ -34,12 +35,11 @@ public class DBConnectionTest {
 	}
 
 	/**
-	 * Test get instance.
+	 * Test get bdd id.
 	 */
-	@SuppressWarnings("static-access")
 	@Test
-	public void testGetInstance() {
-		assertNotNull(testDBConnection.getInstance());
+	public void testGetBddId() {
+		assertEquals(2,testMotionLess.getBddId());
 	}
 
 }
