@@ -158,15 +158,15 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 			this.setChanged();
 			this.notifyObservers();
 			try{
-				Thread.sleep(500);
+				Thread.sleep(250);
 			} catch (final InterruptedException e){
 				e.printStackTrace();
 			}
 			
 			for (final IMonster monster : this.monsters){
-			System.out.println("xxxxxxxxx");	
+			/*System.out.println("xxxxxxxxx");	
 			System.out.println(monster.getStrategy());
-			System.out.println("yyyyyyyyyy");
+			System.out.println("yyyyyyyyyy");*/
 			monster.getStrategy().animate(monster, this);
 			}
 		}
