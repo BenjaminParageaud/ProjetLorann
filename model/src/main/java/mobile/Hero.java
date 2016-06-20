@@ -47,9 +47,11 @@ public class Hero extends Mobile implements IHero{
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
 			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )){
 				if(getLorannWorldEntity().getElement(x, y) == MotionLessFactory.getFromBddId(1)){
-						getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(8), getLorannWorldEntity().getXdoor(), getLorannWorldEntity().getXdoor());
-						getLorannWorldEntity().setMobilehasChanged();
-					return true;
+					System.out.println(MotionLessFactory.getFromBddId(4));
+					System.out.println(MotionLessFactory.getFromBddId(7));
+					getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(8), getLorannWorldEntity().getXdoor(), getLorannWorldEntity().getYdoor());
+					getLorannWorldEntity().setMobilehasChanged();
+
 				}
 				return true;
 			}
@@ -59,7 +61,7 @@ public class Hero extends Mobile implements IHero{
 	}
 
 
-/*
+	/*
    public int kill(final int x, final int y){
 	   coordonate = getLorannWorldEntity().getMobiles(x, y).getBddId();
 
@@ -70,7 +72,7 @@ public class Hero extends Mobile implements IHero{
    }*/
 
 
-/*public void orientationMove (OrientationOrder orientationOrder){
+	/*public void orientationMove (OrientationOrder orientationOrder){
 
 	switch (orientationOrder) {
 	case Up:
@@ -102,24 +104,15 @@ public class Hero extends Mobile implements IHero{
 }
 	}*/
 
-public boolean moveUp(){
-	if (isMovePossible(getX(), getY() - 1)){
-		coordonate = getLorannWorldEntity().getElement(getX(), getY() - 1).getBddId();
-		if(coordonate == 1 ){
-			getLorannWorldEntity().getElement(getX(), getY() - 1).setPermeability(Permeability.MEETINGABLE);;
-			//addScorer;
-			setY(getY() - 1);
-		}
-		else{
-			setY(getY() - 1);
-		}
+	public boolean moveUp(){
+		if (isMovePossible(getX(), getY() - 1)){
 
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX(), getY() +1 );
+			setY(getY() - 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX(), getY() +1 );
+		}
+		return false;
 	}
 
-	return false;
-
-}
 
 public boolean moveDown(){
 	if (isMovePossible(getX(), getY() + 1)){
