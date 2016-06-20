@@ -2,9 +2,9 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.ILorannWorldEntity;
 import contract.IModel;
 import contract.IView;
+import contract.OrientationOrder;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -37,7 +37,7 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.model.getLorannWorldEntity().play();
 	}
 
 	/**
@@ -71,28 +71,28 @@ public class Controller implements IController {
 		switch (controllerOrder) {
 		
 			case Up:
-				this.model.getLorannWorldEntity().getHero();//.moveUp();
+				this.model.getLorannWorldEntity().getHero().moveUp();
 				break;
 			case Down:
-				//this.model.loadMessage("FR");
+				this.model.getLorannWorldEntity().getHero().moveDown();
 				break;
 			case Right:
-				//this.model.loadMessage("DE");
+				this.model.getLorannWorldEntity().getHero().moveRight();
 				break;
 			case Left:
-				//this.model.loadMessage("ID");
+				this.model.getLorannWorldEntity().getHero().moveLeft();
 				break;
 			case UpLeft:
-				//this.model.loadMessage("ID");
+				this.model.getLorannWorldEntity().getHero().moveUpLeft();
 				break;
 			case UpRight:
-				//this.model.loadMessage("ID");
+				this.model.getLorannWorldEntity().getHero().moveUpRight();
 				break;
 			case DownLeft:
-				//this.model.loadMessage("ID");
+				this.model.getLorannWorldEntity().getHero().moveDownLeft();
 				break;
 			case DownRight:
-				//this.model.loadMessage("ID");
+				this.model.getLorannWorldEntity().getHero().moveDownRight();
 				break;
 			case Space:
 				//this.model.loadMessage("ID");

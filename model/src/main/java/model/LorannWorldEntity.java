@@ -13,6 +13,7 @@ import java.util.Observable;
 import contract.IMobile;
 import contract.IMotionLess;
 import element.Element;
+import motionless.MotionLessFactory;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 
@@ -23,6 +24,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public IMotionLess	elements[][];
 	public ArrayList<IMobile>	mobiles;
 	private IHero	hero;
+	public int m;
 
 
 
@@ -50,10 +52,11 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 	
-	/*public void addMobile(final Hero hero, final int x, final int y) {
+	public void addHero(final IHero hero, final int x, final int y) {
 		this.setHero(hero);
-		this.addMobile((IMobile) hero, x, y);
-	}*/
+		hero.setX(x);
+		hero.setY(y);
+	}
 
 	public void setElements(IMotionLess[][] elements) {
 		this.elements = elements;
@@ -64,13 +67,15 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 	public IMotionLess getElement(final int x, final int y) {
+		System.out.println("25");
 		return this.elements[x][y];
+		
 	}
 	
 	public IHero getHero(){
 		System.out.println("lol2");
+		System.out.println(hero);
 		return this.hero;
-
 	}
 	public void setHero(final IHero hero) {
 		this.hero = hero;
@@ -81,6 +86,26 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		return this.mobiles;
 	}
 
+	
+	public void play(){
+		for(;;){
+			this.setChanged();
+			this.notifyObservers();
+			/*try{
+				Thread.sleep(125);
+			} catch (final InterruptedException e){
+				e.printStackTrace();
+			}
+			
+			//for (final IMobile mobile : this.mobiles){
+				
+			//}*/
+		}
+	}
+		
+
+	
+	
 	public void setMobilehasChanged(){
 		this.setChanged();
 		this.notifyObservers();
@@ -92,7 +117,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 	public Observable getObservable() {
-		return null;
+		return this;
 	}
 
 }

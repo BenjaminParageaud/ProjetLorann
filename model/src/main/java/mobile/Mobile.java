@@ -1,7 +1,5 @@
 package mobile;
 
-import java.awt.Point;
-
 import contract.ILorannWorldEntity;
 import contract.IMobile;
 import contract.ISprite;
@@ -12,15 +10,15 @@ import element.Element;
 public abstract class Mobile extends Element implements IMobile{
 	
 	private final int bddId;
-	protected Point position;
 	private ISprite sprite;
 	protected ILorannWorldEntity lorannWorldEntity;
+	private int x;
+	private int y;
 	
 
 	public Mobile(final ISprite sprite, final Permeability permeability, final int bddId, ILorannWorldEntity lorannWorldEntity){
 	    super(sprite, permeability);
 	    this.bddId = bddId;
-	    this.position = new Point();
 	    this.lorannWorldEntity = lorannWorldEntity;
 	}
 
@@ -28,30 +26,21 @@ public abstract class Mobile extends Element implements IMobile{
 		return bddId;
 	}
 
-
-	public Point getPosition() {
-		return position;
-	}
-
-	public void setPosition(Point position) {
-		this.position = position;
-	}
-
 	public int getX() {
-		return position.x;
+		return x;
 	}
 	
 	public void setX(int x) {
-		this.position.x = x;
+		this.x = x;
 		this.getLorannWorldEntity().setMobilehasChanged();
 	}
 
 	public int getY() {
-		return position.y;
+		return y;
 	}
 
 	public void setY(int y) {
-		this.position.y = y;
+		this.y = y;
 		this.getLorannWorldEntity().setMobilehasChanged();
 	}
 	
@@ -63,17 +52,13 @@ public abstract class Mobile extends Element implements IMobile{
 		this.sprite = sprite;
 	}
 	
-	public boolean isMovePossible(final int x, final int y){
-		return(this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.MEETINGABLE)||this.getLorannWorldEntity().getElement(x,y).getPermeability() == (Permeability.PENETRABLE )); 
-	}
 	
-	
-    public void moveUp(){
-    	if (isMovePossible(getX(), getY() - 1)){
+   /* public void moveUp(){
+    	if (getisMovePossible(getX(), getY() - 1)){
     		setY(getY() - 1);
     	}
 	}
-	
+	/*
 	public void moveDown(){
     	if (isMovePossible(getX(), getY() + 1)){
     		setY(getY() + 1);
@@ -90,7 +75,7 @@ public abstract class Mobile extends Element implements IMobile{
     	if (isMovePossible(getX() - 1, getY())){
     		setX(getX() - 1);
     	}
-	}
+	}*/
 	
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;

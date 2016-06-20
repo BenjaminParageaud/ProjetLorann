@@ -1,15 +1,8 @@
 package contract;
 
-import java.awt.Point;
-
 public interface IMobile extends IElement{
 
 	public int getBddId();
-
-
-	public Point getPosition() ;
-
-	public void setPosition(Point position);
 
 	public int getX() ;
 	
@@ -23,15 +16,15 @@ public interface IMobile extends IElement{
 
 	public void setSprite(ISprite sprite);
 	
-	public boolean isMovePossible(final int x, final int y);
+	//public boolean isMovePossible(final int x, final int y);
 	
-    public void moveUp();
+    //public void moveUp();
 	
-	public void moveDown();
+	/*public void moveDown();
 	
 	public void moveRight();
 	
-	public void moveLeft();
+	public void moveLeft();*/
 	
 	public ILorannWorldEntity getLorannWorldEntity();
 

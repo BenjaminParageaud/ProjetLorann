@@ -1,5 +1,6 @@
 package mobile;
 
+import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
 import model.LorannWorldEntity;
@@ -13,13 +14,23 @@ public class MobileFactory {
 	public static final Mobile CARGAV = new Cargav(lorannWorldEntity);
 	public static final Mobile KYRACJ = new Kyracj(lorannWorldEntity);
 	public static final Mobile MOARCG = new Moarcg(lorannWorldEntity);
-	public static final Mobile HERO = new Hero(lorannWorldEntity);
 	
-	private static Mobile mobile[] = {ARRBARR, CARGAV, KYRACJ, MOARCG, HERO};
+	private static IMobile mobile[] = {ARRBARR, CARGAV, KYRACJ, MOARCG};
 	
 	
-	public static IMobile getFromBddId(final int bddId, LorannWorldEntity lorannWorldEntity){
-		for (final Mobile mobile : mobile){
+	
+	public static IHero getFromBddIdHero(final int bddId, ILorannWorldEntity lorannWorldEntity){
+		IHero hero = new Hero(lorannWorldEntity);
+			if( 1 == bddId) {
+				return hero;
+			}
+		return null;
+	}
+	
+	
+	
+	public static IMobile getFromBddId(final int bddId, ILorannWorldEntity lorannWorldEntity){
+		for (final IMobile mobile : mobile){
 			if(mobile.getBddId() == bddId) {
 				return mobile;
 			}

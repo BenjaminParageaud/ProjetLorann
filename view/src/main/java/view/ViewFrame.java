@@ -60,6 +60,7 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	
 	protected IModel getModel() {
+		System.out.println("Pogba 1");
 		return this.model;
 	}
 
@@ -74,7 +75,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setController(this.controller);
-		this.setContentPane(new ViewPanel(this, model.getLorannWorldEntity().getMobiles(), model.getLorannWorldEntity().getElements()));
+		this.setContentPane(new ViewPanel(this, model.getLorannWorldEntity().getMobiles(), model.getLorannWorldEntity().getElements(), model.getLorannWorldEntity().getHero()));
 		this.setSize(650 + this.getInsets().left + this.getInsets().right, 415 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
@@ -105,7 +106,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		System.out.println("keyEvent : " +View.keyCodeToControllerOrder(e.getKeyCode()));
 		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
 	}
 

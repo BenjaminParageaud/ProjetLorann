@@ -13,7 +13,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 
 
 
-	
+
 	/**
 	 * Instantiates a new DAO lorann world.
 	 *
@@ -24,7 +24,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 	 */
 	public DAOLorannWorld(final Connection connection) throws SQLException {
 		super(connection);
-		
+
 	}
 
 
@@ -46,19 +46,17 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 			while(resultSet.next()) {
 				if(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")) != null){
 					lorannWorldEntity.addElement(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));	
-					//System.out.println("tests1");
-					//System.out.println(MotionLessFactory.getFromBddId(resultSet.getInt("Id_MotionlessElements")));
-					//System.out.println(resultSet.getInt("Id_MotionElements"));
-				//	System.out.println(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements")));
 				}
-				
-				else if(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements"), lorannWorldEntity) != null){
-					
+				else if(resultSet.getInt("Id_MotionElements") > 1){
+
 					lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements"), lorannWorldEntity), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
-					System.out.println(resultSet.getInt("positionX"));	
-					System.out.println(lorannWorldEntity.mobiles);}
+				}
+				else if(resultSet.getInt("Id_MotionElements") == 1){
+
+					lorannWorldEntity.addHero(MobileFactory.getFromBddIdHero(resultSet.getInt("Id_MotionElements"), lorannWorldEntity), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+				}
 			}
-			
+
 			return lorannWorldEntity;
 		} catch (final SQLException e) {
 			e.printStackTrace();
