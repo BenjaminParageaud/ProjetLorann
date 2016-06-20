@@ -44,6 +44,8 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	
 	/** The m. */
 	public int Xdoor;
+	
+	/** The Ydoor. */
 	public int Ydoor;
 
 
@@ -199,21 +201,33 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getXdoor()
+	 */
 	public int getXdoor() {
 		return Xdoor;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setXdoor(int)
+	 */
 	public void setXdoor(int xdoor) {
 		Xdoor = xdoor;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getYdoor()
+	 */
 	public int getYdoor() {
 		return Ydoor;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setYdoor(int)
+	 */
 	public void setYdoor(int ydoor) {
 		Ydoor = ydoor;
 	}

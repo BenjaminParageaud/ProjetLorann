@@ -18,6 +18,7 @@ import model.LorannWorldEntity;
 public class ArrbarrBehaviour implements IStrategy{
 
 	
+	/** The lorann world entity. */
 	private ILorannWorldEntity lorannWorldEntity;
 	/**
 	 * Instantiates a new cargav behaviour.
@@ -27,10 +28,20 @@ public class ArrbarrBehaviour implements IStrategy{
 		
 	}
 
+	/**
+	 * Gets the lorann world entity.
+	 *
+	 * @return the lorann world entity
+	 */
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
 
+	/**
+	 * Sets the lorann world entity.
+	 *
+	 * @param lorannWorldEntity the new lorann world entity
+	 */
 	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
 		this.lorannWorldEntity = lorannWorldEntity;
 	}
