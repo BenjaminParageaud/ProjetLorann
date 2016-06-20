@@ -61,6 +61,10 @@ public class Controller implements IController {
 		this.model = model;
 	}
 	
+	public IModel getModel() {
+		return model;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 *
