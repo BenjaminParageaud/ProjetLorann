@@ -1,4 +1,4 @@
-package mobile;
+package model;
 
 import static org.junit.Assert.*;
 
@@ -8,15 +8,12 @@ import org.junit.Test;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class MobileTest.
+ * The Class ModelTest.
  */
-public class MobileTest {
+public class ModelTest {
 	
-	/** The lorann test. */
-	private static Hero lorannTest;
-	
-	/** The bdd id of lorann test. */
-	private static int bddIdOfLorannTest = 1;
+	/** The test model. */
+	private Model testModel;
 	
 	/**
 	 * Sets the up before class.
@@ -25,7 +22,7 @@ public class MobileTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		lorannTest = new Hero(null);
+		
 	}
 
 	/**
@@ -35,14 +32,20 @@ public class MobileTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		this.testModel = new Model();
 	}
 
+	/*@Test
+	public void testGetLorannWorldEntity() {
+		fail("Not yet implemented");
+	}*/
+
 	/**
-	 * Test get bdd id.
+	 * Test get observable.
 	 */
 	@Test
-	public void testGetBddId() {
-		assertEquals(bddIdOfLorannTest, MobileTest.lorannTest.getBddId());
+	public void testGetObservable() {
+		assertNotNull(this.testModel.getObservable());
 	}
 
 }
