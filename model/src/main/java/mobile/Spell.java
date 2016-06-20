@@ -12,16 +12,23 @@ public class Spell extends Mobile implements ISpell{
 	public int coordonate;
 	private ISprite sprite; 
 	private Permeability permeability;
+	private int i = 0;
 	
 	public Spell(ILorannWorldEntity lorannWorldEntity){
 		super(new Sprite("SpellAnim.gif"), Permeability.SPELLABLE, 1, lorannWorldEntity);
+		this.sprite = new Sprite("SpellAnim.gif");
+		setLorannWorldEntity(lorannWorldEntity);
+		setPermeability(Permeability.SPELLABLE);
 	}
 
 	public ISpell AffichageSpell(final int x, final int y){
-	   
-			return null;
+		
+	   while(i<1){
+		   
+	   }
+	   return null;
 	}
-	
+
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
@@ -32,14 +39,22 @@ public class Spell extends Mobile implements ISpell{
 	
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
-			return(MobileFactory.getFromBddIdHero(1, lorannWorldEntity).getPermeability() == (Permeability.SPELLABLE)); 
+			return(MobileFactory.getSpellBdd(1, lorannWorldEntity).getPermeability() == (Permeability.SPELLABLE)); 
 		}
 		else {
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
 			return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)|| MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
 		}
 	}
+	
+	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
+		this.lorannWorldEntity = lorannWorldEntity;
+	}
 
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
+	}
+	
 	public Boolean executeMoveIfPossible(final int x, final int y){
 		boolean a = false;
 		if (this.getLorannWorldEntity().getElement(x, y)== null)
@@ -49,18 +64,7 @@ public class Spell extends Mobile implements ISpell{
 			a = false;
 		}
 		return a;
-	}
-	
-	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
-		this.lorannWorldEntity = lorannWorldEntity;
-	}
-
-
-	public void setPermeability(Permeability permeability) {
-		this.permeability = permeability;
-	}
-	
-/*
+		/*
 		for(final IMobile I : this.getLorannWorldEntity().getMotionElements())
 		{
 			if((I.getX() == x) && (I.getY() == y) && (I != this) && ((I.getSymbole() == 't') || (I.getSymbole() == 'k') || (I.getSymbole() == 'd')))
@@ -76,6 +80,6 @@ public class Spell extends Mobile implements ISpell{
 		return a;
 	}
 	/// connection avec le pressage de la barre espace
-	 * */
-
+*/
+}
 }

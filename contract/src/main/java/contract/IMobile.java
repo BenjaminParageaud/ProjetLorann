@@ -15,7 +15,7 @@ public interface IMobile extends IElement{
 	public ISprite getSprite() ;
 
 	public void setSprite(ISprite sprite);
-	
+		
 	//public boolean isMovePossible(final int x, final int y);
 	
     //public void moveUp();

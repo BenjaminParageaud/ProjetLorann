@@ -3,6 +3,7 @@ package mobile;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+import contract.ISpell;
 import contract.ISprite;
 import contract.OrientationOrder;
 import contract.Permeability;
@@ -17,10 +18,12 @@ public class Hero extends Mobile implements IHero{
 	private int y;
 	private int saveX;
 	private int saveY;
+	private int XSpell = 0;
+	private int YSpell = 0;
 	private ILorannWorldEntity lorannWorldEntity;
 	private Permeability permeability;
 	public int coordonate;
-
+	public ISpell spell;
 
 	public Hero(ILorannWorldEntity lorannWorldEntity){
 		super(new Sprite("LorannAnim.gif"), Permeability.HEROABLE, 1,  lorannWorldEntity);
@@ -29,11 +32,9 @@ public class Hero extends Mobile implements IHero{
 		setPermeability(Permeability.HEROABLE);
 	}
 
-
 	public Permeability getPermeability() {
 		return permeability;
 	}
-
 
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
@@ -45,44 +46,30 @@ public class Hero extends Mobile implements IHero{
 		}
 	}
 
-
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
+	
+	public int getXSpell() {
+		return this.XSpell;
+	}
 
+	public int getYSpell() {
+		return this.YSpell;
+	}
 
-	/*public void orientationMove (OrientationOrder orientationOrder){
-
-	switch (orientationOrder) {
-	case Up:
-		moveUp();
-		break;
-	case Down:
-		//this.model.loadMessage("FR");
-		break;
-	/*case Right:
-		//this.model.loadMessage("DE");
-		break;
-	case Left:
-		//this.model.loadMessage("ID");
-		break;
-	case UpLeft:
-		//this.model.loadMessage("ID");
-		break;
-	case UpRight:
-		//this.model.loadMessage("ID");
-		break;
-	case DownLeft:
-		//this.model.loadMessage("ID");
-		break;
-	case DownRight:
-		//this.model.loadMessage("ID");
-		break;
-	default:
-		break;
-}
-	}*/
-
+	public void setXSpell(final int xSpell) {
+		this.XSpell = xSpell;
+	}
+	public void setYSpell(final int ySpell) {
+		this.YSpell = ySpell;
+	}
+	
+	public void setSpell() {
+		this.spell.setX(this.getX());
+		this.spell.setY(this.getY());
+	}
+	
 	public void moveUp(){
 		if (isMovePossible(getX(), getY() - 1)){
 			setY(getY() - 1);
@@ -125,16 +112,13 @@ public class Hero extends Mobile implements IHero{
 		this.sprite = sprite;
 	}
 
-
 	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
 		this.lorannWorldEntity = lorannWorldEntity;
 	}
 
-
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
 	}
-
 
 	public void moveDownRight(){
 		if (isMovePossible(getX() + 1, getY() + 1)){
@@ -151,28 +135,9 @@ public class Hero extends Mobile implements IHero{
 	}
 
 
-	/*public void moveUp(){
-		System.out.println("lol4");
-		super.moveUp();
-	}
-
-	public void moveDown(){
-		super.moveDown();
-	}
-
-	public void moveRight(){
-		super.moveRight();
-	}
-
-	public void moveLeft(){
-		super.moveLeft();
-	}
-	 */
-
 	public int getX() {
 		return x;
 	}
-
 
 	public void setX(int x) {
 		this.x = x;
@@ -184,7 +149,6 @@ public class Hero extends Mobile implements IHero{
 		return y;
 	}
 
-
 	public void setY(int y) {
 		this.y = y;
 		//getLorannWorld().setMobileHasChanged();
@@ -193,12 +157,15 @@ public class Hero extends Mobile implements IHero{
 		return sprite;
 	}
 	
-	public void saveX(final int x){
-		this.saveX = x;
+	public void savePosition() {
+		this.saveX =this.x;
+		this.saveY = this.y;
 	}
-	
-	public void saveY(final int y){
-		this.saveY = y;
+	public void setSaveX(final int saveX) {
+		this.saveX = saveX;
 	}
 
+	public void setSaveY(final int saveY) {
+		this.saveY = saveY;
+	}
 }

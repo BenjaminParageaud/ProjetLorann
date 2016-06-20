@@ -15,11 +15,15 @@ public abstract class Mobile extends Element implements IMobile{
 	protected ILorannWorldEntity lorannWorldEntity;
 	private int x;
 	private int y;
+	private ISpell spell; 
+	private int XSpell = 0;
+	private int YSpell = 0;
 
 	public Mobile(final ISprite sprite, final Permeability permeability, final int bddId, ILorannWorldEntity lorannWorldEntity){
 	    super(sprite, permeability);
 	    this.bddId = bddId;
 	    this.lorannWorldEntity = lorannWorldEntity;
+		//this.spell = MobileFactory.getFromFileSymbolMotion('S',this.getLorannWorldEntity());
 	}
 
 	public int getBddId() {
@@ -43,7 +47,12 @@ public abstract class Mobile extends Element implements IMobile{
 		this.y = y;
 		this.getLorannWorldEntity().setMobilehasChanged();
 	}
-	
+	/*
+	public void setSpell() {
+		this.spell.setX(this.getX());
+		this.spell.setY(this.getY());
+	}
+	*/
 	public ISprite getSprite() {
 		return sprite;
 	}
@@ -51,31 +60,18 @@ public abstract class Mobile extends Element implements IMobile{
 	public void setSprite(ISprite sprite) {
 		this.sprite = sprite;
 	}
-	
-	
-   /* public void moveUp(){
-    	if (getisMovePossible(getX(), getY() - 1)){
-    		setY(getY() - 1);
-    	}
-	}
 	/*
-	public void moveDown(){
-    	if (isMovePossible(getX(), getY() + 1)){
-    		setY(getY() + 1);
-    	}
+	public IMobile getSpell(){
+		return this.spell;
 	}
-	
-	public void moveRight(){
-    	if (isMovePossible(getX() + 1, getY())){
-    		setX(getX() + 1);
-    	}
+	*/
+	public int getXSpell() {
+		return this.XSpell;
 	}
-	
-	public void moveLeft(){
-    	if (isMovePossible(getX() - 1, getY())){
-    		setX(getX() - 1);
-    	}
-	}*/
+
+	public int getYSpell() {
+		return this.YSpell;
+	}
 	
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;

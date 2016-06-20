@@ -4,6 +4,9 @@ public interface IHero {
 
 	//public void orientationMove (OrientationOrder orientationOrder);
 	
+
+	public void setSpell();
+
 	public void moveUp();
 	
 	public void moveDown();
