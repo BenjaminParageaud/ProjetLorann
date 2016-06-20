@@ -12,6 +12,7 @@ import org.junit.Test;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+import contract.IMonster;
 import contract.IMotionLess;
 import contract.Permeability;
 
@@ -104,6 +105,31 @@ public class HeroTest {
 			public boolean setElement(IMotionLess element, int x, int y) {
 				// TODO Auto-generated method stub
 				return false;
+			}
+
+			public void addMonster(IMonster monster, int x, int y) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public int getXdoor() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			public void setXdoor(int xdoor) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public int getYdoor() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			public void setYdoor(int ydoor) {
+				// TODO Auto-generated method stub
+				
 			}
 			
 		};

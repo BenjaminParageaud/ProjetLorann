@@ -1,112 +1,48 @@
 package controller;
 
-import contract.ControllerOrder;
-import contract.IController;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 import contract.IModel;
 import contract.IView;
-import contract.OrientationOrder;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Controller.
- */
-public class Controller implements IController {
-
-	/** The view. */
-	private IView		view;
-
-	/** The model. */
-	private IModel	model;
-
-	/**
-	 * Instantiates a new controller.
-	 *
-	 * @param view
-	 *          the view
-	 * @param model
-	 *          the model
-	 */
-	public Controller(final IView view, final IModel model) {
-		this.setView(view);
-		this.setModel(model);
+public class ControllerTest {
+	private static IModel 	testModel;
+	private static IView	testView;
+	private static Controller testController;
+		
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	testController = new Controller(testView, testModel);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see contract.IController#control()
-	 */
-	public void control() {
-		this.model.getLorannWorldEntity().play();
+	@Before
+	public void setUp() throws Exception {
 	}
 
-	/**
-	 * Sets the view.
-	 *
-	 * @param view
-	 *          the new view
-	 */
-	private void setView(final IView view) {
-		this.view = view;
+	@Test
+	public void testControl() {
+		assertNotNull(testController);
 	}
 
-	/**
-	 * Sets the model.
-	 *
-	 * @param model
-	 *          the new model
-	 */
-	
-	public void setModel(IModel model) {
-		this.model = model;
+	@Test
+	public void testSetModel() {
+		testController.setModel(testModel);
+		assertTrue(testController.getModel() == testModel);
 	}
 	
-	public IModel getModel() {
-		return model;
+	@Test
+	public void testGetModel(){
+		testController.setModel(testModel);
+		assertTrue(testController.getModel() == testModel);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		
-		switch (controllerOrder) {
-		
-			case Up:
-				this.model.getLorannWorldEntity().getHero().moveUp();
-				break;
-			case Down:
-				this.model.getLorannWorldEntity().getHero().moveDown();
-				break;
-			case Right:
-				this.model.getLorannWorldEntity().getHero().moveRight();
-				break;
-			case Left:
-				this.model.getLorannWorldEntity().getHero().moveLeft();
-				break;
-			case UpLeft:
-				this.model.getLorannWorldEntity().getHero().moveUpLeft();
-				break;
-			case UpRight:
-				this.model.getLorannWorldEntity().getHero().moveUpRight();
-				break;
-			case DownLeft:
-				this.model.getLorannWorldEntity().getHero().moveDownLeft();
-				break;
-			case DownRight:
-				this.model.getLorannWorldEntity().getHero().moveDownRight();
-				break;
-			case Space:
-				//this.model.loadMessage("ID");
-				break;
-
-			default:
-				break;
-		}
-	}
-
-
+	/*@Test
+	public void testOrderPerform() {
+			
+	}*/
 
 }
