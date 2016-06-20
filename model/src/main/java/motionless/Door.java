@@ -21,6 +21,5 @@ public class Door extends MotionLess {
 
 	public Door(boolean open){
 		super(DOOROPEN, PERMEABILITY, 8);
-
 	}
 }
