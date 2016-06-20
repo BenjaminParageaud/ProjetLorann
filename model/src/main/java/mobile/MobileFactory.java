@@ -3,6 +3,7 @@ package mobile;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+import contract.IMonster;
 import model.LorannWorldEntity;
 import motionless.MotionLess;
 
@@ -10,12 +11,12 @@ public class MobileFactory {
 
 	public static ILorannWorldEntity lorannWorldEntity;
 	
-	public static final Mobile ARRBARR = new Arrbarr(lorannWorldEntity);
-	public static final Mobile CARGAV = new Cargav(lorannWorldEntity);
-	public static final Mobile KYRACJ = new Kyracj(lorannWorldEntity);
-	public static final Mobile MOARCG = new Moarcg(lorannWorldEntity);
+	public static final Monster ARRBARR = new Arrbarr(lorannWorldEntity);
+	public static final Monster CARGAV = new Cargav(lorannWorldEntity);
+	public static final Monster KYRACJ = new Kyracj(lorannWorldEntity);
+	public static final Monster MOARCG = new Moarcg(lorannWorldEntity);
 	
-	private static IMobile mobile[] = {ARRBARR, CARGAV, KYRACJ, MOARCG};
+	private static IMonster monster[] = {ARRBARR, CARGAV, KYRACJ, MOARCG};
 	
 	
 	
@@ -29,10 +30,10 @@ public class MobileFactory {
 	
 	
 	
-	public static IMobile getFromBddId(final int bddId, ILorannWorldEntity lorannWorldEntity){
-		for (final IMobile mobile : mobile){
-			if(mobile.getBddId() == bddId) {
-				return mobile;
+	public static IMonster getFromBddId(final int bddId, ILorannWorldEntity lorannWorldEntity){
+		for (final IMonster monster : monster){
+			if(monster.getBddId() == bddId) {
+				return monster;
 			}
 		}
 		return null;

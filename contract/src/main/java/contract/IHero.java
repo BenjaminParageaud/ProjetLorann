@@ -1,6 +1,6 @@
 package contract;
 
-public interface IHero {
+public interface IHero extends IMobile{
 
 	//public void orientationMove (OrientationOrder orientationOrder);
 	

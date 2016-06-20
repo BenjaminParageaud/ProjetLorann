@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IMobile;
+import contract.IMonster;
 import contract.IMotionLess;
 import element.Element;
 import motionless.MotionLessFactory;
@@ -23,6 +24,7 @@ import contract.ILorannWorldEntity;
 public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 
 	public IMotionLess	elements[][];
 	public ArrayList<IMobile>	mobiles;
+	public ArrayList<IMonster>	monsters;
 	private IHero	hero;
 	public int m;
 
@@ -31,6 +33,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public LorannWorldEntity(){
 		this.elements = new IMotionLess[40][40];
 		this.mobiles = new ArrayList<IMobile>();
+		this.monsters = new ArrayList<IMonster>();
 		
 	}
 	
@@ -42,14 +45,16 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		}
 		this.setChanged();
 	}
-
-
-	public void addMobile(IMobile mobile, int x, int y){
-		this.mobiles.add(mobile);
-		mobile.setLorannWorldEntity(this, x, y);
+	
+	public void addMonster(IMonster monster, int x, int y){
+		this.monsters.add(monster);
+		this.mobiles.add(monster);
+		monster.setLorannWorldEntity(this, x, y);
+		//mobile.setLorannWorldEntity(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
 	}
+
 
 	
 	public void addHero(final IHero hero, final int x, final int y) {
@@ -93,15 +98,18 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		for(;;){
 			this.setChanged();
 			this.notifyObservers();
-			/*try{
+			try{
 				Thread.sleep(125);
 			} catch (final InterruptedException e){
 				e.printStackTrace();
 			}
 			
-			//for (final IMobile mobile : this.mobiles){
-				
-			//}*/
+			for (final IMonster monster : this.monsters){
+			System.out.println("xxxxxxxxx");	
+			System.out.println(monster.getStrategy());
+			System.out.println("yyyyyyyyyy");
+			monster.getStrategy().animate(monster, this);
+			}
 		}
 	}
 		
@@ -121,5 +129,8 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public Observable getObservable() {
 		return this;
 	}
+
+
+
 
 }

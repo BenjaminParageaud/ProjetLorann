@@ -49,7 +49,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 				}
 				else if(resultSet.getInt("Id_MotionElements") > 1){
 
-					lorannWorldEntity.addMobile(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements"), lorannWorldEntity), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+					lorannWorldEntity.addMonster(MobileFactory.getFromBddId(resultSet.getInt("Id_MotionElements"), lorannWorldEntity), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 				}
 				else if(resultSet.getInt("Id_MotionElements") == 1){
 

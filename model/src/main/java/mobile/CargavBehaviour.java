@@ -12,6 +12,6 @@ public class CargavBehaviour implements IStrategy{
 	}
 
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
-		monster.moveUp();
+		
 	}
 }

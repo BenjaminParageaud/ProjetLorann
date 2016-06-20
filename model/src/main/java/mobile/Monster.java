@@ -2,7 +2,6 @@ package mobile;
 
 import contract.ILorannWorldEntity;
 import contract.IMonster;
-import contract.ISprite;
 import contract.IStrategy;
 import contract.Permeability;
 import element.Sprite;
@@ -14,19 +13,15 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 	
 	private IStrategy strategy;
 	
-	private int BddId;
-	
-	private int x;
-	private int y;
 	
 	public Monster(final Sprite sprite, final Permeability permeability, final int bddId, ILorannWorldEntity lorannWorldEntity , IStrategy strategy  ){
 
 		super(sprite, permeability, bddId, lorannWorldEntity);
-	
+	setStrategy(strategy);
 		
 	}
 
-
+	
 
 	
 	public IStrategy getStrategy() {

@@ -12,7 +12,7 @@ public class KyracjBehaviour implements IStrategy{
 		}
 
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
-		// TODO Auto-generated method stub
+		monster.moveUp();
 		
 	}
 }
