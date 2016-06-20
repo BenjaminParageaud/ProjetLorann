@@ -1,6 +1,7 @@
 package mobile;
 
 import contract.ILorannWorldEntity;
+
 import contract.IMobile;
 import contract.ISpell;
 import contract.ISprite;
@@ -16,20 +17,12 @@ public class Spell extends Mobile implements ISpell{
 	
 	public Spell(ILorannWorldEntity lorannWorldEntity){
 		super(new Sprite("SpellAnim.gif"), Permeability.SPELLABLE, 1, lorannWorldEntity);
+		System.out.println("Spell");
 		this.sprite = new Sprite("SpellAnim.gif");
 		setLorannWorldEntity(lorannWorldEntity);
 		setPermeability(Permeability.SPELLABLE);
 	}
-
-	public ISpell AffichageSpell(final IMobile motion, final int x, final int y){
-		motion.savePosition();
-		
-	   while(i<1){
-		   
-	   }
-	   return null;
-	}
-
+	 
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
@@ -56,7 +49,7 @@ public class Spell extends Mobile implements ISpell{
 		this.permeability = permeability;
 	}
 	
-	public Boolean executeMoveIfPossible(final int x, final int y){
+	public boolean executeMoveIfPossible(final int x, final int y){
 		boolean a = false;
 		if (this.getLorannWorldEntity().getElement(x, y)== null)
 		{
@@ -65,6 +58,7 @@ public class Spell extends Mobile implements ISpell{
 			a = false;
 		}
 		return a;
+	}
 		/*
 		for(final IMobile I : this.getLorannWorldEntity().getMotionElements())
 		{
@@ -82,5 +76,5 @@ public class Spell extends Mobile implements ISpell{
 	}
 	/// connection avec le pressage de la barre espace
 */
-}
+
 }

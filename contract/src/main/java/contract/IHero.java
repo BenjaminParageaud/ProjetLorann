@@ -44,6 +44,14 @@ public interface IHero {
 	public ISprite getSprite();
 	
 	public Permeability getPermeability() ;
+
+	public int getXSpell();
+
+	public int getYSpell();
+
+	public void setXSpell(int i);
+
+	public void setYSpell(int i);
 	
 	
 }

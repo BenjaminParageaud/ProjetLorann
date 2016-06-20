@@ -34,6 +34,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 		
 	public void addElement(final IMotionLess element, final int x, final int y) {
+		
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setLorannWorldEntity(this);
@@ -58,8 +59,8 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	
 	public void addSpell(final ISpell spell, final int x, final int y){
 		this.setSpell(spell);
-		spell.setX(x+1);
-		spell.setY(y+1);
+		spell.setX(x);
+		spell.setY(y);
 	}
 
 	public void setElements(IMotionLess[][] elements) {

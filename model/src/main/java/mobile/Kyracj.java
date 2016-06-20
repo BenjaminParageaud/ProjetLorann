@@ -11,4 +11,9 @@ public class Kyracj extends Monster{
 	super(new Sprite("monster_1.png"), Permeability.MONSTERABLE, 4, lorannWorldEntity);
 	
 	}
+
+	public boolean executeMoveIfPossible(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -10,4 +10,9 @@ public class Moarcg extends Monster{
 	super(new Sprite("monster_4.png"), Permeability.MONSTERABLE, 5, lorannWorldEntity);
 	
 	}
+
+	public boolean executeMoveIfPossible(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -31,6 +31,12 @@ public interface IMobile extends IElement{
 	public void setLorannWorldEntity(final ILorannWorldEntity lorannWorldEntity, final int x, final int y) ;
 
 	public void savePosition();
+
+	//public boolean isMovePossible(int i, int j);
+
+	public boolean executeMoveIfPossible(int x, int y);
+	
+	
 	
 	
 }

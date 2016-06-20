@@ -168,4 +168,9 @@ public class Hero extends Mobile implements IHero{
 	public void setSaveY(final int saveY) {
 		this.saveY = saveY;
 	}
+
+	public boolean executeMoveIfPossible(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
