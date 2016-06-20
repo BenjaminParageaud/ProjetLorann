@@ -27,6 +27,7 @@ public class HeroTest {
 	
 	/** The test lorann world entity. */
 	private static ILorannWorldEntity testLorannWorldEntity;
+	//private static int x;
 	
 	/**
 	 * Sets the up before class.
@@ -171,108 +172,12 @@ public class HeroTest {
 		assertNotNull(testLorann.getLorannWorldEntity());
 	}
 
-
-	/**
-	 * Test get X.
-	 */
-	@Test
-	public void testGetX() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test set X.
-	 */
-	@Test
-	public void testSetX() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test get Y.
-	 */
-	@Test
-	public void testGetY() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test set Y.
-	 */
-	@Test
-	public void testSetY() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test is move possible.
-	 */
-	@Test
-	public void testIsMovePossible() {
-	}
-
 	/**
 	 * Test move up.
 	 */
 	@Test
 	public void testMoveUp() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test move down.
-	 */
-	@Test
-	public void testMoveDown() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test move right.
-	 */
-	@Test
-	public void testMoveRight() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test move left.
-	 */
-	@Test
-	public void testMoveLeft() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test move up right.
-	 */
-	@Test
-	public void testMoveUpRight() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test move up left.
-	 */
-	@Test
-	public void testMoveUpLeft() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test move down right.
-	 */
-	@Test
-	public void testMoveDownRight() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test move down left.
-	 */
-	@Test
-	public void testMoveDownLeft() {
-		fail("Not yet implemented");
-	}
+	assertNotNull(testLorann.moveUp());
+	} 
 
 }

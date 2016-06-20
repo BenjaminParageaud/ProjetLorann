@@ -46,7 +46,7 @@ public class ViewTest {
 	
 	}
 
-	@Test
+	/*@Test
 	public void testRun() {
 		fail("Not yet implemented");
 	}
@@ -54,6 +54,6 @@ public class ViewTest {
 	@Test
 	public void testSetController() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 }
