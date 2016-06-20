@@ -1,6 +1,3 @@
-/*
- * 
- */
 package motionless;
 
 import java.util.Observable;
@@ -10,51 +7,20 @@ import contract.ISprite;
 import contract.Permeability;
 import element.Sprite;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Door.
- */
-public class Door extends MotionLess implements Observer {
+public class Door extends MotionLess {
+	
+	private static ISprite DOOROPEN = new Sprite("gate_open.png");
+	private static ISprite DOORCLOSED = new Sprite("gate_closed.png");
+	private static Permeability PERMEABILITY = Permeability.MONSTERABLE;
+	//private File DOOR = DOORCLOSED;
+	private static boolean isDoorOpen;
 
-	/** The state. */
-	public boolean state;
-
-	/**
-	 * Instantiates a new door.
-	 */
 	public Door(){
-		super(new Sprite("gate_closed.png"), Permeability.MONSTERABLE, 7);
-
+		super(DOORCLOSED, PERMEABILITY, 7);
 	}
 
-	/**
-	 * Checks if is state.
-	 *
-	 * @return true, if is state
-	 */
-	public boolean isState() {
-		return state;
+	public Door(boolean open){
+		super(DOOROPEN, PERMEABILITY, 8);
+
 	}
-
-	/**
-	 * Sets the state.
-	 *
-	 * @param state the new state
-	 */
-	public void setState(boolean state) {
-		this.state = state;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
-	public void update(Observable o, Object arg) {
-		
-		
-	}
-
-
-
-
-	// on doit faire un boolean qui recupere un etat pour ouvrir la porte
 }
