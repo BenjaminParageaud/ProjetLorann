@@ -12,11 +12,11 @@ import org.junit.Test;
 import contract.ControllerOrder;
 import contract.ILorannWorldEntity;
 import contract.IModel;
-import contract.IView;
+//import contract.IView;
 
 public class ViewTest {
 	private static View testView;
-	private static IModel testModel;
+	//private static IModel testModel;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		testView = new View(new IModel(){

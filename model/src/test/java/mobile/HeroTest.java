@@ -42,6 +42,7 @@ public class HeroTest {
 				
 			}
 
+			@SuppressWarnings("unused")
 			public void addMobile(IMobile mobile, int x, int y) {
 				// TODO Auto-generated method stub
 				

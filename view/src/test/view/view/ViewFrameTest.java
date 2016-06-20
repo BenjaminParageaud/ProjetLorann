@@ -8,16 +8,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import contract.IController;
+//import contract.IController;
 import contract.IModel;
 
 public class ViewFrameTest {
-	private View testView;
+	//private View testView;
 	private static ViewFrame testFrame;
 	private static KeyEvent e;
 	private static int key;
 	private static IModel model;
-	private IController testController;
+	//private IController testController;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
