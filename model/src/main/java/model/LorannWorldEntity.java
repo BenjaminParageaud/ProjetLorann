@@ -8,6 +8,7 @@ package model;
 
 import java.sql.SQLException;
 
+
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -15,10 +16,10 @@ import contract.IMobile;
 import contract.IMotionLess;
 import contract.ISpell;
 import element.Element;
+import mobile.Spell;
 import motionless.MotionLessFactory;
 import contract.IHero;
 import contract.ILorannWorldEntity;
-
 
 public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 
 	public IMotionLess	elements[][];
@@ -34,14 +35,12 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 		
 	public void addElement(final IMotionLess element, final int x, final int y) {
-		
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setLorannWorldEntity(this);
 		}
 		this.setChanged();
 	}
-
 
 	public void addMobile(IMobile mobile, int x, int y){
 		this.mobiles.add(mobile);
@@ -50,8 +49,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		this.notifyObservers();
 	}
 
-	
-	public void addHero(final IHero hero, final int x, final int y) {
+		public void addHero(final IHero hero, final int x, final int y) {
 		this.setHero(hero);
 		hero.setX(x);
 		hero.setY(y);
@@ -74,7 +72,6 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public IMotionLess getElement(final int x, final int y) {
 		System.out.println("25");
 		return this.elements[x][y];
-		
 	}
 	
 	public IHero getHero(){
@@ -107,15 +104,6 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		for(;;){
 			this.setChanged();
 			this.notifyObservers();
-			/*try{
-				Thread.sleep(125);
-			} catch (final InterruptedException e){
-				e.printStackTrace();
-			}
-			
-			//for (final IMobile mobile : this.mobiles){
-				
-			//}*/
 		}
 	}
 	

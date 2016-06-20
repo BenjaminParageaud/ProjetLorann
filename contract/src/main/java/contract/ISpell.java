@@ -9,5 +9,6 @@ public interface ISpell {
 	public int getY() ;
 	public void setY(int y);
 	public Permeability getPermeability();
+	
 
 }

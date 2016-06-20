@@ -9,3 +9,4 @@ public class BonesH extends MotionLess {
 		super(new Sprite("horizontal_bone.png"), Permeability.BLOCKING, 3);
 	}
 }
+

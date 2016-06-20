@@ -22,14 +22,6 @@ public class Spell extends Mobile implements ISpell{
 		setLorannWorldEntity(lorannWorldEntity);
 		setPermeability(Permeability.SPELLABLE);
 	}
-	 
-	public ILorannWorldEntity getLorannWorldEntity() {
-		return lorannWorldEntity;
-	}
-	
-	public void setSprite(ISprite sprite) {
-		this.sprite = sprite;
-	}
 	
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
@@ -39,14 +31,6 @@ public class Spell extends Mobile implements ISpell{
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
 			return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)|| MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
 		}
-	}
-	
-	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
-		this.lorannWorldEntity = lorannWorldEntity;
-	}
-
-	public void setPermeability(Permeability permeability) {
-		this.permeability = permeability;
 	}
 	
 	public boolean executeMoveIfPossible(final int x, final int y){
@@ -76,5 +60,4 @@ public class Spell extends Mobile implements ISpell{
 	}
 	/// connection avec le pressage de la barre espace
 */
-
 }
