@@ -108,7 +108,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @return the model
 	 */
 	protected IModel getModel() {
-		System.out.println("Pogba 1");
 		return this.model;
 	}
 
