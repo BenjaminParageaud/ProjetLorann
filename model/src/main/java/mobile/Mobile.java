@@ -2,6 +2,7 @@ package mobile;
 
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+import contract.ISpell;
 import contract.ISprite;
 import contract.Permeability;
 import element.Element;
@@ -14,7 +15,6 @@ public abstract class Mobile extends Element implements IMobile{
 	protected ILorannWorldEntity lorannWorldEntity;
 	private int x;
 	private int y;
-	
 
 	public Mobile(final ISprite sprite, final Permeability permeability, final int bddId, ILorannWorldEntity lorannWorldEntity){
 	    super(sprite, permeability);

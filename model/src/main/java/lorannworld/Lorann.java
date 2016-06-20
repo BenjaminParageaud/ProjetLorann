@@ -7,7 +7,6 @@ public class Lorann {
 
 	public Lorann(){
 		
-		
 	}
 	
 	public void play() {

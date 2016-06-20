@@ -7,26 +7,25 @@ package model;
  */
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IMobile;
 import contract.IMotionLess;
+import contract.ISpell;
 import element.Element;
 import motionless.MotionLessFactory;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 
 
-
-
 public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 
 	public IMotionLess	elements[][];
 	public ArrayList<IMobile>	mobiles;
 	private IHero	hero;
+	private ISpell spell;
 	public int m;
-
-
 
 	public LorannWorldEntity(){
 		this.elements = new IMotionLess[40][40];
@@ -57,6 +56,12 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		hero.setX(x);
 		hero.setY(y);
 	}
+	
+	public void addSpell(final ISpell spell, final int x, final int y){
+		this.setSpell(spell);
+		spell.setX(x+1);
+		spell.setY(y+1);
+	}
 
 	public void setElements(IMotionLess[][] elements) {
 		this.elements = elements;
@@ -77,6 +82,18 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		System.out.println(hero);
 		return this.hero;
 	}
+	
+	public ISpell getSpell(){
+		System.out.println("lol3");
+		System.out.println(spell);
+		return this.spell;
+	}
+	
+	public void setSpell(final ISpell spell){
+		this.spell = spell;
+		this.setChanged();
+	}
+	
 	public void setHero(final IHero hero) {
 		this.hero = hero;
 		this.setChanged();
@@ -85,7 +102,6 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public ArrayList<IMobile> getMobiles(){
 		return this.mobiles;
 	}
-
 	
 	public void play(){
 		for(;;){
@@ -102,22 +118,23 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 			//}*/
 		}
 	}
-		
-
-	
 	
 	public void setMobilehasChanged(){
 		this.setChanged();
 		this.notifyObservers();
 	}
 	
-
 	public void notifyObservers(){
 		super.notifyObservers();
 	}
 
 	public Observable getObservable() {
 		return this;
+	}
+
+	public void setSpell() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

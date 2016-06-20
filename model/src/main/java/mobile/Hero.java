@@ -15,6 +15,8 @@ public class Hero extends Mobile implements IHero{
 	private int x;
 	private ISprite sprite;
 	private int y;
+	private int saveX;
+	private int saveY;
 	private ILorannWorldEntity lorannWorldEntity;
 	private Permeability permeability;
 	public int coordonate;
@@ -189,6 +191,14 @@ public class Hero extends Mobile implements IHero{
 	}
 	public ISprite getSprite() {
 		return sprite;
+	}
+	
+	public void saveX(final int x){
+		this.saveX = x;
+	}
+	
+	public void saveY(final int y){
+		this.saveY = y;
 	}
 
 }

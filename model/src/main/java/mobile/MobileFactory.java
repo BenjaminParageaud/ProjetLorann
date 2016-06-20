@@ -3,6 +3,7 @@ package mobile;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+import contract.ISpell;
 import model.LorannWorldEntity;
 import motionless.MotionLess;
 
@@ -27,7 +28,13 @@ public class MobileFactory {
 		return null;
 	}
 	
-	
+	public static ISpell getSpellBdd(final int bddId, ILorannWorldEntity lorannwWorldEntity){
+		ISpell spell = new Spell(lorannWorldEntity);
+		if( 1 == bddId) {
+			return spell;
+		}
+	return null;
+	}
 	
 	public static IMobile getFromBddId(final int bddId, ILorannWorldEntity lorannWorldEntity){
 		for (final IMobile mobile : mobile){

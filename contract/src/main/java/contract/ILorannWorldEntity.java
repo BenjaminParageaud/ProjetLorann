@@ -22,6 +22,9 @@ public interface ILorannWorldEntity {
 	
 	public void setHero(final IHero hero) ;
 
+	public ISpell getSpell();
+	
+	public void setSpell();
 	
 	public void setElements(IMotionLess[][] elements);
 	

@@ -13,14 +13,10 @@ public abstract class Element implements IElement{
 	private Permeability permeability;
 	private ILorannWorldEntity lorannWorldEntity;
 
-	
-
-
 	public Element(final ISprite sprite, final Permeability permeability){
 		this.setSprite(sprite);
 		this.setPermeability(permeability);
 	}
-
 
 	public ISprite getSprite() {
 		return sprite;
