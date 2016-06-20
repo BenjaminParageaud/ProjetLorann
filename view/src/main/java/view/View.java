@@ -65,7 +65,8 @@ public class View implements IView, Runnable {
 		}
 
 			
-		return null;
+		return ControllerOrder.Nop;
+				
 	}
 
 	/*
