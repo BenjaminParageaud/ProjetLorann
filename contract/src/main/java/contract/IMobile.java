@@ -32,9 +32,9 @@ public interface IMobile extends IElement{
 
 	public void savePosition();
 
-	//public boolean isMovePossible(int i, int j);
+	public boolean isMovePossible(int i, int j);
 
-	public boolean executeMoveIfPossible(int x, int y);
+	//public boolean executeMoveIfPossible(int x, int y);
 	
 	
 	

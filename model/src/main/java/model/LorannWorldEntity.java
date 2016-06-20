@@ -31,7 +31,6 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public LorannWorldEntity(){
 		this.elements = new IMotionLess[40][40];
 		this.mobiles = new ArrayList<IMobile>();
-		
 	}
 		
 	public void addElement(final IMotionLess element, final int x, final int y) {
@@ -50,6 +49,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 		public void addHero(final IHero hero, final int x, final int y) {
+		//this.addElement(spell, x, y);
 		this.setHero(hero);
 		hero.setX(x);
 		hero.setY(y);

@@ -12,7 +12,7 @@ public class SpellBehavior  implements IStrategy {
 		
 		motion.savePosition();
 		
-		if(!motion.executeMoveIfPossible(motion.getX() - lorannWorldEntity.getHero().getXSpell(), motion.getY() - lorannWorldEntity.getHero().getYSpell())){
+		if(!motion.isMovePossible(motion.getX() - lorannWorldEntity.getHero().getXSpell(), motion.getY() - lorannWorldEntity.getHero().getYSpell())){
 			lorannWorldEntity.getHero().setXSpell(-lorannWorldEntity.getHero().getXSpell());
 			lorannWorldEntity.getHero().setYSpell(-lorannWorldEntity.getHero().getYSpell());
 			}

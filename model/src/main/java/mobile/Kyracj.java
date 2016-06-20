@@ -12,7 +12,8 @@ public class Kyracj extends Monster{
 	
 	}
 
-	public boolean executeMoveIfPossible(int x, int y) {
+
+	public boolean isMovePossible(int i, int j) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -22,8 +22,9 @@ public class Spell extends Mobile implements ISpell{
 		setLorannWorldEntity(lorannWorldEntity);
 		setPermeability(Permeability.SPELLABLE);
 	}
-	
+		
 	public boolean isMovePossible(final int x, final int y){
+		System.out.println("le joueur francais");
 		if(getLorannWorldEntity().getElement(x, y) == null){
 			return(MobileFactory.getSpellBdd(1, lorannWorldEntity).getPermeability() == (Permeability.SPELLABLE)); 
 		}
@@ -32,19 +33,18 @@ public class Spell extends Mobile implements ISpell{
 			return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)|| MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
 		}
 	}
-	
-	public boolean executeMoveIfPossible(final int x, final int y){
+}
+/*	
+	public Boolean executeMoveIfPossible(final int x, final int y){
 		boolean a = false;
-		if (this.getLorannWorldEntity().getElement(x, y)== null)
+		if (this.getLorannWorld().getElement(x, y)==null)
 		{
 			a = true;
 		} else {
 			a = false;
 		}
-		return a;
-	}
-		/*
-		for(final IMobile I : this.getLorannWorldEntity().getMotionElements())
+
+		for(final IMobile I : this.getLorannWorld().getMotionElements())
 		{
 			if((I.getX() == x) && (I.getY() == y) && (I != this) && ((I.getSymbole() == 't') || (I.getSymbole() == 'k') || (I.getSymbole() == 'd')))
 			{
@@ -52,12 +52,16 @@ public class Spell extends Mobile implements ISpell{
 			}
 		}
 		if(a) {
+			this.setX(x);
+			this.setY(y);
 			return a;
 		}
-		this.setX(this.getX());
-		this.setY(this.getY());
+		this.setX(this.getSaveX());
+		this.setY(this.getSaveY());
 		return a;
 	}
 	/// connection avec le pressage de la barre espace
 */
-}
+
+
+
