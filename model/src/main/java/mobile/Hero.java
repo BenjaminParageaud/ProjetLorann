@@ -41,7 +41,7 @@ public class Hero extends Mobile implements IHero{
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
 			getLorannWorldEntity().setMobilehasChanged();
-			return false ; 
+			return true ; 
 		}
 		else if(getLorannWorldEntity().getElement(x, y) != null) {
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
