@@ -22,6 +22,7 @@ public class CargavBehaviour implements IStrategy{
 	 */
 	public CargavBehaviour(){
 		
+		
 	}
 
 	public ILorannWorldEntity getLorannWorldEntity() {
@@ -37,8 +38,11 @@ public class CargavBehaviour implements IStrategy{
 	 */
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
 		
+	setLorannWorldEntity(lorannWorldEntity);
+	int PosXDoor = getLorannWorldEntity().getXdoor();
+	int PosYDoor = getLorannWorldEntity().getYdoor();
 	
-	//int PosXDoor = getLorannWorldEntity.getXDoor();
+	
 		
 		
 	}
