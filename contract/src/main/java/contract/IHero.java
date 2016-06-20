@@ -4,21 +4,21 @@ public interface IHero {
 
 	//public void orientationMove (OrientationOrder orientationOrder);
 	
-	public void moveUp();
+	public boolean moveUp();
 	
-	public void moveDown();
+	public boolean moveDown();
 	
-	public void moveRight();
+	public boolean moveRight();
 	
-	public void moveLeft();
+	public boolean moveLeft();
 	
-	public void moveUpRight();
+	public boolean moveUpRight();
 
-	public void moveUpLeft();
+	public boolean moveUpLeft();
 
-	public void moveDownRight();
+	public boolean moveDownRight();
 
-	public void moveDownLeft();
+	public boolean moveDownLeft();
 
 	public boolean isMovePossible(final int x, final int y);
 	
@@ -41,6 +41,10 @@ public interface IHero {
 	public ISprite getSprite();
 	
 	public Permeability getPermeability() ;
+	
+	//public int getAlive();
+
+	//public void setAlive(int alive);
 	
 	
 }

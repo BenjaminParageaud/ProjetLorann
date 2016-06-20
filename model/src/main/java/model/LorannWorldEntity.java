@@ -61,20 +61,22 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public void setElements(IMotionLess[][] elements) {
 		this.elements = elements;
 	}
+	
+	public boolean setElement( IMotionLess element, final int x, final int y) {
+		this.elements[x][y] = element;
+		return true;
+	}
 
 	public IMotionLess[][] getElements(){
 		return this.elements;		
 	}
 
 	public IMotionLess getElement(final int x, final int y) {
-		System.out.println("25");
 		return this.elements[x][y];
 		
 	}
 	
 	public IHero getHero(){
-		System.out.println("lol2");
-		System.out.println(hero);
 		return this.hero;
 	}
 	public void setHero(final IHero hero) {

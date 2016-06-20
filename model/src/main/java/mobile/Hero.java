@@ -3,10 +3,12 @@ package mobile;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+import contract.IMotionLess;
 import contract.ISprite;
 import contract.OrientationOrder;
 import contract.Permeability;
 import element.Sprite;
+import motionless.MotionLess;
 import motionless.MotionLessFactory;
 
 
@@ -17,7 +19,10 @@ public class Hero extends Mobile implements IHero{
 	private int y;
 	private ILorannWorldEntity lorannWorldEntity;
 	private Permeability permeability;
-	public int coordonate;
+	private int coordonate;
+	//private int alive;
+
+
 
 
 	public Hero(ILorannWorldEntity lorannWorldEntity){
@@ -37,16 +42,22 @@ public class Hero extends Mobile implements IHero{
 		if(getLorannWorldEntity().getElement(x, y) == null){
 			return(MobileFactory.getFromBddIdHero(1, lorannWorldEntity).getPermeability() == (Permeability.HEROABLE)); 
 		}
-		else {//if (MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)) {
+		else {//(getLorannWorldEntity().getElement(x, y) != null) {
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
 			return(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)|| MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
 		}
+		//return false;
 	}
 
-
-	public ILorannWorldEntity getLorannWorldEntity() {
-		return lorannWorldEntity;
-	}
+/*
+   public int kill(final int x, final int y){
+	   coordonate = getLorannWorldEntity().getMobiles(x, y).getBddId();
+	   
+	   if(MobileFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MONSTERABLE)){
+		   return alive; 
+	   }
+	   
+   }*/
 
 
 	/*public void orientationMove (OrientationOrder orientationOrder){
@@ -81,44 +92,90 @@ public class Hero extends Mobile implements IHero{
 }
 	}*/
 
-	public void moveUp(){
+	public boolean moveUp(){
 		if (isMovePossible(getX(), getY() - 1)){
-			setY(getY() - 1);
+			coordonate = getLorannWorldEntity().getElement(getX(), getY() - 1).getBddId();
+			if(coordonate == 1 ){
+				getLorannWorldEntity().getElement(getX(), getY() - 1).setPermeability(Permeability.MEETINGABLE);;
+				 //setState();
+				setY(getY() - 1);
+			}
+			else{
+				setY(getY() - 1);
+			}
+			
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX(), getY() +1 );
 		}
+		/*
+		else if(kill(getX(), getY()- 1)){
+			return true;
+		}*/
+		return false;
+		
 	}
 
-	public void moveDown(){
+	public boolean moveDown(){
 		if (isMovePossible(getX(), getY() + 1)){
 			setY(getY() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX(), getY() - 1);
 		}
+		return false;
 	}
 
-	public void moveRight(){
+	public boolean moveRight(){
 		if (isMovePossible(getX() + 1, getY())){
 			setX(getX() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY());
 		}
+		return false;
 	}
 
-	public void moveLeft(){
+	public boolean moveLeft(){
 		if (isMovePossible(getX() - 1, getY())){
 			setX(getX() - 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY());
 		}
+		return false;
 	}
 
-	public void moveUpRight(){
+	public boolean moveUpRight(){
 		if (isMovePossible(getX() + 1, getY() - 1)){
 			setY(getY() - 1);
 			setX(getX() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY() + 1);
 		}
+		return false;
 	}
 
-	public void moveUpLeft(){
+	public boolean moveUpLeft(){
 		if (isMovePossible(getX() - 1, getY() - 1)){
 			setY(getY() - 1);
 			setX(getX() - 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY() + 1);
 		}
+		return false;
 	}
 
+	
+	public boolean moveDownRight(){
+		if (isMovePossible(getX() + 1, getY() + 1)){
+			setY(getY() + 1);
+			setX(getX() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY() - 1);
+		}
+		return false;
+	}
+
+	public boolean moveDownLeft(){
+		if (isMovePossible(getX() - 1, getY() + 1)){
+			setY(getY() + 1);
+			setX(getX() - 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY() - 1);
+		}
+		return false;
+	}
+	
+	
 	public void setSprite(ISprite sprite) {
 		this.sprite = sprite;
 	}
@@ -134,39 +191,6 @@ public class Hero extends Mobile implements IHero{
 	}
 
 
-	public void moveDownRight(){
-		if (isMovePossible(getX() + 1, getY() + 1)){
-			setY(getY() + 1);
-			setX(getX() + 1);
-		}
-	}
-
-	public void moveDownLeft(){
-		if (isMovePossible(getX() - 1, getY() + 1)){
-			setY(getY() + 1);
-			setX(getX() - 1);
-		}
-	}
-
-
-	/*public void moveUp(){
-		System.out.println("lol4");
-		super.moveUp();
-	}
-
-	public void moveDown(){
-		super.moveDown();
-	}
-
-	public void moveRight(){
-		super.moveRight();
-	}
-
-	public void moveLeft(){
-		super.moveLeft();
-	}
-	 */
-
 	public int getX() {
 		return x;
 	}
@@ -174,7 +198,6 @@ public class Hero extends Mobile implements IHero{
 
 	public void setX(int x) {
 		this.x = x;
-		//getLorannWorld().setMobileHasChanged();
 	}
 
 
@@ -182,13 +205,24 @@ public class Hero extends Mobile implements IHero{
 		return y;
 	}
 
+	public ILorannWorldEntity getLorannWorldEntity() {
+		return lorannWorldEntity;
+	}
 
 	public void setY(int y) {
 		this.y = y;
-		//getLorannWorld().setMobileHasChanged();
 	}
 	public ISprite getSprite() {
 		return sprite;
 	}
+	/*
+	public int getAlive() {
+		return alive;
+	}
+
+
+	public void setAlive(int alive) {
+		this.alive = alive;
+	}*/
 
 }

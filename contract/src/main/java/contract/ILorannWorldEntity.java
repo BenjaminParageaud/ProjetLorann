@@ -22,6 +22,7 @@ public interface ILorannWorldEntity {
 	
 	public void setHero(final IHero hero) ;
 
+	public boolean setElement( IMotionLess element, final int x, final int y);
 	
 	public void setElements(IMotionLess[][] elements);
 	
