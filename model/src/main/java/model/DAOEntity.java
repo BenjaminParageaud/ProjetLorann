@@ -1,9 +1,13 @@
+/*
+ * 
+ */
 package model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Observable;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class DAOEntity.
  *

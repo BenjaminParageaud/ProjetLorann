@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package view;
 
 import java.awt.event.KeyEvent;
@@ -10,6 +13,7 @@ import contract.ILorannWorldEntity;
 import contract.IModel;
 import contract.IView;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class View.
  *

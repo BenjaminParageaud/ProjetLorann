@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package view;
 
 import java.awt.Color;
@@ -14,6 +17,7 @@ import contract.ILorannWorldEntity;
 import contract.IMobile;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class ViewPanel.
  *
@@ -22,17 +26,30 @@ import contract.IMobile;
 class ViewPanel extends JPanel implements Observer {
 
 
+	/** The view frame. */
 	private ViewFrame	viewFrame;
 	
+	/** The mobiles. */
 	private final ArrayList<? extends IMobile> mobiles;
 	
+	/** The elements. */
 	private final IElement elements[][];
 
+	/** The hero. */
 	private IHero hero;
 
+	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
 
+	/**
+	 * Instantiates a new view panel.
+	 *
+	 * @param viewFrame the view frame
+	 * @param mobiles the mobiles
+	 * @param elements the elements
+	 * @param hero the hero
+	 */
 	public ViewPanel(final ViewFrame viewFrame, final ArrayList<IMobile> mobiles, final IElement elements[][] , final IHero hero){
 		this.setViewFrame(viewFrame);
 		this.mobiles = mobiles;
@@ -50,10 +67,20 @@ class ViewPanel extends JPanel implements Observer {
 		return this.viewFrame;
 	}
 	
+	/**
+	 * Gets the mobiles.
+	 *
+	 * @return the mobiles
+	 */
 	public ArrayList<? extends IMobile> getMobiles() {
 		return mobiles;
 	}
 
+	/**
+	 * Gets the elements.
+	 *
+	 * @return the elements
+	 */
 	public IElement[][] getElements() {
 		return elements;
 	}
