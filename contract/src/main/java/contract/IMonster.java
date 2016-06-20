@@ -2,7 +2,7 @@ package contract;
 
 
 
-public interface IMonster extends IMobile{
+public interface IMonster {
 	
 
 	public int getX() ;
