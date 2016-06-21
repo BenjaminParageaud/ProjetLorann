@@ -40,10 +40,19 @@ public class Hero extends Mobile implements IHero{
 
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
-			getLorannWorldEntity().setMobilehasChanged();
-			return true ; 
+			/*coordonate = getLorannWorldEntity().getElement(x, y).getBddId();*/
+			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MONSTERABLE)){
+				getLorannWorldEntity().setAlive(1);
+				getLorannWorldEntity().setMobilehasChanged();
+				return false;
+			}
+			else{
+				getLorannWorldEntity().setMobilehasChanged();
+				return true ; 
+			}
 		}
-		else if(getLorannWorldEntity().getElement(x, y) != null) {
+		
+			else if(getLorannWorldEntity().getElement(x, y) != null) {
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
 			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )){
 				if(getLorannWorldEntity().getElement(x, y) == MotionLessFactory.getFromBddId(1)){
@@ -52,6 +61,11 @@ public class Hero extends Mobile implements IHero{
 
 				}
 				return true;
+			}
+			else if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MONSTERABLE)){
+				getLorannWorldEntity().setAlive(1);
+				getLorannWorldEntity().setMobilehasChanged();
+				return false;
 			}
 			return false;
 		}
@@ -111,108 +125,108 @@ public class Hero extends Mobile implements IHero{
 	}
 
 
-public boolean moveDown(){
-	if (isMovePossible(getX(), getY() + 1)){
-		setY(getY() + 1);
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX(), getY() - 1);
+	public boolean moveDown(){
+		if (isMovePossible(getX(), getY() + 1)){
+			setY(getY() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX(), getY() - 1);
+		}
+		return false;
 	}
-	return false;
-}
 
-public boolean moveRight(){
-	if (isMovePossible(getX() + 1, getY())){
-		setX(getX() + 1);
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY());
+	public boolean moveRight(){
+		if (isMovePossible(getX() + 1, getY())){
+			setX(getX() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY());
+		}
+		return false;
 	}
-	return false;
-}
 
-public boolean moveLeft(){
-	if (isMovePossible(getX() - 1, getY())){
-		setX(getX() - 1);
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY());
+	public boolean moveLeft(){
+		if (isMovePossible(getX() - 1, getY())){
+			setX(getX() - 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY());
+		}
+		return false;
 	}
-	return false;
-}
 
-public boolean moveUpRight(){
-	if (isMovePossible(getX() + 1, getY() - 1)){
-		setY(getY() - 1);
-		setX(getX() + 1);
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY() + 1);
+	public boolean moveUpRight(){
+		if (isMovePossible(getX() + 1, getY() - 1)){
+			setY(getY() - 1);
+			setX(getX() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY() + 1);
+		}
+		return false;
 	}
-	return false;
-}
 
-public boolean moveUpLeft(){
-	if (isMovePossible(getX() - 1, getY() - 1)){
-		setY(getY() - 1);
-		setX(getX() - 1);
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY() + 1);
+	public boolean moveUpLeft(){
+		if (isMovePossible(getX() - 1, getY() - 1)){
+			setY(getY() - 1);
+			setX(getX() - 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY() + 1);
+		}
+		return false;
 	}
-	return false;
-}
 
 
-public boolean moveDownRight(){
-	if (isMovePossible(getX() + 1, getY() + 1)){
-		setY(getY() + 1);
-		setX(getX() + 1);
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY() - 1);
+	public boolean moveDownRight(){
+		if (isMovePossible(getX() + 1, getY() + 1)){
+			setY(getY() + 1);
+			setX(getX() + 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() - 1, getY() - 1);
+		}
+		return false;
 	}
-	return false;
-}
 
-public boolean moveDownLeft(){
-	if (isMovePossible(getX() - 1, getY() + 1)){
-		setY(getY() + 1);
-		setX(getX() - 1);
-		return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY() - 1);
+	public boolean moveDownLeft(){
+		if (isMovePossible(getX() - 1, getY() + 1)){
+			setY(getY() + 1);
+			setX(getX() - 1);
+			return getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(5),getX() + 1, getY() - 1);
+		}
+		return false;
 	}
-	return false;
-}
 
 
-public void setSprite(ISprite sprite) {
-	this.sprite = sprite;
-}
+	public void setSprite(ISprite sprite) {
+		this.sprite = sprite;
+	}
 
 
-public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
-	this.lorannWorldEntity = lorannWorldEntity;
-}
+	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
+		this.lorannWorldEntity = lorannWorldEntity;
+	}
 
 
-public void setPermeability(Permeability permeability) {
-	this.permeability = permeability;
-}
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
+	}
 
 
-public int getX() {
-	return x;
-}
+	public int getX() {
+		return x;
+	}
 
 
-public void setX(int x) {
-	this.x = x;
-}
+	public void setX(int x) {
+		this.x = x;
+	}
 
 
-public int getY() {
-	return y;
-}
+	public int getY() {
+		return y;
+	}
 
-public ILorannWorldEntity getLorannWorldEntity() {
-	return lorannWorldEntity;
-}
+	public ILorannWorldEntity getLorannWorldEntity() {
+		return lorannWorldEntity;
+	}
 
-public void setY(int y) {
-	this.y = y;
-}
-public ISprite getSprite() {
-	return sprite;
-}
-/*
+	public void setY(int y) {
+		this.y = y;
+	}
+	public ISprite getSprite() {
+		return sprite;
+	}
+	/*
 	public int getAlive() {
 		return alive;
 	}

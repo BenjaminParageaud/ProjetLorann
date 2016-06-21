@@ -43,8 +43,10 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	private IHero	hero;
 	
 	/** The m. */
-	public int Xdoor;
-	public int Ydoor;
+	private int Xdoor;
+	private int Ydoor;
+	
+	private int alive = 0;
 
 
 
@@ -154,7 +156,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	 * @see contract.ILorannWorldEntity#play()
 	 */
 	public void play(){
-		for(;;){
+		while(alive == 0){
 			this.setChanged();
 			this.notifyObservers();
 			try{
@@ -164,17 +166,17 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 			}
 			
 			for (final IMonster monster : this.monsters){
-			/*System.out.println("xxxxxxxxx");	
-			System.out.println(monster.getStrategy());
-			System.out.println("yyyyyyyyyy");*/
 			monster.getStrategy().animate(monster, this);
 			}
+			
 		}
+		getHero().setX(35);
+		setMobilehasChanged();
 	}
-		
 
-	
-	
+
+
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#setMobilehasChanged()
 	 */
@@ -218,6 +220,16 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		Ydoor = ydoor;
 	}
 
+	
+	
+	public int getAlive() {
+		return alive;
+	}
+
+
+	public void setAlive(int alive) {
+		this.alive = alive;
+	}
 
 
 

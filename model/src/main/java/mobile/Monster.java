@@ -61,12 +61,21 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 	 */
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
-			return(MobileFactory.getFromBddId(2, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)); 
+			return true;
 		}
-		else {//if (MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)) {
+		else if(x == getLorannWorldEntity().getHero().getX() && y  == getLorannWorldEntity().getHero().getY()){
+			getLorannWorldEntity().setAlive(1);
+			getLorannWorldEntity().setMobilehasChanged();
+			return true; 
+		}
+		else if(getLorannWorldEntity().getElement(x, y) != null){
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
-			return( MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )); 
+		if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE)){
+			return true;
 		}
+		return false;
+		}
+		return false;
 	}
 	
 	/* (non-Javadoc)
