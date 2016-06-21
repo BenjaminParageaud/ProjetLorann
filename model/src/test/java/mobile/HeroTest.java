@@ -133,6 +133,56 @@ public class HeroTest {
 				// TODO Auto-generated method stub
 				
 			}
+
+			public int getAlive() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			public void setAlive(int alive) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public int getSaveX() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			public void setSaveX(int saveX) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public int getSaveY() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			public void setSaveY(int saveY) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public int getC() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			public ArrayList<IMonster> getMonsterspell() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			public void setC(int c) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void shot(int c) {
+				// TODO Auto-generated method stub
+				
+			}
 			
 		};
 		testLorann = new Hero(testLorannWorldEntity);
