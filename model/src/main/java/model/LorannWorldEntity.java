@@ -175,8 +175,6 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 
-
-
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#setMobilehasChanged()
 	 */

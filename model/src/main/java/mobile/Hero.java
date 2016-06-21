@@ -40,8 +40,9 @@ public class Hero extends Mobile implements IHero{
 
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
-			/*coordonate = getLorannWorldEntity().getElement(x, y).getBddId();*/
-			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MONSTERABLE)){
+			
+			
+			if(MobileFactory.getFromBddId(3, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
 				getLorannWorldEntity().setAlive(1);
 				getLorannWorldEntity().setMobilehasChanged();
 				return false;
