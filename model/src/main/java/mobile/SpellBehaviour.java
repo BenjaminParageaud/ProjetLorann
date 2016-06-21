@@ -1,26 +1,50 @@
+/*
+ * 
+ */
 package mobile;
 
 import contract.ILorannWorldEntity;
 import contract.IMonster;
 import contract.IStrategy;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SpellBehaviour.
+ */
 public class SpellBehaviour implements IStrategy{
 
 	
+	/** The lorann world entity. */
 	private ILorannWorldEntity lorannWorldEntity;
 	
+	/**
+	 * Instantiates a new spell behaviour.
+	 */
 	public SpellBehaviour(){
 		
 	}
 	
+	/**
+	 * Gets the lorann world entity.
+	 *
+	 * @return the lorann world entity
+	 */
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
 
+	/**
+	 * Sets the lorann world entity.
+	 *
+	 * @param lorannWorldEntity the new lorann world entity
+	 */
 	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
 		this.lorannWorldEntity = lorannWorldEntity;
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.IStrategy#animate(contract.IMonster, contract.ILorannWorldEntity)
+	 */
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
 		
 		/*

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package view;
 
 import static org.junit.Assert.*;
@@ -12,10 +15,22 @@ import org.junit.Test;
 import contract.ControllerOrder;
 import contract.ILorannWorldEntity;
 import contract.IModel;
+// TODO: Auto-generated Javadoc
 //import contract.IView;
 
+/**
+ * The Class ViewTest.
+ */
 public class ViewTest {
+	
+	/** The test view. */
 	private static View testView;
+	
+	/**
+	 * Sets the up before class.
+	 *
+	 * @throws Exception the exception
+	 */
 	//private static IModel testModel;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -34,10 +49,18 @@ public class ViewTest {
 		});
 	}
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Test key code to controller order.
+	 */
 	@SuppressWarnings("static-access")
 	@Test
 	public void testKeyCodeToControllerOrder() {

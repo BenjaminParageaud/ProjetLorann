@@ -85,16 +85,34 @@ public interface IMonster extends IMobile{
 	 */
 	public Permeability getPermeability();
 
+	/* (non-Javadoc)
+	 * @see contract.IMobile#getX()
+	 */
 	public int getX() ;
 
+	/* (non-Javadoc)
+	 * @see contract.IMobile#setX(int)
+	 */
 	public void setX(int x);
 
+	/* (non-Javadoc)
+	 * @see contract.IMobile#getY()
+	 */
 	public int getY();
 
+	/* (non-Javadoc)
+	 * @see contract.IMobile#setY(int)
+	 */
 	public void setY(int y);
 
+	/* (non-Javadoc)
+	 * @see contract.IMobile#getLorannWorldEntity()
+	 */
 	public ILorannWorldEntity getLorannWorldEntity();
 
+	/* (non-Javadoc)
+	 * @see contract.IElement#setLorannWorldEntity(contract.ILorannWorldEntity)
+	 */
 	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity);
 		
 	}

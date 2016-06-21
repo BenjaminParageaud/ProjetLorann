@@ -32,8 +32,11 @@ class ViewPanel extends JPanel implements Observer {
 	
 	/** The mobiles. */
 	private final ArrayList<? extends IMobile> mobiles;
+	
+	/** The monsterspell. */
 	private final ArrayList< ? extends IMonster>	monsterspell;
 	
+	/** The lorann world entity. */
 	private final ILorannWorldEntity lorannWorldEntity;
 	
 	/** The elements. */
@@ -53,6 +56,8 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param mobiles the mobiles
 	 * @param elements the elements
 	 * @param hero the hero
+	 * @param monsterspell the monsterspell
+	 * @param lorannnWorldEntity the lorannn world entity
 	 */
 	public ViewPanel(final ViewFrame viewFrame, final ArrayList<IMobile> mobiles, final IElement elements[][] , final IHero hero, final ArrayList<IMonster>	monsterspell,final ILorannWorldEntity lorannnWorldEntity){
 		this.setViewFrame(viewFrame);

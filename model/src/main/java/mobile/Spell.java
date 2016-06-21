@@ -23,6 +23,9 @@ public class Spell extends Monster{
 		super(new Sprite("SpellAnim.gif"), Permeability.SPELLABLE, 9, lorannWorldEntity, new SpellBehaviour());
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.IStrategy#animate(contract.IMonster, contract.ILorannWorldEntity)
+	 */
 	public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
 		// TODO Auto-generated method stub
 		

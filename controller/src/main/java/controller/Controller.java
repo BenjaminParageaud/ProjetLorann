@@ -109,6 +109,11 @@ public class Controller implements IController {
 		}
 	}
 
+	/**
+	 * Gets the model.
+	 *
+	 * @return the model
+	 */
 	public IModel getModel() {
 		// TODO Auto-generated method stub
 		return model;

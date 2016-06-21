@@ -79,6 +79,9 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 
 
 
+	/* (non-Javadoc)
+	 * @see contract.IMonster#moveUp()
+	 */
 	public void moveUp(){
 
 		if (isMovePossible(getX(), getY() - 1)){
@@ -156,10 +159,16 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 
 
 
+	/* (non-Javadoc)
+	 * @see mobile.Mobile#getLorannWorldEntity()
+	 */
 	public ILorannWorldEntity getLorannWorldEntity() {
 		return lorannWorldEntity;
 	}
 
+	/* (non-Javadoc)
+	 * @see element.Element#setLorannWorldEntity(contract.ILorannWorldEntity)
+	 */
 	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
 		this.lorannWorldEntity = lorannWorldEntity;
 	}

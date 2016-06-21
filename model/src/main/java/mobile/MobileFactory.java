@@ -28,6 +28,7 @@ public class MobileFactory {
 	/** The Constant MOARCG. */
 	public static final Monster MOARCG = new Moarcg(lorannWorldEntity);
 	
+	/** The Constant SPELL. */
 	public static final Monster SPELL =  new Spell(lorannWorldEntity);
 	
 	/** The monster. */

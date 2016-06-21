@@ -36,8 +36,13 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 
 	/** The monsters. */
 	public ArrayList<IMonster>	monsters;
+	
+	/** The monsterspell. */
 	public ArrayList<IMonster>	monsterspell;
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getMonsterspell()
+	 */
 	public ArrayList<IMonster> getMonsterspell() {
 		return monsterspell;
 	}
@@ -48,13 +53,20 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 
 	/** The m. */
 	private int Xdoor;
+	
+	/** The Ydoor. */
 	private int Ydoor;
 
+	/** The alive. */
 	private int alive = 0;
 
+	/** The save X. */
 	private int saveX;
+	
+	/** The save Y. */
 	private int saveY;
 
+	/** The c. */
 	private int c = 0;
 
 
@@ -111,16 +123,25 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		hero.setY(y);
 	}
 	
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getC()
+	 */
 	public int getC() {
 		return c;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setC(int)
+	 */
 	public void setC(int c) {
 		this.c = c;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#shot(int)
+	 */
 	public void shot(final int c){
 		setC(c);
 		if( getC() == 10){
@@ -131,6 +152,13 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		
 	}
 	
+	/**
+	 * Adds the spell.
+	 *
+	 * @param monster the monster
+	 * @param x the x
+	 * @param y the y
+	 */
 	public void addSpell(IMonster monster, int x, int y){
 		this.monsterspell.add(monster);
 		//this.mobiles.add(monster);
@@ -244,52 +272,82 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getXdoor()
+	 */
 	public int getXdoor() {
 		return Xdoor;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setXdoor(int)
+	 */
 	public void setXdoor(int xdoor) {
 		Xdoor = xdoor;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getYdoor()
+	 */
 	public int getYdoor() {
 		return Ydoor;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setYdoor(int)
+	 */
 	public void setYdoor(int ydoor) {
 		Ydoor = ydoor;
 	}
 
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getAlive()
+	 */
 	public int getAlive() {
 		return alive;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setAlive(int)
+	 */
 	public void setAlive(int alive) {
 		this.alive = alive;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getSaveX()
+	 */
 	public int getSaveX() {
 		return saveX;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setSaveX(int)
+	 */
 	public void setSaveX(int saveX) {
 		this.saveX = saveX;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#getSaveY()
+	 */
 	public int getSaveY() {
 		return saveY;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see contract.ILorannWorldEntity#setSaveY(int)
+	 */
 	public void setSaveY(int saveY) {
 		this.saveY = saveY;
 	}
