@@ -62,9 +62,7 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 			return true;
 		}
 		else if(x == getLorannWorldEntity().getHero().getX() && y  == getLorannWorldEntity().getHero().getY()){
-			/*if(MobileFactory.getFromBddId(9, lorannWorldEntity).getPermeability() == (Permeability.SPELLABLE)){
-				return false;
-			}*/
+			
 			getLorannWorldEntity().setAlive(1);
 			getLorannWorldEntity().setMobilehasChanged();
 			return true; 
@@ -81,25 +79,6 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 
 
 
-	/*public boolean isMoveSpellPossible(final int x, final int y){
-		if(getLorannWorldEntity().getElement(x, y) == null){
-			if(MobileFactory.getFromBddId(1).getPermeability() == (Permeability.PENETRABLE)){
-
-			}
-		}
-		else if(getLorannWorldEntity().getElement(x, y) != null){
-			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
-			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.HEROABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)){
-				return true;
-			}
-			return false;
-		}
-		return false;
-	}*/
-
-	/* (non-Javadoc)
-	 * @see contract.IMonster#moveUp()
-	 */
 	public void moveUp(){
 
 		if (isMovePossible(getX(), getY() - 1)){

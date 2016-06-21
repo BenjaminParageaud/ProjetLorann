@@ -55,8 +55,8 @@ public class SpellBehaviour implements IStrategy{
 		if(lorannWorldEntity.getHero().getY()>monster.getY() && lorannWorldEntity.getHero().getX()==monster.getX()){
 			monster.moveDown();
 		}
-			
-		*/
+			*/
+		
 	}
 
 	

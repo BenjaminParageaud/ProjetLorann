@@ -29,6 +29,6 @@ public class Spell extends Monster{
 	}
 
 	
-	/// connection avec le pressage de la barre espace
+	
 }
 
