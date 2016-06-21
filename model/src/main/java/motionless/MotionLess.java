@@ -7,7 +7,6 @@ import contract.IMotionLess;
 import contract.ISprite;
 import contract.Permeability;
 import element.Element;
-import element.Sprite;
 
 
 // TODO: Auto-generated Javadoc

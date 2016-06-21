@@ -8,7 +8,6 @@ import contract.ILorannWorldEntity;
 
 import contract.ISprite;
 import contract.Permeability;
-import model.LorannWorldEntity;
 
 // TODO: Auto-generated Javadoc
 /**

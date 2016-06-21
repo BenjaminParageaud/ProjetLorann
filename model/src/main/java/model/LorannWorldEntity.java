@@ -9,14 +9,12 @@ package model;
  * @author Clement Moreau
  */
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IMobile;
 import contract.IMonster;
 import contract.IMotionLess;
-import element.Element;
 import motionless.MotionLessFactory;
 import contract.IHero;
 import contract.ILorannWorldEntity;

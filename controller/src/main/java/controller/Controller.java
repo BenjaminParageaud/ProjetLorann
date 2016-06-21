@@ -7,7 +7,6 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
-import contract.OrientationOrder;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -16,6 +15,7 @@ import contract.OrientationOrder;
 public class Controller implements IController {
 
 	/** The view. */
+	@SuppressWarnings("unused")
 	private IView		view;
 
 	/** The model. */

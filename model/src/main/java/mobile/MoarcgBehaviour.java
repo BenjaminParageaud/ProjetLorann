@@ -6,7 +6,6 @@ package mobile;
 import java.util.Random;
 
 import contract.ILorannWorldEntity;
-import contract.IMobile;
 import contract.IMonster;
 import contract.IStrategy;
 

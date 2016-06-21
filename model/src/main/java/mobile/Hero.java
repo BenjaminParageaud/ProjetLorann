@@ -2,13 +2,9 @@ package mobile;
 
 import contract.IHero;
 import contract.ILorannWorldEntity;
-import contract.IMobile;
-import contract.IMotionLess;
 import contract.ISprite;
-import contract.OrientationOrder;
 import contract.Permeability;
 import element.Sprite;
-import motionless.MotionLess;
 import motionless.MotionLessFactory;
 
 
@@ -20,7 +16,6 @@ public class Hero extends Mobile implements IHero{
 	private ILorannWorldEntity lorannWorldEntity;
 	private Permeability permeability;
 	private int coordonate;
-	private int alive;
 
 
 
@@ -200,14 +195,6 @@ public class Hero extends Mobile implements IHero{
 	public ISprite getSprite() {
 		return sprite;
 	}
-	/*
-	public int getAlive() {
-		return alive;
-	}
 
-
-	public void setAlive(int alive) {
-		this.alive = alive;
-	}*/
 
 }

@@ -5,7 +5,6 @@ package mobile;
 
 import contract.ILorannWorldEntity;
 import contract.IMonster;
-import contract.ISprite;
 import contract.IStrategy;
 import contract.Permeability;
 import element.Sprite;

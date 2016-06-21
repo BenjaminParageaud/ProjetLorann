@@ -9,7 +9,6 @@ import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.ILorannWorldEntity;
 import contract.IModel;
 import contract.IView;
 
