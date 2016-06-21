@@ -1,4 +1,4 @@
-package mobile;
+package motionless;
 
 import static org.junit.Assert.*;
 
@@ -8,15 +8,12 @@ import org.junit.Test;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class MobileTest.
+ * The Class MotionLessTest.
  */
-public class MobileTest {
+public class MotionLessTest {
 	
-	/** The lorann test. */
-	private static Hero lorannTest;
-	
-	/** The bdd id of lorann test. */
-	private static int bddIdOfLorannTest = 1;
+	/** The test motion less. */
+	private static MotionLess testMotionLess;
 	
 	/**
 	 * Sets the up before class.
@@ -25,7 +22,7 @@ public class MobileTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		lorannTest = new Hero(null);
+		testMotionLess = new Rock();
 	}
 
 	/**
@@ -42,7 +39,7 @@ public class MobileTest {
 	 */
 	@Test
 	public void testGetBddId() {
-		assertEquals(bddIdOfLorannTest, MobileTest.lorannTest.getBddId());
+		assertEquals(2,testMotionLess.getBddId());
 	}
 
 }
