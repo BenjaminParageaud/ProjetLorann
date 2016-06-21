@@ -38,6 +38,12 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 
 	/** The monsters. */
 	public ArrayList<IMonster>	monsters;
+	public ArrayList<IMonster>	monsterspell;
+
+	public ArrayList<IMonster> getMonsterspell() {
+		return monsterspell;
+	}
+
 
 	/** The hero. */
 	private IHero	hero;
@@ -51,7 +57,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	private int saveX;
 	private int saveY;
 
-	private int i = 0;
+	private int c = 0;
 
 
 
@@ -62,6 +68,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		this.elements = new IMotionLess[40][40];
 		this.mobiles = new ArrayList<IMobile>();
 		this.monsters = new ArrayList<IMonster>();
+		this.monsterspell = new ArrayList<IMonster>();
 
 	}
 
@@ -104,6 +111,36 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		setSaveY(y);
 		hero.setX(x);
 		hero.setY(y);
+	}
+	
+	public int getC() {
+		return c;
+	}
+
+
+	public void setC(int c) {
+		this.c = c;
+	}
+
+
+	public void shot(final int c){
+		setC(c);
+		if( getC() == 10){
+			this.setChanged();
+			this.notifyObservers();
+		}
+		
+		
+	}
+	
+	public void addSpell(IMonster monster, int x, int y){
+		this.monsterspell.add(monster);
+		//this.mobiles.add(monster);
+		
+		monster.setLorannWorldEntity(this, x, y);
+		//mobile.setLorannWorldEntity(this, x, y);
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	/* (non-Javadoc)
@@ -167,46 +204,22 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 			this.setChanged();
 			this.notifyObservers();
 			try{
-				Thread.sleep(250);
+				Thread.sleep(350);
 			} catch (final InterruptedException e){
 				e.printStackTrace();
 			}
-			//if(getHero().getX() != getSaveX() || getHero().getY() != getSaveY()){
-			//if( getI() < 1){
+			
 					for (final IMonster monster : this.monsters){
 						monster.getStrategy().animate(monster, this);	
 						
 					} 
-			/*	}
-			else {
-				for (final IMonster monster : this.monsters){
-					monster.getStrategy().animate(monster, this);	
-					
-			}setI(i++);
-			}
-			} */
 			
-			/*else if (){
-				
-				for (final IMonster monster : this.monsters){
-					monster.getStrategy().animate(monster, this);
-				
-				}
-			}*/
 		}
 		getHero().setX(35);
 		setMobilehasChanged();
 	}
 
 
-	public int getI() {
-		return i;
-	}
-
-
-	public void setI(int i) {
-		this.i = i;
-	}
 
 
 	/* (non-Javadoc)

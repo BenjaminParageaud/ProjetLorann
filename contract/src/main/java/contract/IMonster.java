@@ -85,7 +85,17 @@ public interface IMonster extends IMobile{
 	 */
 	public Permeability getPermeability();
 
-	
+	public int getX() ;
+
+	public void setX(int x);
+
+	public int getY();
+
+	public void setY(int y);
+
+	public ILorannWorldEntity getLorannWorldEntity();
+
+	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity);
 		
 	}
 	

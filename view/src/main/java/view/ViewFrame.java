@@ -9,10 +9,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
 
 import contract.IController;
-import contract.ILorannWorldEntity;
+
 import contract.IModel;
 
 // TODO: Auto-generated Javadoc
@@ -132,7 +132,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setController(this.controller);
-		this.setContentPane(new ViewPanel(this, model.getLorannWorldEntity().getMobiles(), model.getLorannWorldEntity().getElements(), model.getLorannWorldEntity().getHero()));
+		this.setContentPane(new ViewPanel(this, model.getLorannWorldEntity().getMobiles(), model.getLorannWorldEntity().getElements(), model.getLorannWorldEntity().getHero(), model.getLorannWorldEntity().getMonsterspell(), model.getLorannWorldEntity()));
 		this.setSize(650 + this.getInsets().left + this.getInsets().right, 415 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);

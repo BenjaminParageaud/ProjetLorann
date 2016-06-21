@@ -98,7 +98,7 @@ public class Controller implements IController {
 				this.model.getLorannWorldEntity().getHero().moveDownRight();
 				break;
 			case Space:
-				//this.model.loadMessage("ID");
+				this.model.getLorannWorldEntity().shot(10);
 				break;
 			case Nop:
 				System.out.println("!!! Warning wrong touch !!!");

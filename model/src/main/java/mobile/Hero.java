@@ -40,26 +40,40 @@ public class Hero extends Mobile implements IHero{
 
 	public boolean isMovePossible(final int x, final int y){
 		if(getLorannWorldEntity().getElement(x, y) == null){
-			
-			
-			/*if(MobileFactory.getFromBddId(3, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
+	
+			/*if(MobileFactory.getFromBddId(1, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
 				getLorannWorldEntity().setAlive(1);
 				getLorannWorldEntity().setMobilehasChanged();
 				return false;
 			}
-			else{*/
+			else if(MobileFactory.getFromBddId(2, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
+				getLorannWorldEntity().setAlive(1);
 				getLorannWorldEntity().setMobilehasChanged();
-				return true ; 
-			//}
+				return false;
+			}
+			else if(MobileFactory.getFromBddId(3, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
+				getLorannWorldEntity().setAlive(1);
+				getLorannWorldEntity().setMobilehasChanged();
+				return false;
+			}
+			else if(MobileFactory.getFromBddId(4, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
+				getLorannWorldEntity().setAlive(1);
+				getLorannWorldEntity().setMobilehasChanged();
+				return false;
+			}
+			else if(MobileFactory.getFromBddId(9, lorannWorldEntity).getPermeability() == (Permeability.SPELLABLE)){
+				getLorannWorldEntity().setMobilehasChanged();
+				return true ; */
+			
+		return true;
 		}
-		
-			else if(getLorannWorldEntity().getElement(x, y) != null) {
+
+		else if(getLorannWorldEntity().getElement(x, y) != null) {
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
 			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE )){
 				if(getLorannWorldEntity().getElement(x, y) == MotionLessFactory.getFromBddId(1)){
 					getLorannWorldEntity().setElement(MotionLessFactory.getFromBddId(8), getLorannWorldEntity().getXdoor(), getLorannWorldEntity().getYdoor());
 					getLorannWorldEntity().setMobilehasChanged();
-
 				}
 				return true;
 			}
@@ -74,48 +88,7 @@ public class Hero extends Mobile implements IHero{
 	}
 
 
-	/*
-   public int kill(final int x, final int y){
-	   coordonate = getLorannWorldEntity().getMobiles(x, y).getBddId();
 
-	   if(MobileFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MONSTERABLE)){
-		   return alive; 
-	   }
-
-   }*/
-
-
-	/*public void orientationMove (OrientationOrder orientationOrder){
-
-	switch (orientationOrder) {
-	case Up:
-		moveUp();
-		break;
-	case Down:
-		//this.model.loadMessage("FR");
-		break;
-	/*case Right:
-		//this.model.loadMessage("DE");
-		break;
-	case Left:
-		//this.model.loadMessage("ID");
-		break;
-	case UpLeft:
-		//this.model.loadMessage("ID");
-		break;
-	case UpRight:
-		//this.model.loadMessage("ID");
-		break;
-	case DownLeft:
-		//this.model.loadMessage("ID");
-		break;
-	case DownRight:
-		//this.model.loadMessage("ID");
-		break;
-	default:
-		break;
-}
-	}*/
 
 	public boolean moveUp(){
 		if (isMovePossible(getX(), getY() - 1)){

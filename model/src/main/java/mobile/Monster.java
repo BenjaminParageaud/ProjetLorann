@@ -5,6 +5,7 @@ package mobile;
 
 import contract.ILorannWorldEntity;
 import contract.IMonster;
+import contract.ISprite;
 import contract.IStrategy;
 import contract.Permeability;
 import element.Sprite;
@@ -15,14 +16,15 @@ import motionless.MotionLessFactory;
  * The Class Monster.
  */
 public abstract class Monster extends Mobile implements IMonster,IStrategy{
-	
+
 	/** The coordonate. */
 	public int coordonate;
-	
+
 	/** The strategy. */
 	private IStrategy strategy;
-	
-	
+
+
+
 	/**
 	 * Instantiates a new monster.
 	 *
@@ -35,13 +37,10 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 	public Monster(final Sprite sprite, final Permeability permeability, final int bddId, ILorannWorldEntity lorannWorldEntity , IStrategy strategy  ){
 
 		super(sprite, permeability, bddId, lorannWorldEntity);
-	setStrategy(strategy);
-		
+		setStrategy(strategy);
+
 	}
 
-	
-
-	
 	/* (non-Javadoc)
 	 * @see contract.IMonster#getStrategy()
 	 */
@@ -64,28 +63,51 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 			return true;
 		}
 		else if(x == getLorannWorldEntity().getHero().getX() && y  == getLorannWorldEntity().getHero().getY()){
+			/*if(MobileFactory.getFromBddId(9, lorannWorldEntity).getPermeability() == (Permeability.SPELLABLE)){
+				return false;
+			}*/
 			getLorannWorldEntity().setAlive(1);
 			getLorannWorldEntity().setMobilehasChanged();
 			return true; 
 		}
 		else if(getLorannWorldEntity().getElement(x, y) != null){
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
-		if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE)){
-			return true;
-		}
-		return false;
+			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE)){
+				return true;
+			}
+			return false;
 		}
 		return false;
 	}
-	
+
+
+
+	/*public boolean isMoveSpellPossible(final int x, final int y){
+		if(getLorannWorldEntity().getElement(x, y) == null){
+			if(MobileFactory.getFromBddId(1).getPermeability() == (Permeability.PENETRABLE)){
+
+			}
+		}
+		else if(getLorannWorldEntity().getElement(x, y) != null){
+			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();
+			if(MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.PENETRABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.HEROABLE) || MotionLessFactory.getFromBddId(coordonate).getPermeability() == (Permeability.MEETINGABLE)){
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}*/
+
 	/* (non-Javadoc)
 	 * @see contract.IMonster#moveUp()
 	 */
 	public void moveUp(){
+
 		if (isMovePossible(getX(), getY() - 1)){
 			setY(getY() - 1);
 		}
 	}
+
 
 	/* (non-Javadoc)
 	 * @see contract.IMonster#moveDown()
@@ -133,7 +155,7 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 			setX(getX() - 1);
 		}
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see contract.IMonster#moveDownRight()
 	 */
@@ -153,6 +175,16 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 			setX(getX() - 1);
 		}
 	}
-	
-	
+
+
+
+	public ILorannWorldEntity getLorannWorldEntity() {
+		return lorannWorldEntity;
+	}
+
+	public void setLorannWorldEntity(ILorannWorldEntity lorannWorldEntity) {
+		this.lorannWorldEntity = lorannWorldEntity;
+	}
+
+
 }

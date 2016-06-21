@@ -15,6 +15,7 @@ import contract.IElement;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
+import contract.IMonster;
 
 
 // TODO: Auto-generated Javadoc
@@ -31,6 +32,9 @@ class ViewPanel extends JPanel implements Observer {
 	
 	/** The mobiles. */
 	private final ArrayList<? extends IMobile> mobiles;
+	private final ArrayList< ? extends IMonster>	monsterspell;
+	
+	private final ILorannWorldEntity lorannWorldEntity;
 	
 	/** The elements. */
 	private final IElement elements[][];
@@ -50,10 +54,12 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param elements the elements
 	 * @param hero the hero
 	 */
-	public ViewPanel(final ViewFrame viewFrame, final ArrayList<IMobile> mobiles, final IElement elements[][] , final IHero hero){
+	public ViewPanel(final ViewFrame viewFrame, final ArrayList<IMobile> mobiles, final IElement elements[][] , final IHero hero, final ArrayList<IMonster>	monsterspell,final ILorannWorldEntity lorannnWorldEntity){
 		this.setViewFrame(viewFrame);
 		this.mobiles = mobiles;
+		this.monsterspell = monsterspell;
 		this.elements = elements;
+		this.lorannWorldEntity = lorannnWorldEntity;
 		this.hero = hero;
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
@@ -123,9 +129,15 @@ class ViewPanel extends JPanel implements Observer {
 				}
 			}
 		}
-		
+		if(lorannWorldEntity.getC() == 10){
+			for( final IMonster monsterspell : this.monsterspell){
+				graphics.drawImage(monsterspell.getSprite().getImage(),monsterspell.getLorannWorldEntity().getHero().getX()*32 , monsterspell.getLorannWorldEntity().getHero().getX()*32 , null);
+			}
+			
+		}
 		for( final IMobile mobile : this.mobiles){
 		graphics.drawImage(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
+		
 		}		
 		graphics.drawImage(this.hero.getSprite().getImage(),this.hero.getX()*32 , this.hero.getY()*32 , null);
 	}

@@ -61,6 +61,7 @@ public class DAOLorannWorld extends DAOEntity<LorannWorldEntity> {
 				else if(resultSet.getInt("Id_MotionElements") == 1){
 
 					lorannWorldEntity.addHero(MobileFactory.getFromBddIdHero(resultSet.getInt("Id_MotionElements"), lorannWorldEntity), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+					lorannWorldEntity.addSpell(MobileFactory.getFromBddId(9, lorannWorldEntity), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 				}
 			}
 

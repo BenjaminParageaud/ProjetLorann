@@ -31,8 +31,10 @@ public class MobileFactory {
 	/** The Constant MOARCG. */
 	public static final Monster MOARCG = new Moarcg(lorannWorldEntity);
 	
+	public static final Monster SPELL =  new Spell(lorannWorldEntity);
+	
 	/** The monster. */
-	private static IMonster monster[] = {ARRBARR, CARGAV, KYRACJ, MOARCG};
+	private static IMonster monster[] = {ARRBARR, CARGAV, KYRACJ, MOARCG, SPELL};
 	
 	
 	
