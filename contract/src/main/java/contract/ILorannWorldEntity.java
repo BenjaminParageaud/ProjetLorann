@@ -51,6 +51,17 @@ public interface ILorannWorldEntity {
 	public int getAlive();
 	
 	public void setAlive(int alive);
+	
+	public int getSaveX() ;
+
+	public void setSaveX(int saveX);
+
+	public int getSaveY();
+
+	public void setSaveY(int saveY);
+	
+	public void setI(int i);
+
 
 
 	

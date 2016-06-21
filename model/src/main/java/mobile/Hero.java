@@ -42,15 +42,15 @@ public class Hero extends Mobile implements IHero{
 		if(getLorannWorldEntity().getElement(x, y) == null){
 			
 			
-			if(MobileFactory.getFromBddId(3, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
+			/*if(MobileFactory.getFromBddId(3, lorannWorldEntity).getPermeability() == (Permeability.MONSTERABLE)){
 				getLorannWorldEntity().setAlive(1);
 				getLorannWorldEntity().setMobilehasChanged();
 				return false;
 			}
-			else{
+			else{*/
 				getLorannWorldEntity().setMobilehasChanged();
 				return true ; 
-			}
+			//}
 		}
 		
 			else if(getLorannWorldEntity().getElement(x, y) != null) {

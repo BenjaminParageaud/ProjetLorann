@@ -29,24 +29,29 @@ import contract.ILorannWorldEntity;
  * The Class LorannWorldEntity.
  */
 public class LorannWorldEntity extends Observable implements ILorannWorldEntity{ 
-	
+
 	/** The elements. */
 	public IMotionLess	elements[][];
-	
+
 	/** The mobiles. */
 	public ArrayList<IMobile>	mobiles;
-	
+
 	/** The monsters. */
 	public ArrayList<IMonster>	monsters;
-	
+
 	/** The hero. */
 	private IHero	hero;
-	
+
 	/** The m. */
 	private int Xdoor;
 	private int Ydoor;
-	
+
 	private int alive = 0;
+
+	private int saveX;
+	private int saveY;
+
+	private int i = 0;
 
 
 
@@ -57,10 +62,10 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		this.elements = new IMotionLess[40][40];
 		this.mobiles = new ArrayList<IMobile>();
 		this.monsters = new ArrayList<IMonster>();
-		
+
 	}
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#addElement(contract.IMotionLess, int, int)
 	 */
@@ -75,7 +80,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		}
 		this.setChanged();
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#addMonster(contract.IMonster, int, int)
 	 */
@@ -89,12 +94,14 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 
-	
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#addHero(contract.IHero, int, int)
 	 */
 	public void addHero(final IHero hero, final int x, final int y) {
 		this.setHero(hero);
+		setSaveX(x);
+		setSaveY(y);
 		hero.setX(x);
 		hero.setY(y);
 	}
@@ -105,7 +112,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	public void setElements(IMotionLess[][] elements) {
 		this.elements = elements;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#setElement(contract.IMotionLess, int, int)
 	 */
@@ -126,16 +133,16 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	 */
 	public IMotionLess getElement(final int x, final int y) {
 		return this.elements[x][y];
-		
+
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#getHero()
 	 */
 	public IHero getHero(){
 		return this.hero;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#setHero(contract.IHero)
 	 */
@@ -151,11 +158,11 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		return this.mobiles;
 	}
 
-	
+
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#play()
 	 */
-	public void play(){
+	public void play() {
 		while(alive == 0){
 			this.setChanged();
 			this.notifyObservers();
@@ -164,14 +171,41 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 			} catch (final InterruptedException e){
 				e.printStackTrace();
 			}
-			
-			for (final IMonster monster : this.monsters){
-			monster.getStrategy().animate(monster, this);
+			//if(getHero().getX() != getSaveX() || getHero().getY() != getSaveY()){
+			//if( getI() < 1){
+					for (final IMonster monster : this.monsters){
+						monster.getStrategy().animate(monster, this);	
+						
+					} 
+			/*	}
+			else {
+				for (final IMonster monster : this.monsters){
+					monster.getStrategy().animate(monster, this);	
+					
+			}setI(i++);
 			}
+			} */
 			
+			/*else if (){
+				
+				for (final IMonster monster : this.monsters){
+					monster.getStrategy().animate(monster, this);
+				
+				}
+			}*/
 		}
 		getHero().setX(35);
 		setMobilehasChanged();
+	}
+
+
+	public int getI() {
+		return i;
+	}
+
+
+	public void setI(int i) {
+		this.i = i;
 	}
 
 
@@ -182,7 +216,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		this.setChanged();
 		this.notifyObservers();
 	}
-	
+
 
 	/* (non-Javadoc)
 	 * @see java.util.Observable#notifyObservers()
@@ -218,8 +252,8 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 		Ydoor = ydoor;
 	}
 
-	
-	
+
+
 	public int getAlive() {
 		return alive;
 	}
@@ -230,6 +264,24 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	}
 
 
+	public int getSaveX() {
+		return saveX;
+	}
+
+
+	public void setSaveX(int saveX) {
+		this.saveX = saveX;
+	}
+
+
+	public int getSaveY() {
+		return saveY;
+	}
+
+
+	public void setSaveY(int saveY) {
+		this.saveY = saveY;
+	}
 
 
 
