@@ -62,10 +62,14 @@ public abstract class Monster extends Mobile implements IMonster,IStrategy{
 			return true;
 		}
 		else if(x == getLorannWorldEntity().getHero().getX() && y  == getLorannWorldEntity().getHero().getY()){
-			
 			getLorannWorldEntity().setAlive(1);
 			getLorannWorldEntity().setMobilehasChanged();
 			return true; 
+		}
+		else if((getLorannWorldEntity().getHero().getX() ) == x && y ==(getLorannWorldEntity().getHero().getY() -1) ){
+			setX(34);
+			getLorannWorldEntity().setMobilehasChanged();
+			return false;
 		}
 		else if(getLorannWorldEntity().getElement(x, y) != null){
 			coordonate = getLorannWorldEntity().getElement(x, y).getBddId();

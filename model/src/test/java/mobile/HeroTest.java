@@ -183,6 +183,16 @@ public class HeroTest {
 				// TODO Auto-generated method stub
 				
 			}
+
+			public int getScore() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			public void setScore(int score) {
+				// TODO Auto-generated method stub
+				
+			}
 			
 		};
 		testLorann = new Hero(testLorannWorldEntity);

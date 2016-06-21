@@ -3,19 +3,24 @@
  */
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
 
 import contract.IElement;
 import contract.IHero;
 import contract.ILorannWorldEntity;
 import contract.IMobile;
 import contract.IMonster;
+import contract.Permeability;
 
 
 // TODO: Auto-generated Javadoc
@@ -29,18 +34,21 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame	viewFrame;
-	
+
 	/** The mobiles. */
 	private final ArrayList<? extends IMobile> mobiles;
 	private final ArrayList< ? extends IMonster>	monsterspell;
-	
+
 	private final ILorannWorldEntity lorannWorldEntity;
-	
+
 	/** The elements. */
 	private final IElement elements[][];
 
 	/** The hero. */
 	private IHero hero;
+
+	JToolBar scoreBar = new JToolBar();
+	JLabel label = new JLabel("Score : ");
 
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
@@ -61,6 +69,15 @@ class ViewPanel extends JPanel implements Observer {
 		this.elements = elements;
 		this.lorannWorldEntity = lorannnWorldEntity;
 		this.hero = hero;
+
+		//this.setSize(700, 520);
+		//this.setBackground(Color.BLACK);
+		this.setLayout(new BorderLayout());
+		scoreBar.setPreferredSize(new Dimension(700, 20));
+		scoreBar.add(label);
+		this.add(scoreBar, BorderLayout.SOUTH);
+
+
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
@@ -73,7 +90,7 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}
-	
+
 	/**
 	 * Gets the mobiles.
 	 *
@@ -119,11 +136,12 @@ class ViewPanel extends JPanel implements Observer {
 	//@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		
+
 		for(int y = 0; y < 12;y++){
 			for(int x = 0; x < 20; x++){
 				if(this.elements[x][y] != null){
 					graphics.drawImage(this.elements[x][y].getSprite().getImage(), x*32, y*32,null);
+					this.label.setText("Score : " + lorannWorldEntity.getScore());
 				} else {
 					graphics.setColor(new Color(0,0,0));
 					graphics.fillRect(x*32, y*32, 32, 32);
@@ -132,13 +150,14 @@ class ViewPanel extends JPanel implements Observer {
 		}
 		if(lorannWorldEntity.getC() == 10){
 			for( final IMonster monsterspell : this.monsterspell){
-				graphics.drawImage(monsterspell.getSprite().getImage(),monsterspell.getLorannWorldEntity().getHero().getX()*32 , monsterspell.getLorannWorldEntity().getHero().getX()*32 , null);
-			}
-			
+				if(lorannWorldEntity.getElement(monsterspell.getLorannWorldEntity().getHero().getX(), (monsterspell.getLorannWorldEntity().getHero().getY() - 1)).getPermeability() != (Permeability.BLOCKING)){
+					graphics.drawImage(monsterspell.getSprite().getImage(),(monsterspell.getLorannWorldEntity().getHero().getX() )*32, (monsterspell.getLorannWorldEntity().getHero().getY() - 1) *32 , null);
+				}			}
+
 		}
 		for( final IMobile mobile : this.mobiles){
-		graphics.drawImage(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
-		
+			graphics.drawImage(mobile.getSprite().getImage(),mobile.getX()*32 , mobile.getY()*32 , null);
+
 		}		
 		graphics.drawImage(this.hero.getSprite().getImage(),this.hero.getX()*32 , this.hero.getY()*32 , null);
 	}

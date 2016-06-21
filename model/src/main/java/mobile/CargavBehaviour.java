@@ -35,7 +35,7 @@ public class CargavBehaviour implements IStrategy{
 	 */
 	
 		public void animate(IMonster monster, ILorannWorldEntity lorannWorldEntity) {
-			
+			/*
 			if(lorannWorldEntity.getHero().getY()<monster.getY() && lorannWorldEntity.getHero().getX()<monster.getX()){
 				monster.moveUpLeft();
 			}
@@ -67,6 +67,6 @@ public class CargavBehaviour implements IStrategy{
 			if(lorannWorldEntity.getHero().getY()>monster.getY() && lorannWorldEntity.getHero().getX()==monster.getX()){
 				monster.moveDown();
 			}
-			
+			*/
 	}
 }

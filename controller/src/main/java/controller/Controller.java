@@ -15,7 +15,6 @@ import contract.IView;
 public class Controller implements IController {
 
 	/** The view. */
-	@SuppressWarnings("unused")
 	private IView		view;
 
 	/** The model. */
@@ -40,7 +39,9 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
+		this.view.printMessage("Let's play to Lorann");
 		this.model.getLorannWorldEntity().play();
+
 	}
 
 	/**

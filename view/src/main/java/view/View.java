@@ -74,7 +74,7 @@ public class View implements IView, Runnable {
 	 * @see contract.IView#printMessage(java.lang.String)
 	 */
 	public void printMessage(final String message) {
-		//this.viewFrame.printMessage(message);
+		this.viewFrame.printMessage(message);
 	}
 
 	/*

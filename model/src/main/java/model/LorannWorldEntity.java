@@ -56,7 +56,19 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	private int saveY;
 
 	private int c = 0;
+	
+	private int score = 0;
 
+
+
+	public int getScore() {
+		return score;
+	}
+
+
+	public void setScore(int score) {
+		this.score = score;
+	}
 
 
 	/**
@@ -166,7 +178,7 @@ public class LorannWorldEntity extends Observable implements ILorannWorldEntity{
 	/* (non-Javadoc)
 	 * @see contract.ILorannWorldEntity#getElement(int, int)
 	 */
-	public IMotionLess getElement(final int x, final int y) {
+	public IMotionLess getElement(final int x, final int y){
 		return this.elements[x][y];
 
 	}

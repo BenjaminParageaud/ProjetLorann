@@ -98,30 +98,6 @@ public abstract class Mobile extends Element implements IMobile{
 	}
 	
 	
-   /* public void moveUp(){
-    	if (getisMovePossible(getX(), getY() - 1)){
-    		setY(getY() - 1);
-    	}
-	}
-	/*
-	public void moveDown(){
-    	if (isMovePossible(getX(), getY() + 1)){
-    		setY(getY() + 1);
-    	}
-	}
-	
-	public void moveRight(){
-    	if (isMovePossible(getX() + 1, getY())){
-    		setX(getX() + 1);
-    	}
-	}
-	
-	public void moveLeft(){
-    	if (isMovePossible(getX() - 1, getY())){
-    		setX(getX() - 1);
-    	}
-	}*/
-	
 	/* (non-Javadoc)
     * @see element.Element#getLorannWorldEntity()
     */

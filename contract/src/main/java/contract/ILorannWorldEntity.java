@@ -60,13 +60,15 @@ public interface ILorannWorldEntity {
 
 	public void setSaveY(int saveY);
 	
+	public int getScore() ;
+
+	public void setScore(int score);
 	
 	public int getC();
+	
 	public ArrayList<IMonster> getMonsterspell();
 
-
 	public void setC(int c);
-
 
 	public void shot(final int c);
 
